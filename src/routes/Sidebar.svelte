@@ -1,6 +1,32 @@
 <script lang="ts">
+	import { onNavigate } from '$app/navigation';
+	import { lessons } from './lessons/lessons';
 	let dialog: HTMLDialogElement;
+
+	onNavigate(() => {
+		if (dialog) {
+			if (dialog.open) {
+				dialog.close();
+			}
+		}
+	});
 </script>
+
+{#snippet lessonDetailDropdown(category)}
+	<details>
+		<summary>{category}</summary>
+		<ul>
+			{#each lessons[category] as subCategory}
+				<li>
+					<a
+						href={`/lessons/${category.toLowerCase()}/${(subCategory.subCategory as string).toLowerCase()}`}
+						>{subCategory.subCategory}</a
+					>
+				</li>
+			{/each}
+		</ul>
+	</details>
+{/snippet}
 
 <button onclick={() => dialog.showModal()}>Sidebar</button>
 <dialog bind:this={dialog}>
@@ -10,12 +36,9 @@
 			<ul>
 				<li><a href="/">Home</a></li>
 				<li>
-					<details>
-						<summary>Languages</summary>
-						<ul>
-							<li>HTML</li>
-						</ul>
-					</details>
+					{#each Object.keys(lessons) as category}
+						{@render lessonDetailDropdown(category)}
+					{/each}
 				</li>
 				<li><a href="/contact">Contact</a></li>
 			</ul>
@@ -35,7 +58,7 @@
 		margin: 0;
 	}
 
-	dialog > div {
+	div {
 		display: flex;
 		flex-direction: column;
 	}
@@ -45,12 +68,12 @@
 		flex-direction: column;
 	}
 
-	nav ul {
+	ul {
 		list-style-type: none;
 		padding: 0;
 	}
 
-	nav a {
+	a {
 		text-decoration: none;
 	}
 </style>
