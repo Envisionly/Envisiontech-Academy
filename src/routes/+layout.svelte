@@ -4,7 +4,7 @@
 
 <header>
 	<Sidebar />
-	<h1>Envisionly Learning Website</h1>
+	<h1>Envisionly Tech Academy</h1>
 </header>
 <main>
 	<slot></slot>
