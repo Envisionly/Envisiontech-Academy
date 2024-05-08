@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { lessons } from './lessons';
 
@@ -47,40 +48,43 @@
 			console.error('Lesson not found');
 			return;
 		}
-		getNextCurrentAndPrevious(lessonIndex, lessonsSection?.lessons);
+		let fullURL = '/lessons/' + subCategory + '/' + section + '/';
+		getNextCurrentAndPrevious(lessonIndex, lessonsSection?.lessons, fullURL);
 		currentPosition = lessonIndex + 1;
 		maxPosition = lessonsSection?.lessons.length as number;
 	}
 
-	function getNextCurrentAndPrevious(lessonIndex: number, tempLessons: any) {
+	function getNextCurrentAndPrevious(lessonIndex: number, tempLessons: any, fullURL: String) {
 		currentLesson = {
 			title: tempLessons[lessonIndex].title,
-			slug: tempLessons[lessonIndex].slug
+			slug: fullURL + tempLessons[lessonIndex].slug
 		};
 		if (lessonIndex > 0) {
 			previousLesson = {
 				title: tempLessons[lessonIndex - 1].title,
-				slug: tempLessons[lessonIndex - 1].slug
+				slug: fullURL + tempLessons[lessonIndex - 1].slug
 			};
 		}
 		if (lessonIndex < tempLessons.length - 1) {
 			nextLesson = {
 				title: tempLessons[lessonIndex + 1].title,
-				slug: tempLessons[lessonIndex + 1].slug
+				slug: fullURL + tempLessons[lessonIndex + 1].slug
 			};
 		}
 	}
 </script>
 
 {#if currentLesson}
-	{#if previousLesson}
-		<button>Previous: {previousLesson.title}</button>
+	{#if previousLesson !== undefined}
+		<button onclick={() => goto(previousLesson?.slug as string)}
+			>Previous: {previousLesson.title}</button
+		>
 	{/if}
 	{#if currentLesson}
 		<span>{currentLesson.title}</span>
 	{/if}
-	{#if nextLesson}
-		<button>Next: {nextLesson.title}</button>
+	{#if nextLesson !== undefined}
+		<button onclick={() => goto(nextLesson?.slug as string)}>Next: {nextLesson.title}</button>
 	{/if}
 	<div>
 		<span>Section Progress:</span>
@@ -89,6 +93,7 @@
 				class="progressBar"
 				style="width:{(currentPosition / maxPosition) * 100}%;"
 				aria-label="{(currentPosition / maxPosition) * 100}% complete"
+				aria-live="polite"
 			></div>
 		</div>
 	</div>
