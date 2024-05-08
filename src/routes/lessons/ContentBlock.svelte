@@ -1,4 +1,8 @@
 <script lang="ts">
+	// * This is a reusable component that can be used to display code snippets
+	// * It takes in a name, blockType, and contentList as props
+	// * The contentList is an array of objects with a language and content property
+	// * The contentSelected variable is used to determine which content block to display
 	let { name, blockType = 'Code Snippet', contentList } = $$props;
 	let contentSelected = 0;
 </script>
@@ -36,7 +40,7 @@
 	{/each}
 	{#if contentSelected == contentList.length}
 		<div class="contentBlock" aria-roledescription="Preview">
-			<p>Preview</p>
+			{@html contentList[0].content}
 		</div>
 	{/if}
 </div>
