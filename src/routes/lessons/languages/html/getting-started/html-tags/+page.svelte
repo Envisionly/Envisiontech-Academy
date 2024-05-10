@@ -38,28 +38,20 @@
 </ul>
 
 <ContentBlock
-	name="Basic HTML example"
+	name="HTML Tags Example"
 	blockType="Code Snippet"
 	contentList={[
 		{
 			content: `
-<!DOCTYPE html>
-<html>
-<head>
-	<title>My First Web Page</title>
-</head>
-<body>
-	<h1>Welcome to My Web Page</h1>
-	<p>This is a paragraph of text.</p>
-	<a href="https://www.example.com">Click here to visit Example.com</a>
-	<img src="image.jpg" alt="A picture of something" />
-	<ul>
-		<li>Item 1</li>
-		<li>Item 2</li>
-		<li>Item 3</li>
-	</ul>
-</body>
-</html>
+<h1>Welcome to My Web Page</h1>
+<p>This is a paragraph of text.</p>
+<a href="https://www.example.com">Click here to visit Example.com</a>
+<img src="image.jpg" alt="A picture of something" />
+<ul>
+	<li>Item 1</li>
+	<li>Item 2</li>
+	<li>Item 3</li>
+</ul>
 			`,
 			language: 'HTML'
 		}
