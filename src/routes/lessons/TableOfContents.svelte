@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { type categoryType } from './lessons';
 
-	export let category: categoryType;
+	let { category }: { category: categoryType } = $props();
 </script>
 
 <h2>Table of contents</h2>
@@ -17,3 +17,10 @@
 		{/each}
 	</ul>
 {/each}
+
+<style>
+	ul {
+		list-style-type: none;
+		padding: 0;
+	}
+</style>
