@@ -31,8 +31,12 @@
   },
   "type": "module",
   "trustedDependencies": [
+    "@fortawesome/fontawesome-common-types",
     "@sveltejs/kit",
     "esbuild",
     "svelte-preprocess"
-  ]
+  ],
+  "dependencies": {
+    "@awesome.me/kit-42303f35a0": "^1.0.7"
+  }
 }
