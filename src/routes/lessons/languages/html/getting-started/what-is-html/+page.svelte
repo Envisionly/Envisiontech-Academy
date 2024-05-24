@@ -1,5 +1,6 @@
 <script lang="ts">
 	import ContentBlock from '../../../../ContentBlock.svelte';
+	import MultipleChoice from '../../../../MultipleChoice.svelte';
 </script>
 
 <svelte:head>

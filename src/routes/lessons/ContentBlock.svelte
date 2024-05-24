@@ -1,8 +1,16 @@
 <script lang="ts">
 	// * This is a reusable component that can be used to display code snippets
-	// * It takes in a name, blockType, and contentList as props
-	// * The contentList is an array of objects with a language and content property
-	// * The contentSelected variable is used to determine which content block to display
+	/**
+	 * ContentBlock is a Svelte component that displays code snippets.
+	 * It supports multiple languages and allows the user to select which language to display.
+	 *
+	 * @typedef {Object} Props
+	 * @property {string} name - The name of the content block (displayed as a heading above the content block)
+	 * @property {string} blockType - The type of the content block (default: 'Code Snippet')
+	 * @property {Object[]} contentList - The content to be displayed, each object should have a `language` and `content` property
+	 */
+
+	/** @type {Props} */
 	let { name, blockType = 'Code Snippet', contentList } = $$props;
 	let contentSelected = 0;
 </script>
