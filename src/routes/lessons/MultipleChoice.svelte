@@ -38,12 +38,22 @@
 	{#each choices as choice}
 		{#if multiSelect === true}
 			<label>
-				<input type="checkbox" bind:group={selectedAnswersList} value={choice} />
+				<input
+					type="checkbox"
+					disabled={showAnswer || correct}
+					bind:group={selectedAnswersList}
+					value={choice}
+				/>
 				{choice}
 			</label>
 		{:else}
 			<label>
-				<input type="radio" bind:group={selectedAnswer} value={choice} />
+				<input
+					type="radio"
+					disabled={showAnswer || correct}
+					bind:group={selectedAnswer}
+					value={choice}
+				/>
 				{choice}
 			</label>
 		{/if}
@@ -52,28 +62,24 @@
 <button
 	on:click={evaluateAnswer}
 	disabled={(selectedAnswer === undefined && selectedAnswersList.length < 1) ||
-		correct !== undefined ||
-		showAnswer === true}
+		showAnswer ||
+		correct}
 >
 	Check Answer
 </button>
-<button on:click={() => (showAnswer = true)} disabled={correct === true || showAnswer === true}
-	>Show Answer</button
->
+<button on:click={() => (showAnswer = true)} disabled={showAnswer}>Show Answer</button>
 
-<p aria-live="polite">
-	{#if correct === true}
-		<span style="color: green;">Correct!</span>
-	{:else if showAnswer === true}
+<div aria-live="polite">
+	{#if showAnswer === true}
 		{#if multiSelect === true}
 			The correct answers are: {answerList.join(', ')}
-		{:else}
-			The correct answer is: {answer}
 		{/if}
-	{:else if correct === false}
+	{:else if correct}
+		<span style="color: green;">Correct!</span>
+	{:else if !correct}
 		<span style="color: red;">Incorrect!</span>
 	{/if}
-</p>
+</div>
 
 <style>
 	label {

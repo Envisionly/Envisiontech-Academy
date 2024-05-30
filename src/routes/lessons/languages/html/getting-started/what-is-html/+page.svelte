@@ -1,6 +1,7 @@
 <script lang="ts">
 	import ContentBlock from '../../../../ContentBlock.svelte';
 	import MultipleChoice from '../../../../MultipleChoice.svelte';
+	import CompleteTheSnippet from '../../../../completeTheSnippet.svelte';
 </script>
 
 <svelte:head>
@@ -11,6 +12,15 @@
 	/>
 	<meta name="author" content="Paul Geoghegan" />
 </svelte:head>
+
+<CompleteTheSnippet
+	question="HTML Tags"
+	snippet={`
+<h1>My heading___
+___My paragraph.</p>
+`}
+	answers={['</h1>', '<p>']}
+/>
 
 <h2>What is HTML?</h2>
 <p>
