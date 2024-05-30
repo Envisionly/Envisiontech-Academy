@@ -1,7 +1,7 @@
 <script lang="ts">
-	import ContentBlock from '../../../../ContentBlock.svelte';
-	import MultipleChoice from '../../../../MultipleChoice.svelte';
-	import CompleteTheSnippet from '../../../../completeTheSnippet.svelte';
+	import ContentBlock from '$components/ContentBlock.svelte';
+	import MultipleChoice from '$components/MultipleChoice.svelte';
+	import CompleteTheSnippetWithText from '$components/CompleteTheSnippetWithText.svelte';
 </script>
 
 <svelte:head>
@@ -13,7 +13,7 @@
 	<meta name="author" content="Paul Geoghegan" />
 </svelte:head>
 
-<CompleteTheSnippet
+<CompleteTheSnippetWithText
 	question="HTML Tags"
 	snippet={`
 <h1>My heading___

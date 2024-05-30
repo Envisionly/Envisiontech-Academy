@@ -1,8 +1,8 @@
 <script lang="ts">
-	import LessonControls from './lessonControls.svelte';
+	import LessonControls from '$components/LessonControls.svelte';
 	import { page } from '$app/stores';
-	import { lessons, type lessonsType, type categoryType } from './lessons';
-	import TableOfContents from './TableOfContents.svelte';
+	import { lessons, type lessonsType, type categoryType } from '$utils/lessons';
+	import TableOfContents from '$components/TableOfContents.svelte';
 
 	let subCategory: categoryType | undefined = undefined;
 

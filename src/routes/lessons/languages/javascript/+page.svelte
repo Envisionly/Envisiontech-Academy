@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { javaScriptLessons } from './javascript';
-	import TableOfContents from '../../TableOfContents.svelte';
+	import { javaScriptLessons } from '$utils/languages/javascript';
+	import TableOfContents from '$components/TableOfContents.svelte';
 </script>
 
 <svelte:head>

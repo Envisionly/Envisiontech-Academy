@@ -1,4 +1,4 @@
-import { type categoryType } from '../../lessons';
+import { type categoryType } from '$utils/lessons';
 
 export const htmlLessons: categoryType = {
 	subCategory: 'HTML',

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onNavigate } from '$app/navigation';
-	import { lessons } from './lessons/lessons';
+	import { lessons } from '$utils/lessons';
 	let dialog: HTMLDialogElement;
 
 	onNavigate(() => {

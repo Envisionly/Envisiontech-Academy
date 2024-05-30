@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { type categoryType } from './lessons';
+	import { type categoryType } from '$utils/lessons';
 
 	let { category }: { category: categoryType } = $props();
 </script>

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
-	import { lessons } from './lessons';
+	import { lessons } from '$utils/lessons';
 
 	type lessonControlType = {
 		title: String;
