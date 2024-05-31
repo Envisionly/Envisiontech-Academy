@@ -88,13 +88,11 @@
 	{/if}
 	<div>
 		<span>Section Progress:</span>
-		<div class="progressBarContainer" aria-roledescription="progress bar">
-			<div
-				class="progressBar"
-				style="width:{(currentPosition / maxPosition) * 100}%;"
-				aria-label="{(currentPosition / maxPosition) * 100}% complete"
-				aria-live="polite"
-			></div>
+		<div class="screenReaderOnly" aria-roledescription="progress bar">
+			{(currentPosition / maxPosition) * 100}%
+		</div>
+		<div class="progressBarContainer" aria-hidden="true">
+			<div class="progressBar" style="width:{(currentPosition / maxPosition) * 100}%;"></div>
 		</div>
 	</div>
 {/if}

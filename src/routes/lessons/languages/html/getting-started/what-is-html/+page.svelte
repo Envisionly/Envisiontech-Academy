@@ -13,15 +13,6 @@
 	<meta name="author" content="Paul Geoghegan" />
 </svelte:head>
 
-<CompleteTheSnippetWithText
-	question="HTML Tags"
-	snippet={`
-<h1>My heading___
-___My paragraph.</p>
-`}
-	answers={['</h1>', '<p>']}
-/>
-
 <h2>What is HTML?</h2>
 <p>
 	Imagine HTML (HyperText Markup Language) as the blueprint for a web page. It tells the web browser
@@ -65,16 +56,9 @@ ___My paragraph.</p>
 		to creating amazing things online!
 	</li>
 </ul>
-<ContentBlock
-	name="Basic HTML example"
-	blockType="Code Snippet"
-	contentList={[
-		{
-			language: 'HTML',
-			content: `
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
-`
-		}
-	]}
+
+<MultipleChoice
+	question="What is HTML used for?"
+	choices={['Creating web pages', 'Making web pages look nice', 'Making web pages interactive']}
+	answer="Creating web pages"
 />

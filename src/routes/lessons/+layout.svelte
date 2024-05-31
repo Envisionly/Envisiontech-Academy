@@ -26,6 +26,7 @@
 		<slot />
 	</div>
 </div>
+<aside class="screenReaderOnly"><LessonControls /></aside>
 <aside>
 	<h2>Get Involved</h2>
 	<p>
