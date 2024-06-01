@@ -4,8 +4,8 @@
 	type PropsType = {
 		question: string;
 		choices: string[];
-		answer: string;
-		answerList: string[];
+		answer?: string;
+		answerList?: string[];
 		multiSelect?: boolean;
 	};
 
@@ -19,7 +19,7 @@
 	// * This function evaluates the selected answer(s) and determines if they are correct
 	const evaluateAnswer = () => {
 		// * Check if the question is a multi-select question
-		if (multiSelect) {
+		if (multiSelect && answerList) {
 			//Checks if all of the correct answers have ben selected
 			correct =
 				selectedAnswersList.every((selected) => answerList.includes(selected)) &&
@@ -33,7 +33,7 @@
 <fieldset>
 	<legend>{question}</legend>
 	{#each choices as choice}
-		{#if multiSelect === true}
+		{#if multiSelect}
 			<label>
 				<input
 					type="checkbox"
@@ -58,7 +58,7 @@
 </fieldset>
 
 {#snippet answerSnippet()}
-	{#if multiSelect}
+	{#if multiSelect && answerList}
 		<p>The correct answers are: {answerList.join(', ')}</p>
 	{:else}
 		<p>The correct answer is: {answer}</p>

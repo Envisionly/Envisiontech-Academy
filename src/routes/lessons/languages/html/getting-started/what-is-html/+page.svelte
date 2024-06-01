@@ -1,7 +1,5 @@
 <script lang="ts">
-	import ContentBlock from '$components/ContentBlock.svelte';
 	import MultipleChoice from '$components/MultipleChoice.svelte';
-	import CompleteTheSnippetWithText from '$components/CompleteTheSnippetWithText.svelte';
 </script>
 
 <svelte:head>
@@ -56,6 +54,8 @@
 		to creating amazing things online!
 	</li>
 </ul>
+
+<h2>Question</h2>
 
 <MultipleChoice
 	question="What is HTML used for?"
