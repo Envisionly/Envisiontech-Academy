@@ -15,6 +15,7 @@
 	let selectedAnswersList: string[] = $state([]);
 	let correct: undefined | boolean = $state(undefined);
 	let showAnswer = false;
+	let printableAnswers: string | undefined = $state(undefined);
 
 	// * This function evaluates the selected answer(s) and determines if they are correct
 	const evaluateAnswer = () => {
@@ -28,6 +29,20 @@
 			correct = selectedAnswer === answer;
 		}
 	};
+
+	//joins the answerList together with an and before the last item
+	const generatePrintableAnswerString = () => {
+		if (multiSelect && answerList) {
+			if (answerList.length > 2) {
+				printableAnswers = answerList.slice(0, -1).join(', ') + ', and ' + answerList.slice(-1);
+			} else if (answerList.length === 2) {
+				printableAnswers = answerList.join(' and ');
+			} else {
+				printableAnswers = answerList[0];
+			}
+		}
+	};
+	generatePrintableAnswerString();
 </script>
 
 <fieldset>
@@ -59,7 +74,7 @@
 
 {#snippet answerSnippet()}
 	{#if multiSelect && answerList}
-		<p>The correct answers are: {answerList.join(', ')}</p>
+		<p>The correct answers are: {printableAnswers}</p>
 	{:else}
 		<p>The correct answer is: {answer}</p>
 	{/if}

@@ -84,7 +84,7 @@
 	</li>
 </ul>
 
-<h2>Question</h2>
+<h2>Exercise</h2>
 
 <MultipleChoice
 	question="What is a text editor used for?"
