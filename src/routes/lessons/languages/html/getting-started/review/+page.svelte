@@ -9,6 +9,6 @@
 	question="Match the element with it's description"
 	choices={{
 		list1: ['<h1>', '<p>', '<a>', '<img>'],
-		list2: ['Defines a paragraph', 'Defines a hyperlink', 'Defines a heading', 'Defines an image']
+		list2: ['Defines a heading', 'Defines a paragraph', 'Defines a hyperlink', 'Defines an image']
 	}}
 />
