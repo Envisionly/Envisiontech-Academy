@@ -1,20 +1,20 @@
 <script lang="ts">
-	/**
-	 * CompleteTheSnippetMultipleChoice is a Svelte component that renders a fill-in-the-blank question.
-	 *
-	 * @typedef {Object} Props
-	 * @property {string} question - The question to be asked
-	 * @property {string} snippet - The code snippet to be completed
-	 * @property {string} answers - The list of correct answers
-	 */
-	/** @type {Props} */
-	let { question, snippet, answers } = $$props;
+	import AnswerHandler from './AnswerHandler.svelte';
+
+	type PropsType = {
+		question: string;
+		snippet: string;
+		choices: string[][];
+		answers: string[];
+	};
+
+	let { question, snippet, choices, answers }: PropsType = $props();
 
 	let parts = snippet.trim().split('___');
 	let userAnswers = Array(parts.length - 1).fill('');
-	let correct: undefined | boolean = undefined;
+	let correct: undefined | boolean = $state(undefined);
 	let showAnswer: boolean = false;
-	let correctSnippet: string;
+	let correctSnippet: string = $state('');
 
 	const evaluateAnswers = () => {
 		correct = answers.every((answer: string, i: number) => answer.trim() === userAnswers[i].trim());
@@ -37,12 +37,14 @@
 	{#each parts as part, i}
 		{#if i < parts.length - 1}
 			<pre><code
-					>{part}<input
-						type="text"
+					>{part}<select
 						aria-label={`Answer ${i + 1}`}
 						disabled={showAnswer || correct}
-						bind:value={userAnswers[i]}
-					/></code
+						bind:value={userAnswers[i]}>
+						{#each choices[i] as choice}
+							<option value={choice}>{choice}</option>
+						{/each}
+</select></code
 				></pre>
 		{:else}
 			<pre><code>{part}</code></pre>
@@ -50,21 +52,14 @@
 	{/each}
 </fieldset>
 
-<button on:click={evaluateAnswers} disabled={showAnswer || correct}>Check Answer</button>
-<button on:click={() => (showAnswer = true)} disabled={showAnswer}>Show Answer</button>
+{#snippet answer()}
+	<pre><code>{correctSnippet}</code></pre>
+{/snippet}
 
-<div aria-live="polite">
-	{#if showAnswer}
-		<pre><code>{correctSnippet}</code></pre>
-	{:else if correct}
-		<p style="color: green;">Correct!</p>
-	{:else if !correct}
-		<span style="color: red;">Incorrect!</span>
-	{/if}
-</div>
+<AnswerHandler {correct} {showAnswer} {answer} evaluateAnswer={evaluateAnswers} />
 
 <style>
-	input {
+	select {
 		display: inline;
 	}
 
