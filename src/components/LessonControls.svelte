@@ -49,27 +49,66 @@
 			return;
 		}
 		let fullURL = '/lessons/' + subCategory + '/' + section + '/';
-		getNextCurrentAndPrevious(lessonIndex, lessonsSection?.lessons, fullURL);
+		getNextCurrentAndPrevious(lessonIndex, lessonsSection, lessonsSubCategory, fullURL);
 		currentPosition = lessonIndex + 1;
 		maxPosition = lessonsSection?.lessons.length as number;
 	}
 
-	function getNextCurrentAndPrevious(lessonIndex: number, tempLessons: any, fullURL: String) {
+	function getNextCurrentAndPrevious(
+		lessonIndex: number,
+		tempLessonsSection: any,
+		tempLessonsSubcategory: any,
+		fullURL: String
+	) {
 		currentLesson = {
-			title: tempLessons[lessonIndex].title,
-			slug: fullURL + tempLessons[lessonIndex].slug
+			title: tempLessonsSection.lessons[lessonIndex].title,
+			slug: fullURL + tempLessonsSection.lessons[lessonIndex].slug
 		};
 		if (lessonIndex > 0) {
 			previousLesson = {
-				title: tempLessons[lessonIndex - 1].title,
-				slug: fullURL + tempLessons[lessonIndex - 1].slug
+				title: `${tempLessonsSection.section} - ${tempLessonsSection.lessons[lessonIndex - 1].title}`,
+				slug: fullURL + tempLessonsSection.lessons[lessonIndex - 1].slug
 			};
+		} else if (lessonIndex === 0) {
+			let previousSection = tempLessonsSubcategory.lessons.findIndex(
+				(tempSection: any) => tempSection.sectionSlug === tempLessonsSection.sectionSlug
+			);
+			if (previousSection > 0) {
+				previousLesson = {
+					title: `${tempLessonsSubcategory.lessons[previousSection - 1].section} - ${tempLessonsSubcategory.lessons[previousSection - 1].lessons[tempLessonsSubcategory.lessons[previousSection - 1].lessons.length - 1].title}`,
+					slug:
+						'/lessons/' +
+						tempLessonsSubcategory.subCategorySlug +
+						'/' +
+						tempLessonsSubcategory.lessons[previousSection - 1].sectionSlug +
+						'/' +
+						tempLessonsSubcategory.lessons[previousSection - 1].lessons[
+							tempLessonsSubcategory.lessons[previousSection - 1].lessons.length - 1
+						].slug
+				};
+			}
 		}
-		if (lessonIndex < tempLessons.length - 1) {
+		if (lessonIndex < tempLessonsSection.lessons.length - 1) {
 			nextLesson = {
-				title: tempLessons[lessonIndex + 1].title,
-				slug: fullURL + tempLessons[lessonIndex + 1].slug
+				title: `${tempLessonsSection.section} - ${tempLessonsSection.lessons[lessonIndex + 1].title}`,
+				slug: fullURL + tempLessonsSection.lessons[lessonIndex + 1].slug
 			};
+		} else if (lessonIndex === tempLessonsSection.lessons.length - 1) {
+			let nextSection = tempLessonsSubcategory.lessons.findIndex(
+				(tempSection: any) => tempSection.sectionSlug === tempLessonsSection.sectionSlug
+			);
+			if (nextSection < tempLessonsSubcategory.lessons.length - 1) {
+				nextLesson = {
+					title: `${tempLessonsSubcategory.lessons[nextSection + 1].section} - ${tempLessonsSubcategory.lessons[nextSection + 1].lessons[0].title}`,
+					slug:
+						'/lessons/' +
+						tempLessonsSubcategory.subCategorySlug +
+						'/' +
+						tempLessonsSubcategory.lessons[nextSection + 1].sectionSlug +
+						'/' +
+						tempLessonsSubcategory.lessons[nextSection + 1].lessons[0].slug
+				};
+			}
 		}
 	}
 </script>
@@ -88,8 +127,8 @@
 	{/if}
 	<div>
 		<span>Section Progress:</span>
-		<div class="screenReaderOnly" aria-roledescription="progress bar">
-			{(currentPosition / maxPosition) * 100}%
+		<div class="screenReaderOnly" aria-roledescription="progress bar" aria-live="polite">
+			{((currentPosition / maxPosition) * 100).toFixed()}% complete
 		</div>
 		<div class="progressBarContainer" aria-hidden="true">
 			<div class="progressBar" style="width:{(currentPosition / maxPosition) * 100}%;"></div>

@@ -1,6 +1,7 @@
 <script lang="ts">
-	import Matching from '$components/Matching.svelte';
 	import CompleteTheSnippetMultipleChoice from '$components/CompleteTheSnippetMultipleChoice.svelte';
+	import Matching from '$components/Matching.svelte';
+	import MultipleChoice from '$components/MultipleChoice.svelte';
 </script>
 
 <svelte:head>
@@ -18,12 +19,13 @@
 <CompleteTheSnippetMultipleChoice
 	question="Fill in the blanks to complete the code snippet"
 	snippet={`<h1>My heading<___>
-<p>My paragraph<___>`}
+___My paragraph<___>`}
 	choices={[
-		['/h1', '/p'],
+		['/h1', 'img', '/p'],
+		['<h2>', '</h1>', 'p', '<p>'],
 		['/a', '/p', '/img']
 	]}
-	answers={['/h1', '/p']}
+	answers={['/h1', '<p>', '/p']}
 />
 
 <Matching
@@ -33,3 +35,18 @@
 		list2: ['Defines a heading', 'Defines a paragraph', 'Defines a hyperlink', 'Defines an image']
 	}}
 />
+
+<MultipleChoice
+	question="What is a HTML element?"
+	choices={[
+		'A tag that defines the structure of a webpage',
+		'A tag that defines the style of a webpage',
+		'A tag that defines the behavior of a webpage'
+	]}
+	answer="A tag that defines the structure of a webpage"
+/>
+
+<p>
+	Great job! You've completed the Getting Started section. You're now ready to move on to the next
+	section.
+</p>

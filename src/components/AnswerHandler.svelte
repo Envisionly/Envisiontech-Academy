@@ -12,7 +12,9 @@
 </script>
 
 <button onclick={evaluateAnswer} disabled={showAnswer || correct}>Check Answer</button>
-<button onclick={() => (showAnswer = true)} disabled={showAnswer}>Show Answer</button>
+<button onclick={() => (showAnswer = !showAnswer)}
+	>{showAnswer ? 'Hide Answer' : 'Show Answer'}</button
+>
 
 <div aria-live="polite">
 	{#if showAnswer}
