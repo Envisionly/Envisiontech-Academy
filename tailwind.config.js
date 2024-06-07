@@ -11,6 +11,7 @@ export default {
     },
     aria: {
       'current': 'current',
+      'selected': 'selected=true',
     },  
 },
   },

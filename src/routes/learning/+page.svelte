@@ -4,15 +4,15 @@
 
 	let currentTab = $state(Object.keys(lessons)[0]);
 
-	let buttons = {};
+	let buttons: { [Key: string]: HTMLButtonElement } = {};
 
-	async function changeTab(lesson) {
+	async function changeTab(lesson: string) {
 		currentTab = lesson;
 		await tick();
 		buttons[lesson].focus();
 	}
 
-	function handleKeydown(event, lesson) {
+	function handleKeydown(event: KeyboardEvent, lesson: string) {
 		const keys = Object.keys(lessons);
 		const currentIndex = keys.indexOf(lesson);
 
@@ -28,17 +28,21 @@
 					changeTab(keys[currentIndex - 1]);
 				}
 				event.preventDefault(); // prevent the default action
-
 				break;
 			case 'Home':
 				changeTab(keys[0]);
 				event.preventDefault(); // prevent the default action
-
 				break;
 			case 'End':
 				changeTab(keys[keys.length - 1]);
 				event.preventDefault(); // prevent the default action
-
+				break;
+			default:
+			case 'down':
+				event.preventDefault(); // prevent the default action
+				break;
+			case 'up':
+				event.preventDefault(); // prevent the default action
 				break;
 		}
 	}
@@ -66,12 +70,12 @@
 		</select>
 	</div>
 	<div class="hidden sm:block">
-		<div class="border-b border-gray-200"></div>
-		<section role="tablist">
+		<section role="tablist" class="flex">
 			{#each Object.keys(lessons) as lesson}
 				<button
 					aria-selected={lesson === currentTab}
 					tabindex={lesson === currentTab ? 0 : -1}
+					class="shrink-0 border-b border-b-gray-200 p-3 text-sm font-medium text-gray-500 hover:text-gray-700 aria-selected:border aria-selected:rounded-t-lg aria-selected:border-gray-300 aria-selected:border-b-transparent"
 					bind:this={buttons[lesson]}
 					onclick={() => changeTab(lesson)}
 					onkeydown={(e) => handleKeydown(e, lesson)}
