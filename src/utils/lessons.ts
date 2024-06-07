@@ -19,5 +19,6 @@ export type lessonsType = {
 };
 
 export const lessons: lessonsType = {
-	languages: languages
+	languages: languages,
+	tools: []
 };
