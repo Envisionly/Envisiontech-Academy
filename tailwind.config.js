@@ -5,9 +5,9 @@ export default {
     extend: {
     colors:{
       'envisionlyBlue':'#191970',
-      'envisionlyTransparentBlue': 'rgba(25, 25, 112, 0.5)',
+      'envisionlyTransparentBlue': 'rgba(25, 25, 112, 0.15)',
       'envisionlyGold': '#daa520',
-      'envisionlyTransparentGold': 'rgba(218, 165, 32, 0.5)'
+      'envisionlyTransparentGold': 'rgba(218, 165, 32, 0.15)'
     },
     aria: {
       'current': 'current',

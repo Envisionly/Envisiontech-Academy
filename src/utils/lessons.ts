@@ -11,6 +11,9 @@ export type lessonsListType = Array<{
 export type categoryType = {
 	subCategory: string;
 	subCategorySlug: string;
+	image: string;
+	description: string;
+	learningObjectives: Array<string>;
 	lessons: lessonsListType;
 };
 

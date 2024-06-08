@@ -57,31 +57,65 @@
 	<meta name="author" content="Paul Geoghegan" />
 </svelte:head>
 
-<h2 class="text-3xl font-bold text-center sm:text-4xl">Welcome to Envisionly Tech Academy</h2>
-<div class="flex">
-	<div class="sm:hidden mx-auto">
-		<select
-			aria-label="Select a topic"
-			class=" rounded-md border-gray-300 focus:outline-none focus:ring-0 focus:border-envisionlyGold"
+<div class="max-w-screen-xl py-8 sm:py-12 lg:py-16">
+	<div class="px-4">
+		<h2 class="text-3xl font-bold text-center sm:text-4xl">Start Your Learning Journey</h2>
+		<p class="text-center mt-4 text-gray-600">
+			Choose a topic to get started. We have a range of courses available to help you master the
+			skills that power the digital world.
+		</p>
+	</div>
+	<div class="flex">
+		<div class="sm:hidden mx-auto">
+			<select
+				aria-label="Select a topic"
+				class=" rounded-md my-6 border-gray-300 focus:outline-none focus:ring-0 focus:border-envisionlyGold"
+			>
+				{#each Object.keys(lessons) as lesson}
+					<option>{lesson}: {lessons[lesson].length} courses</option>
+				{/each}
+			</select>
+		</div>
+		<div class="hidden sm:block">
+			<section role="tablist" class="flex">
+				{#each Object.keys(lessons) as lesson}
+					<button
+						aria-selected={lesson === currentTab}
+						aria-controls={`panel-${lesson}`}
+						tabindex={lesson === currentTab ? 0 : -1}
+						class="shrink-0 border-b border-b-gray-200 p-3 text-sm font-medium text-gray-500 hover:text-gray-700 aria-selected:border aria-selected:rounded-t-lg aria-selected:border-gray-300 aria-selected:border-b-transparent"
+						bind:this={buttons[lesson]}
+						onclick={() => changeTab(lesson)}
+						onkeydown={(e) => handleKeydown(e, lesson)}
+						role="tab">{lesson}: {lessons[lesson].length} courses</button
+					>
+				{/each}
+			</section>
+		</div>
+	</div>
+
+	{#each Object.keys(lessons) as lesson}
+		<div
+			class="grid gap-2 sm:grid-cols-2 lg:grid-cols-3"
+			role="tabpanel"
+			id={`panel-${lesson}`}
+			aria-label={lesson}
+			aria-hidden={lesson !== currentTab}
+			hidden={lesson !== currentTab}
 		>
-			{#each Object.keys(lessons) as lesson}
-				<option>{lesson}: {lessons[lesson].length} courses</option>
+			{#each lessons[lesson] as course}
+				<section class="flex gap-4 p-4 bg-envisionlyTransparentGold">
+					<img
+						src={`/courseImages/${course.image}`}
+						alt=""
+						class="size-16 rounded-full object-cover"
+					/>
+					<div>
+						<h3 class="text-lg font-bold">{course.subCategory}</h3>
+						<p class="mt-1 text-sm">{course.description}</p>
+					</div>
+				</section>
 			{/each}
-		</select>
-	</div>
-	<div class="hidden sm:block">
-		<section role="tablist" class="flex">
-			{#each Object.keys(lessons) as lesson}
-				<button
-					aria-selected={lesson === currentTab}
-					tabindex={lesson === currentTab ? 0 : -1}
-					class="shrink-0 border-b border-b-gray-200 p-3 text-sm font-medium text-gray-500 hover:text-gray-700 aria-selected:border aria-selected:rounded-t-lg aria-selected:border-gray-300 aria-selected:border-b-transparent"
-					bind:this={buttons[lesson]}
-					onclick={() => changeTab(lesson)}
-					onkeydown={(e) => handleKeydown(e, lesson)}
-					role="tab">{lesson}: {lessons[lesson].length} courses</button
-				>
-			{/each}
-		</section>
-	</div>
+		</div>
+	{/each}
 </div>
