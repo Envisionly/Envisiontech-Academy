@@ -4,6 +4,7 @@ export const javaScriptLessons: categoryType = {
 	subCategory: 'JavaScript',
 	subCategorySlug: 'languages/javascript',
 	image: 'JavaScriptLogo.png',
+	description: 'Master the language of the web: Learn JavaScript and build interactive web pages.',
 	lessons: [
 		{
 			section: 'Getting Started',

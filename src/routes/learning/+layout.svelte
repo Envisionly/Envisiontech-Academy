@@ -14,6 +14,8 @@
 			(tempSubCategory: categoryType) =>
 				tempSubCategory.subCategorySlug === currentPathCategory + '/' + currentPathSubCategory
 		);
+	} else {
+		subCategory = undefined;
 	}
 </script>
 
@@ -27,20 +29,6 @@
 	</div>
 </div>
 <aside class="screenReaderOnly"><LessonControls /></aside>
-<aside>
-	<h2>Get Involved</h2>
-	<p>
-		Do you have a question about this page? Would you like to suggest an improvement? Please <a
-			href="mailto:contact@envisionly.tech">email us</a
-		>
-		or go to our
-		<a
-			href={'https://github.com/Envisionly/Envisionly-Tech-Academy/tree/main/src/routes' +
-				$page.url.pathname +
-				'/+page.svelte'}>GitHub</a
-		>
-	</p>
-</aside>
 
 <style>
 	.mainPage {

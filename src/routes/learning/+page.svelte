@@ -1,6 +1,8 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { lessons } from '$utils/lessons';
 	import { tick } from 'svelte';
+	import type { ChangeEventHandler } from 'svelte/elements';
 
 	let currentTab = $state(Object.keys(lessons)[0]);
 
@@ -37,11 +39,10 @@
 				changeTab(keys[keys.length - 1]);
 				event.preventDefault(); // prevent the default action
 				break;
-			default:
-			case 'down':
+			case 'ArrowDown':
 				event.preventDefault(); // prevent the default action
 				break;
-			case 'up':
+			case 'ArrowUp':
 				event.preventDefault(); // prevent the default action
 				break;
 		}
@@ -70,9 +71,12 @@
 			<select
 				aria-label="Select a topic"
 				class=" rounded-md my-6 border-gray-300 focus:outline-none focus:ring-0 focus:border-envisionlyGold"
+				onchange={(event: Event & { currentTarget: EventTarget & HTMLSelectElement }) => {
+					if ((event.currentTarget as HTMLSelectElement).value) currentTab=(event.currentTarget as HTMLSelectElement).value;
+				}}
 			>
 				{#each Object.keys(lessons) as lesson}
-					<option>{lesson}: {lessons[lesson].length} courses</option>
+					<option value={lesson}>{lesson}: {lessons[lesson].length} courses</option>
 				{/each}
 			</select>
 		</div>
@@ -96,15 +100,21 @@
 
 	{#each Object.keys(lessons) as lesson}
 		<div
-			class="grid gap-2 sm:grid-cols-2 lg:grid-cols-3"
+			class={`grid gap-2 sm:grid-cols-2 lg:grid-cols-3 ${lesson !== currentTab ? 'hidden' : ''}`}
 			role="tabpanel"
 			id={`panel-${lesson}`}
 			aria-label={lesson}
-			aria-hidden={lesson !== currentTab}
-			hidden={lesson !== currentTab}
 		>
 			{#each lessons[lesson] as course}
-				<section class="flex gap-4 p-4 bg-envisionlyTransparentGold">
+				<section
+					class="flex gap-4 p-4 bg-envisionlyTransparentGold"
+					role="button"
+					tabindex="0"
+					onclick={() =>
+						goto(
+							`/learning/${course.subCategorySlug}/${course.lessons[0].sectionSlug}/${course.lessons[0].lessons[0].slug}`
+						)}
+				>
 					<img
 						src={`/courseImages/${course.image}`}
 						alt=""

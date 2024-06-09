@@ -1,4 +1,5 @@
 import { languages } from './languages/languages';
+import { tools } from './tools/tools';
 
 export type lessonType = { title: string; slug: string };
 
@@ -13,7 +14,6 @@ export type categoryType = {
 	subCategorySlug: string;
 	image: string;
 	description: string;
-	learningObjectives: Array<string>;
 	lessons: lessonsListType;
 };
 
@@ -23,5 +23,5 @@ export type lessonsType = {
 
 export const lessons: lessonsType = {
 	languages: languages,
-	tools: []
+	tools: tools
 };
