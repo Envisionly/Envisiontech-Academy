@@ -20,25 +20,12 @@
 </script>
 
 <aside><LessonControls /></aside>
-<div class="mainPage">
+<div class="flex">
 	{#if subCategory}
-		<div class="lessonSideBar"><TableOfContents category={subCategory} /></div>
+		<TableOfContents category={subCategory} />
 	{/if}
 	<div class="pageContent">
 		<slot />
 	</div>
 </div>
 <aside class="screenReaderOnly"><LessonControls /></aside>
-
-<style>
-	.mainPage {
-		display: flex;
-	}
-	.pageContent {
-		flex: 8;
-	}
-	.lessonSideBar {
-		flex: 1;
-		text-align: center;
-	}
-</style>
