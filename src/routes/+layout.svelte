@@ -8,7 +8,7 @@
 <header class="flex bg-gray-100 py-3.5 px-3.5">
 	<img
 		class="w-[45%] object-contain"
-		src="EnvisionlyTechAcademyLogo-transparent.png"
+		src="/EnvisionlyTechAcademyLogo-transparent.png"
 		alt="Envisionly Tech Academy Logo"
 	/>
 	<Navbar />

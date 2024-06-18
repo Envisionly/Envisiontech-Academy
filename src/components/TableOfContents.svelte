@@ -1,42 +1,56 @@
 <script lang="ts">
 	import { type categoryType } from '$utils/lessons';
+	import { onMount } from 'svelte';
 
-	let expanded = $state(false);
+	let sideBarDialog: HTMLDialogElement | undefined = $state(undefined);
 	let { category }: { category: categoryType } = $props();
+	let isMobile: boolean | undefined = $state(undefined);
+
+	onMount(() => {
+		isMobile = window.innerWidth < 768;
+		window.addEventListener('resize', () => {
+			isMobile = window.innerWidth < 768;
+		});
+	});
 </script>
 
-{#if expanded}
-	<section
-		class="flex flex-col w-[20%] h-full border-r border-gray-300"
-		aria-roledescription="Sidebar"
-	>
+{#if isMobile}
+	<dialog bind:this={sideBarDialog} class="top-0 left-0 min-h-full border-r border-gray-300">
 		<div class="flex flex-col">
-			<img
-				class="w-[80%] mx-auto object-contain"
-				src={`/courseImages/${category.image}`}
-				alt={`${category.subCategory} logo`}
-			/>
-			<h2>{category.subCategory}</h2>
+			<button class="self-end" onclick={() => sideBarDialog?.close()}>Close</button>
+			{@render sideBarContents()}
 		</div>
+	</dialog>
 
-		<section class="flex flex-col whitespace-normal">
-			{#each category.lessons as section}
-				<h3 class="text-sm">{section.section}</h3>
-				<ul class="text-xs">
-					{#each section.lessons as lesson}
-						<li>
-							<a href={`/lessons/${category.subCategorySlug}/${section.sectionSlug}/${lesson.slug}`}
-								>{lesson.title}</a
-							>
-						</li>
-					{/each}
-				</ul>
-			{/each}
-		</section>
-	</section>
+	<button onclick={() => sideBarDialog?.showModal()}>Show Sidebar</button>
 {:else}
-	<button
-		class="fixed bottom-4 right-4 p-2 bg-gray-800 text-white rounded-full"
-		onclick={() => (expanded = true)}>Show Sidebar</button
-	>
+	<section aria-label="Course Navigation" class="w-[20%] h-full flex flex-col">
+		{@render sideBarContents()}
+	</section>
 {/if}
+
+{#snippet sideBarContents()}
+	<div class="flex flex-col">
+		<img
+			class="w-[80%] mx-auto object-contain"
+			src={`/courseImages/${category.image}`}
+			alt={`${category.subCategory} logo`}
+		/>
+		<h2>{category.subCategory}</h2>
+	</div>
+
+	<section class="flex flex-col whitespace-normal">
+		{#each category.lessons as section}
+			<h3 class="text-sm">{section.section}</h3>
+			<ul class="text-xs">
+				{#each section.lessons as lesson}
+					<li>
+						<a href={`/lessons/${category.subCategorySlug}/${section.sectionSlug}/${lesson.slug}`}
+							>{lesson.title}</a
+						>
+					</li>
+				{/each}
+			</ul>
+		{/each}
+	</section>
+{/snippet}
