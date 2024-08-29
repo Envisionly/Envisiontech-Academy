@@ -3,18 +3,16 @@
 	import '@awesome.me/kit-42303f35a0/icons/css/all.min.css';
 	import { page } from '$app/stores';
 	import Navbar from '$components/Navbar.svelte';
+
+	const { children } = $props();
 </script>
 
-<header class="flex bg-gray-100 py-3.5 px-3.5">
-	<img
-		class="w-[45%] object-contain"
-		src="/EnvisionlyTechAcademyLogo-transparent.png"
-		alt="Envisionly Tech Academy Logo"
-	/>
+<header class="flex bg-gray-100 p-3.5">
+	<img class="w-[20%] object-contain" src="/logo.png" alt="Envision Tech Academy Logo" />
 	<Navbar />
 </header>
 <main class="flex-grow">
-	<slot></slot>
+	{@render children()}
 </main>
 <footer class="flex bg-gray-100 py-3.5 px-3.5">
 	<div class="mx-auto max-w-screen-xl">
