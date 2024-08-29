@@ -72,7 +72,8 @@
 				aria-label="Select a topic"
 				class=" rounded-md my-6 border-gray-300 focus:outline-none focus:ring-0 focus:border-envisionlyGold"
 				onchange={(event: Event & { currentTarget: EventTarget & HTMLSelectElement }) => {
-					if ((event.currentTarget as HTMLSelectElement).value) currentTab=(event.currentTarget as HTMLSelectElement).value;
+					if ((event.currentTarget as HTMLSelectElement).value)
+						currentTab = (event.currentTarget as HTMLSelectElement).value;
 				}}
 			>
 				{#each Object.keys(lessons) as lesson}

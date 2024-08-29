@@ -32,7 +32,7 @@
 <dialog bind:this={dialog}>
 	<div>
 		<button onclick={() => dialog.close()}>Close</button>
-		<nav>
+		<nav aria-label="Global">
 			<ul>
 				<li><a href="/">Home</a></li>
 				<li>

@@ -8,7 +8,7 @@
 	];
 </script>
 
-<nav class="m-auto">
+<nav aria-label="Global" class="m-auto">
 	<ul class="space-y-7 text-center">
 		{#each links as link}
 			<li>

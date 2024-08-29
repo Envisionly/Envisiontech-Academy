@@ -24,7 +24,7 @@
 
 	<button onclick={() => sideBarDialog?.showModal()}>Show Sidebar</button>
 {:else}
-	<section aria-label="Course Navigation" class="w-[20%] h-full flex flex-col">
+	<section class="w-[20%] h-full flex flex-col">
 		{@render sideBarContents()}
 	</section>
 {/if}
@@ -39,18 +39,18 @@
 		<h2>{category.subCategory}</h2>
 	</div>
 
-	<section class="flex flex-col whitespace-normal">
+	<nav aria-label="Course" class="flex flex-col whitespace-normal">
 		{#each category.lessons as section}
 			<h3 class="text-sm">{section.section}</h3>
 			<ul class="text-xs">
 				{#each section.lessons as lesson}
 					<li>
-						<a href={`/lessons/${category.subCategorySlug}/${section.sectionSlug}/${lesson.slug}`}
+						<a href={`/learning/${category.subCategorySlug}/${section.sectionSlug}/${lesson.slug}`}
 							>{lesson.title}</a
 						>
 					</li>
 				{/each}
 			</ul>
 		{/each}
-	</section>
+	</nav>
 {/snippet}
