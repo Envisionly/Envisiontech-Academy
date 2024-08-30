@@ -1,6 +1,6 @@
-# Envisionly Tech Academy
+# Envisiontech Academy
 
-Envisionly Tech Academy is an open-source learning platform designed to be accessible to everyone. This project utilizes Bun and SvelteKit for a performant and streamlined development experience.
+Envisiontech Academy is an open-source learning platform designed to be accessible to everyone. This project utilizes Bun and SvelteKit for a performant and streamlined development experience.
 
 ---
 
@@ -88,7 +88,7 @@ This will start the development server. In your browser go to [localhost:5173](h
 
 ## 5. Contributing
 
-We welcome contributions to Envisionly Tech Academy! Please see the [CONTRIBUTING.md](/contributing.md) file for details on how to submit a pull request.
+We welcome contributions to Envisiontech Academy! Please see the [CONTRIBUTING.md](/contributing.md) file for details on how to submit a pull request.
 
 ## 6. License
 
