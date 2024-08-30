@@ -3,6 +3,7 @@
 	import '@awesome.me/kit-42303f35a0/icons/css/all.min.css';
 	import { page } from '$app/stores';
 	import Navbar from '$components/Navbar.svelte';
+	import Newsletter from '$components/Newsletter.svelte'; 
 </script>
 
 <header class="flex bg-gray-100 py-3.5 px-3.5">
@@ -12,11 +13,15 @@
 		alt="Envisionly Tech Academy Logo"
 	/>
 	<Navbar />
+
+
 </header>
 <main class="flex-grow">
 	<slot></slot>
+	
 </main>
 <footer class="flex bg-gray-100 py-3.5 px-3.5">
+	<Newsletter /> 
 	<div class="mx-auto max-w-screen-xl">
 		<h2 class="text-center font-medium text-gray-900">Get Involved</h2>
 		<p class="text-center text-sm text-gray-700">Do you have a question about this page?</p>
@@ -27,9 +32,9 @@
 			<a
 				href={'https://github.com/Envisionly/Envisionly-Tech-Academy/tree/main/src/routes' +
 					$page.url.pathname +
-					'/+page.svelte'}>GitHub</a
-			>
+					'/+page.svelte'}>GitHub</a>
 		</p>
+		<p class="text-center text-sm text-gray-700">Sign up to our</p>
 		<div class="w-[90%] h-px mx-auto my-2 bg-gray-300"></div>
 		<h2 class="text-center font-medium text-gray-900">Find Us</h2>
 		<div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
