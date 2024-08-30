@@ -17,7 +17,7 @@
     }
     function onRegister() { //do some validation here
         console.log('Registered');
-        //alert the user that they have registered
+        //alert the user that they have registered for the newsletter
     }
 </script>
 <button on:click={openDialog}
