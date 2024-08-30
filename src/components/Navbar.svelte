@@ -13,14 +13,13 @@
 		{#each links as link}
 			<li>
 				<a
-					class="group flex items-center justify-between gap-4 rounded-lg border border-gray-300 bg-gray-300 px-5 py-3 aria-current:bg-gray-100 hover:bg-gray-100 focus:bg-gray-100"
+					class="flex items-center justify-between gap-16 border-b border-envisionlyLightBlue pb-1 text-envisionlyLightBlue hover:border-envisionlyGold hover:text-envisionlyGold focus:border-envisionlyGold focus:text-envisionlyGold active:border-envisionlyTransparentGold active:text-envisionlyTransparentGold aria-current:border-b-2 aria-current:font-bold"
 					aria-current={$page.url.pathname === link.href ? 'page' : undefined}
 					href={link.href}
 				>
-					<span class="font-medium text-envisionlyBlue">{link.name}</span>
-					<span
-						class="shrink-0 rounded-full border border-current bg-gray-100 p-2 text-envisionlyGold fa-light {link.icon}"
-					/>
+					<span>{link.name}</span>
+					<span class="{$page.url.pathname == link.href ? 'fa-regular' : 'fa-light'} {link.icon}">
+					</span>
 				</a>
 			</li>
 		{/each}
