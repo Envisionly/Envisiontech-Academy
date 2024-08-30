@@ -9,7 +9,7 @@
 	<img
 		class="w-[45%] object-contain"
 		src="/EnvisionlyTechAcademyLogo-transparent.png"
-		alt="Envisionly Tech Academy Logo"
+		alt="Envisiontech Academy Logo"
 	/>
 	<Navbar />
 </header>

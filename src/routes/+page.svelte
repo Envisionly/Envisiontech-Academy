@@ -1,8 +1,8 @@
 <svelte:head>
-	<title>Envisionly Tech Academy: Master Tech Skills, Build Your Future</title>
+	<title>Envisiontech Academy: Master Tech Skills, Build Your Future</title>
 	<meta
 		name="description"
-		content="Master the skills that power the digital world. Envisionly Tech Academy offers free comprehensive courses in web development, programming, design, and more. Start building your digital future today!"
+		content="Master the skills that power the digital world. Envisiontech Academy offers free comprehensive courses in web development, programming, design, and more. Start building your digital future today!"
 	/>
 	<meta name="author" content="Paul Geoghegan" />
 </svelte:head>
@@ -54,7 +54,7 @@
 				start exploring our courses. Whether you're looking to learn a new skill, advance your
 				career, or launch your own startup, we have the resources and support you need to succeed.
 				Join our community of learners, mentors, and experts, and discover the power of technology
-				to transform your life and the world around you. Envisionly Tech Academy: Master Tech
+				to transform your life and the world around you. Envisiontech Academy: Master Tech
 				Skills, Build Your Future.
 			</p>
 		</section>
