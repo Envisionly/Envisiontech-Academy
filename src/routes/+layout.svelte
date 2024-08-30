@@ -30,41 +30,43 @@
 			</p>
 			<div class="mx-auto my-2 h-px w-[90%] bg-gray-300"></div>
 			<h2 class="text-center font-medium text-gray-900">Find Us</h2>
-			<div class="mx-auto grid grid-cols-1 gap-8 lg:grid-cols-3">
-				<ul class="flex justify-center gap-6 text-sm text-gray-700 sm:justify-start md:gap-8">
-					<li>
-						<a
-							class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
-							href="mailto:academy@envisionly.tech"
-							><span aria-label="Email" class="fa-light fa-envelope"></span></a
-						>
-					</li>
-					<li>
-						<a
-							class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
-							href="tel:+353838061757"><span aria-label="Phone" class="fa-light fa-phone"></span></a
-						>
-					</li>
-					<li>
-						<a
-							class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
-							href="/"><span aria-label="YouTube" class="fa-brands fa-youtube"></span></a
-						>
-					</li>
-					<li>
-						<a
-							class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
-							href="/"><span aria-label="GitHub" class="fa-brands fa-github"></span></a
-						>
-					</li>
-					<li>
-						<a
-							class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
-							href="/"><span aria-label="LinkedIn" class="fa-brands fa-linkedin"></span></a
-						>
-					</li>
-				</ul>
-			</div>
+
+			<ul
+				class="mx-auto flex w-fit justify-center gap-6 text-sm text-gray-700 sm:justify-start md:gap-8"
+			>
+				<li>
+					<a
+						class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
+						href="mailto:academy@envisionly.tech"
+						><span aria-label="Email" class="fa-light fa-envelope"></span></a
+					>
+				</li>
+				<li>
+					<a
+						class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
+						href="tel:+353838061757"><span aria-label="Phone" class="fa-light fa-phone"></span></a
+					>
+				</li>
+				<li>
+					<a
+						class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
+						href="/"><span aria-label="YouTube" class="fa-brands fa-youtube"></span></a
+					>
+				</li>
+				<li>
+					<a
+						class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
+						href="/"><span aria-label="GitHub" class="fa-brands fa-github"></span></a
+					>
+				</li>
+				<li>
+					<a
+						class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
+						href="/"><span aria-label="LinkedIn" class="fa-brands fa-linkedin"></span></a
+					>
+				</li>
+			</ul>
+
 			<div class="mx-auto my-2 h-px w-[90%] bg-gray-300"></div>
 			<p class="mt-2 text-center text-xs text-gray-500">
 				Copyright © Envisionly limited {new Date().getFullYear() != 2024
