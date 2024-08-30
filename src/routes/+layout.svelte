@@ -21,7 +21,7 @@
 	
 </main>
 <footer class="flex bg-gray-100 py-3.5 px-3.5">
-	<Newsletter /> 
+
 	<div class="mx-auto max-w-screen-xl">
 		<h2 class="text-center font-medium text-gray-900">Get Involved</h2>
 		<p class="text-center text-sm text-gray-700">Do you have a question about this page?</p>
@@ -34,7 +34,7 @@
 					$page.url.pathname +
 					'/+page.svelte'}>GitHub</a>
 		</p>
-		<p class="text-center text-sm text-gray-700">Sign up to our</p>
+		<Newsletter /> 
 		<div class="w-[90%] h-px mx-auto my-2 bg-gray-300"></div>
 		<h2 class="text-center font-medium text-gray-900">Find Us</h2>
 		<div class="grid grid-cols-1 gap-8 lg:grid-cols-3">

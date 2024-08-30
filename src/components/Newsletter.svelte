@@ -16,11 +16,12 @@
         }
     }
 </script>
-<button on:click={openDialog}>Newsletter</button>
-<dialog bind:this={dialog} class ="w-1/3 h-9/12 border-2 border-black">
+<button on:click={openDialog}
+class="text-center text-sm text-gray-700">Sign up to our Newsletter</button>
+<dialog bind:this={dialog} class ="w-2/5 h-9/12 border-2 border-black">
     <div class="shadow-lg bg-white">
         <button on:click={closeDialog}
-        class=" w-1/5 text-white bg-envisionlyBlue transition hover:outline-2 hover:outline-offset-4 hover:outline-envisionlyGold focus:outline-2 focus:outline-envisionlyGold">X</button>
+        class=" w-8 h-1/3 text-white bg-envisionlyBlue outline-none transition hover:border-2 hover:border-envisionlyGold focus:border-2 focus:border-envisionlyGold disabled:cursor-not-allowed disabled:bg-envisionlyGold">X</button>
     <form class="">
         <div class="flex w-full flex-col">
             <p>Sign up for our Newsletter today!</p>
