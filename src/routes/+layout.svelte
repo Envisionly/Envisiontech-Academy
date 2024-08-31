@@ -2,37 +2,73 @@
 	import '$styles/global.css';
 	import '@awesome.me/kit-42303f35a0/icons/css/all.min.css';
 	import { page } from '$app/stores';
-	import Navbar from '$components/Navbar.svelte';
+	import DesktopNavbar from '$components/DesktopNav.svelte';
+	import MobileNavbar from '$components/MobileNav.svelte';
 
 	const { children } = $props();
 </script>
 
-<section
-	class="fixed flex h-full w-[20%] flex-col divide-y divide-gray-300 overflow-y-auto bg-gray-100 p-3.5"
+<header
+	class="flex h-fit bg-gray-100 p-3.5 sm:fixed sm:h-full sm:w-[20%] sm:flex-col sm:divide-y sm:divide-gray-300 sm:overflow-y-auto"
 >
-	<header class="flex flex-grow flex-col">
-		<img class="mx-auto w-full object-contain" src="/logo.png" alt="Envision Tech Academy Logo" />
-		<Navbar />
-	</header>
-	<footer class="flex pt-2">
-		<div class="mx-auto">
+	<section class="flex sm:h-full sm:flex-col">
+		<img
+			class="hidden sm:mx-auto sm:block sm:w-full sm:object-contain"
+			src="/logo-short-nb.png"
+			alt="Envision Tech Academy Logo"
+		/>
+		<img
+			class="mx-auto w-[80%] object-contain sm:hidden"
+			src="/logo-long-nb.png"
+			alt="Envision Tech Academy Logo"
+		/>
+
+		<div class="sm:hidden">
+			<MobileNavbar />
+		</div>
+		<div class="my-auto hidden sm:flex">
+			<DesktopNavbar />
+		</div>
+	</section>
+	<div aria-hidden="true" class="hidden sm:flex">
+		{@render footer('desktop')}
+	</div>
+</header>
+
+<main class="sm:ml-[20%] sm:overflow-y-auto">
+	{@render children()}
+</main>
+
+{@render footer('mobile')}
+
+{#snippet footer(type: string | 'desktop' | 'mobile')}
+	<footer
+		class={`flex w-full flex-col divide-y divide-gray-300 text-wrap bg-gray-100 *:py-2 ${type == 'mobile' ? 'sm:sr-only' : ''} `}
+		aria-hidden={type == 'desktop' ? 'true' : 'false'}
+	>
+		<div class="flex flex-col">
 			<h2 class="text-center font-medium text-gray-900">Get Involved</h2>
 			<p class="text-center text-sm text-gray-700">Do you have a question about this page?</p>
 			<p class="text-center text-sm text-gray-700">Would you like to suggest an improvement?</p>
 			<p class="text-center text-sm text-gray-700">
-				Please <a href="mailto:contact@envisionly.tech">email us</a>
+				Please <a
+					class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
+					href="mailto:contact@envisionly.tech">email us</a
+				>
 				or go to our
 				<a
+					class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
 					href={'https://github.com/Envisionly/Envisionly-Tech-Academy/tree/main/src/routes' +
 						$page.url.pathname +
 						'/+page.svelte'}>GitHub</a
 				>
 			</p>
-			<div class="mx-auto my-2 h-px w-[90%] bg-gray-300"></div>
+		</div>
+		<div>
 			<h2 class="text-center font-medium text-gray-900">Find Us</h2>
 
 			<ul
-				class="mx-auto flex w-fit justify-center gap-6 text-sm text-gray-700 sm:justify-start md:gap-8"
+				class="mx-auto flex w-[60%] flex-wrap justify-between gap-1 text-sm text-gray-700 sm:w-full"
 			>
 				<li>
 					<a
@@ -66,9 +102,9 @@
 					>
 				</li>
 			</ul>
-
-			<div class="mx-auto my-2 h-px w-[90%] bg-gray-300"></div>
-			<p class="mt-2 text-center text-xs text-gray-500">
+		</div>
+		<div>
+			<p class="text-center text-xs text-gray-500">
 				Copyright © Envisionly limited {new Date().getFullYear() != 2024
 					? '2024 - ' + new Date().getFullYear()
 					: new Date().getFullYear()}.
@@ -76,8 +112,4 @@
 			<p class="mt-2 text-center text-xs text-gray-500">All rights reserved.</p>
 		</div>
 	</footer>
-</section>
-
-<main class="ml-[20%] overflow-y-auto">
-	{@render children()}
-</main>
+{/snippet}
