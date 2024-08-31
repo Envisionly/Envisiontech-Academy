@@ -2,6 +2,7 @@
 	import '$styles/global.css';
 	import '@awesome.me/kit-42303f35a0/icons/css/all.min.css';
 	import { page } from '$app/stores';
+	import Newsletter from '$components/Newsletter.svelte';
 	import DesktopNavbar from '$components/DesktopNav.svelte';
 	import MobileNavbar from '$components/MobileNav.svelte';
 
@@ -63,6 +64,7 @@
 						'/+page.svelte'}>GitHub</a
 				>
 			</p>
+			<Newsletter />
 		</div>
 		<div>
 			<h2 class="text-center font-medium text-gray-900">Find Us</h2>
