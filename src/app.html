@@ -5,6 +5,24 @@
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		%sveltekit.head%
+		<script type="text/javascript">
+			window.GUMLET_CONFIG = {
+				hosts: [
+					{
+						current: '{{academy.envisionly.tech}}',
+						gumlet: 'envisiontech-academy.gumlet.io'
+					}
+				],
+				lazy_load: true
+			};
+			(function () {
+				let d = document;
+				let s = d.createElement('script');
+				s.src = 'https://cdn.jsdelivr.net/npm/gumlet.js@2.2/dist/gumlet.min.js';
+				s.async = 1;
+				d.getElementsByTagName('head')[0].appendChild(s);
+			})();
+		</script>
 		<link
 			rel="stylesheet"
 			href="https://early.webawesome.com/webawesome@3.0.0-alpha.2/dist/themes/default.css"
