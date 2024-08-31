@@ -31,7 +31,7 @@
 			{#each links as link}
 				<li>
 					<a
-						class="flex items-center justify-between border-b border-envisionlyLightBlue pb-1 text-envisionlyLightBlue hover:border-envisionlyGold hover:text-envisionlyGold focus:border-envisionlyGold focus:text-envisionlyGold active:border-envisionlyTransparentGold active:text-envisionlyTransparentGold aria-current:border-b-2 aria-current:font-bold"
+						class="flex items-center justify-between border-b border-envisionlyLightBlue pb-1 text-lg uppercase text-envisionlyLightBlue hover:border-envisionlyGold hover:text-envisionlyGold focus:border-envisionlyGold focus:text-envisionlyGold active:border-envisionlyTransparentGold active:text-envisionlyTransparentGold aria-current:border-b-2 aria-current:font-bold"
 						aria-current={$page.url.pathname === link.href ? 'page' : undefined}
 						href={link.href}
 					>
