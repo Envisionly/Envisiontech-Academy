@@ -50,10 +50,10 @@
 </script>
 
 <svelte:head>
-	<title>Start learning with Envisionly Tech Academy</title>
+	<title>Start learning with Envisiontech Academy</title>
 	<meta
 		name="description"
-		content="Master the skills that power the digital world. Envisionly Tech Academy offers free comprehensive courses in web development, programming, design, and more. Start building your digital future today!"
+		content="Master the skills that power the digital world. Envisiontech Academy offers free comprehensive courses in web development, programming, design, and more. Start building your digital future today!"
 	/>
 	<meta name="author" content="Paul Geoghegan" />
 </svelte:head>
