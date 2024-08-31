@@ -48,7 +48,7 @@
 		aria-hidden={type == 'desktop' ? 'true' : 'false'}
 	>
 		<div class="flex flex-col">
-			<h2 class="text-center font-medium text-gray-900">Get Involved</h2>
+			<h4 class="text-center font-medium uppercase">Get Involved</h4>
 			<p class="text-center text-sm text-gray-700">Do you have a question about this page?</p>
 			<p class="text-center text-sm text-gray-700">Would you like to suggest an improvement?</p>
 			<p class="text-center text-sm text-gray-700">
@@ -67,7 +67,7 @@
 			<Newsletter />
 		</div>
 		<div>
-			<h2 class="text-center font-medium text-gray-900">Find Us</h2>
+			<h4 class="text-center font-medium uppercase">Find Us</h4>
 
 			<ul
 				class="mx-auto flex w-[60%] flex-wrap justify-between gap-1 text-sm text-gray-700 sm:w-full"

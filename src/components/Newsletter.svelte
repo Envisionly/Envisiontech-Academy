@@ -38,7 +38,11 @@
 		>
 	</div>
 	<form method="POST" class="flex flex-col gap-6 p-8">
-		<h2 class="my-2 text-center text-3xl font-semibold uppercase">Register for our newsletter</h2>
+		<h2
+			class="mb-2 border-b border-gray-500 pb-2 text-center text-xl font-semibold uppercase sm:text-2xl"
+		>
+			Register for our newsletter
+		</h2>
 
 		<div class="flex flex-col">
 			<label for="Email" class="text-left text-gray-700">Email</label>
