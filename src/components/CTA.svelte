@@ -15,7 +15,7 @@
 			<h1 class="mb-[5%] text-3xl font-bold uppercase text-white sm:text-4xl">
 				{headingText}
 			</h1>
-			<p class="text-lg text-gray-100">
+			<p class="text-xl text-gray-100">
 				{paragraphText}
 			</p>
 		</div>
