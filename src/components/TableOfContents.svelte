@@ -41,10 +41,11 @@
 
 	<nav aria-label="Course" class="flex flex-col whitespace-normal">
 		{#each category.lessons as section}
+			<!-- svelte-ignore attribute_quoted -->
 			<wa-details class="text-sm font-bold" summary="{section.section}">
-			<ul class="text-xs font-normal list-disc list-outside">
+			<ul class=" bg-gray-200 text-xs font-normal list-disc list-outside">
 				{#each section.lessons as lesson}
-					<li class="">
+					<li class="hover:bg-gray-400">
 						<a href={`/learning/${category.subCategorySlug}/${section.sectionSlug}/${lesson.slug}`}
 							>{lesson.title}</a
 						>
