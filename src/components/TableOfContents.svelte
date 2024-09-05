@@ -28,8 +28,10 @@
 	<section class=" flex flex-col">
 		{@render sideBarContents()}
 	</section>
-	<button class="flex justify-end h-[15%] bg-envisionlyLightBlue hover:bg-blue-500 text-white font-bold rounded"
+	<div class="flex justify-end ">
+	<button class=" h-[15%] bg-envisionlyLightBlue hover:bg-blue-500 text-white font-bold rounded"
 	onclick={() => drawer.open = true}>More Courses</button>
+</div>
 {/if}
 
 {#snippet sideBarContents()}
