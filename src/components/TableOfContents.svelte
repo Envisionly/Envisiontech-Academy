@@ -52,9 +52,9 @@
 			<wa-details class="font-bold drop-shadow-md">
 				<h3 class="text-lg"
 				slot="summary">{section.section}</h3>
-			<ul class=" text-mf font-normal ">
+			<ul class=" text-md font-normal ">
 				{#each section.lessons as lesson}
-					<li class="hover:bg-gray-400">
+					<li class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold">
 						<a href={`/learning/${category.subCategorySlug}/${section.sectionSlug}/${lesson.slug}`}
 							>{lesson.title}</a
 						>
