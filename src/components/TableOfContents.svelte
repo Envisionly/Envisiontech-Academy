@@ -36,16 +36,18 @@
 
 <!--Drawer for more course content-->
 <wa-drawer aria-label="Course"  bind:this={drawer}>
+	<button data-drawer="close" class=" bg-envisionlyLightBlue hover:bg-blue-500 text-white py-2 px-2 font-bold rounded" aria-label="Close">View Page</button>
 	<div class="flex flex-col">
 		<img
 			class="w-[80%] mx-auto object-contain"
 			src={`/courseImages/${category.image}`}
 			alt={`${category.subCategory} logo`}
 		/>
-		<h2>{category.subCategory}</h2>
+		<h2 class="invisible">{category.subCategory}</h2>
 	</div>
-	<button data-drawer="close" class=" bg-envisionlyLightBlue hover:bg-blue-500 text-white font-bold rounded" aria-label="Close">View Page</button>
-	<nav aria-label="Course content" class="flex flex-col whitespace-normal">
+
+	
+	<nav aria-label="Course content" class="flex flex-col whitespace-normal space-y-4">
 		{#each category.lessons as section}
 			<!-- svelte-ignore attribute_quoted -->
 			<wa-details class="font-bold drop-shadow-md">
