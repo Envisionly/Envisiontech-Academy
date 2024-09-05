@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { type categoryType } from '$utils/lessons';
 	import { onMount } from 'svelte';
-
+	import { onNavigate } from '$app/navigation';
 	let sideBarDialog: HTMLDialogElement | undefined = $state(undefined);
 	let { category }: { category: categoryType } = $props();
 	let isMobile: boolean | undefined = $state(undefined);
+	let drawer: any;
 
 	onMount(() => {
 		isMobile = window.innerWidth < 768;
@@ -28,8 +29,12 @@
 		{@render sideBarContents()}
 	</section>
 {/if}
-
 {#snippet sideBarContents()}
+
+<button onclick={() => drawer.open = true}>Open Drawer</button>
+
+<wa-drawer aria-label="Course"  bind:this={drawer}>
+	<button data-drawer="close" class="" aria-label="Close">View Content</button>
 	<div class="flex flex-col">
 		<img
 			class="w-[80%] mx-auto object-contain"
@@ -39,7 +44,7 @@
 		<h2>{category.subCategory}</h2>
 	</div>
 
-	<nav aria-label="Course" class="flex flex-col whitespace-normal">
+	<nav aria-label="Course content" class="flex flex-col whitespace-normal">
 		{#each category.lessons as section}
 			<!-- svelte-ignore attribute_quoted -->
 			<wa-details class="text-sm font-bold" summary="{section.section}">
@@ -54,6 +59,6 @@
 			</ul>
 		</wa-details>
 		{/each}
-		
 	</nav>
+</wa-drawer>
 {/snippet}
