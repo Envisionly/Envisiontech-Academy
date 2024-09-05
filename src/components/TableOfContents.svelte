@@ -40,9 +40,8 @@
 	</div>
 
 	<nav aria-label="Course" class="flex flex-col whitespace-normal">
-		{#each category.lessons as section}<wa-details>
-			<h3 class="text-sm font-bold">{section.section}</h3>
-
+		{#each category.lessons as section}
+			<wa-details summary="{section.section}">
 			<ul class="text-xs list-disc list-outside">
 				{#each section.lessons as lesson}
 					<li class="">
@@ -52,7 +51,8 @@
 					</li>
 				{/each}
 			</ul>
-			</wa-details>
+		</wa-details>
 		{/each}
+		
 	</nav>
 {/snippet}
