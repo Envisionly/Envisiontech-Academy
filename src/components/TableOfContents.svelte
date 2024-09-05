@@ -26,7 +26,7 @@
 	<button onclick={() => sideBarDialog?.showModal()}>Show Sidebar</button>
 {:else}
 	<section class="w-[20%] h-full flex flex-col">
-		<button class="float-right"
+		<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"
 		onclick={() => drawer.open = true}>More Courses</button>
 		{@render sideBarContents()}
 		
@@ -49,9 +49,10 @@
 	<nav aria-label="Course content" class="flex flex-col whitespace-normal">
 		{#each category.lessons as section}
 			<!-- svelte-ignore attribute_quoted -->
-			<wa-details class="text-sm font-bold">
-				<h3 slot="summary">{section.section}</h3>
-			<ul class=" text-xs font-normal ">
+			<wa-details class="font-bold drop-shadow-md">
+				<h3 class="text-lg"
+				slot="summary">{section.section}</h3>
+			<ul class=" text-mf font-normal ">
 				{#each section.lessons as lesson}
 					<li class="hover:bg-gray-400">
 						<a href={`/learning/${category.subCategorySlug}/${section.sectionSlug}/${lesson.slug}`}
