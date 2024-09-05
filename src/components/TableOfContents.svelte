@@ -41,8 +41,8 @@
 
 	<nav aria-label="Course" class="flex flex-col whitespace-normal">
 		{#each category.lessons as section}
-			<wa-details summary="{section.section}">
-			<ul class="text-xs list-disc list-outside">
+			<wa-details class="text-sm font-bold" summary="{section.section}">
+			<ul class="text-xs font-normal list-disc list-outside">
 				{#each section.lessons as lesson}
 					<li class="">
 						<a href={`/learning/${category.subCategorySlug}/${section.sectionSlug}/${lesson.slug}`}
