@@ -25,12 +25,11 @@
 
 	<button onclick={() => sideBarDialog?.showModal()}>Show Sidebar</button>
 {:else}
-	<section class="w-[20%] h-full flex flex-col">
-		<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"
-		onclick={() => drawer.open = true}>More Courses</button>
+	<section class=" flex flex-col">
 		{@render sideBarContents()}
-		
 	</section>
+	<button class="flex justify-end h-[15%] bg-envisionlyLightBlue hover:bg-blue-500 text-white font-bold rounded"
+	onclick={() => drawer.open = true}>More Courses</button>
 {/if}
 
 {#snippet sideBarContents()}
@@ -45,7 +44,7 @@
 		/>
 		<h2>{category.subCategory}</h2>
 	</div>
-	<button data-drawer="close" class="" aria-label="Close">View Page</button>
+	<button data-drawer="close" class=" bg-envisionlyLightBlue hover:bg-blue-500 text-white font-bold rounded" aria-label="Close">View Page</button>
 	<nav aria-label="Course content" class="flex flex-col whitespace-normal">
 		{#each category.lessons as section}
 			<!-- svelte-ignore attribute_quoted -->
