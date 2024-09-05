@@ -40,17 +40,19 @@
 	</div>
 
 	<nav aria-label="Course" class="flex flex-col whitespace-normal">
-		{#each category.lessons as section}
-			<h3 class="text-sm">{section.section}</h3>
-			<ul class="text-xs">
+		{#each category.lessons as section}<wa-details>
+			<h3 class="text-sm font-bold">{section.section}</h3>
+
+			<ul class="text-xs list-disc list-outside">
 				{#each section.lessons as lesson}
-					<li>
+					<li class="">
 						<a href={`/learning/${category.subCategorySlug}/${section.sectionSlug}/${lesson.slug}`}
 							>{lesson.title}</a
 						>
 					</li>
 				{/each}
 			</ul>
+			</wa-details>
 		{/each}
 	</nav>
 {/snippet}
