@@ -26,15 +26,17 @@
 	<button onclick={() => sideBarDialog?.showModal()}>Show Sidebar</button>
 {:else}
 	<section class="w-[20%] h-full flex flex-col">
+		<button class="float-right"
+		onclick={() => drawer.open = true}>More Courses</button>
 		{@render sideBarContents()}
+		
 	</section>
 {/if}
+
 {#snippet sideBarContents()}
 
-<button onclick={() => drawer.open = true}>Open Drawer</button>
-
+<!--Drawer for more course content-->
 <wa-drawer aria-label="Course"  bind:this={drawer}>
-	<button data-drawer="close" class="" aria-label="Close">View Content</button>
 	<div class="flex flex-col">
 		<img
 			class="w-[80%] mx-auto object-contain"
@@ -43,12 +45,13 @@
 		/>
 		<h2>{category.subCategory}</h2>
 	</div>
-
+	<button data-drawer="close" class="" aria-label="Close">View Page</button>
 	<nav aria-label="Course content" class="flex flex-col whitespace-normal">
 		{#each category.lessons as section}
 			<!-- svelte-ignore attribute_quoted -->
-			<wa-details class="text-sm font-bold" summary="{section.section}">
-			<ul class=" bg-gray-200 text-xs font-normal list-disc list-outside">
+			<wa-details class="text-sm font-bold">
+				<h3 slot="summary">{section.section}</h3>
+			<ul class=" text-xs font-normal ">
 				{#each section.lessons as lesson}
 					<li class="hover:bg-gray-400">
 						<a href={`/learning/${category.subCategorySlug}/${section.sectionSlug}/${lesson.slug}`}
