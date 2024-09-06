@@ -5,6 +5,14 @@
     let pathSegments = [];
     let breadcrumbLinks = [];
   
+    // Helper function to format segment names
+    function formatSegment(segment) {
+      return segment
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+    }
+  
     // Reactive statement to update breadcrumbLinks whenever the path changes
     $: {
       const path = $page.url.pathname;
@@ -16,7 +24,7 @@
       // Construct breadcrumb links
       breadcrumbLinks = [{ segment: 'Home', url: '/', clickable: true }, ...pathSegments.map((segment, index) => {
         const url = '/' + pathSegments.slice(0, index + 1).join('/');
-        return { segment, url, clickable: clickableSegments.includes(segment) };
+        return { segment: formatSegment(segment), url, clickable: clickableSegments.includes(segment) };
       })];
     }
   </script>
@@ -28,9 +36,6 @@
           <a href={url} class="text-envisionlyLightBlue font-semibold hover:text-envisionlyGold hover:font-bold cursor-pointer">{segment}</a>
         {:else}
           <span class="text-gray-500 font-light cursor-default">{segment}</span>
-        {/if}
-        {#if index < breadcrumbLinks.length - 1}
-          <span class="mx-2 text-gray-400"></span>
         {/if}
       </wa-breadcrumb-item>
     {/each}
