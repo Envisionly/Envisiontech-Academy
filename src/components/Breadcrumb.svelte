@@ -23,9 +23,9 @@
     {#each breadcrumbLinks as { segment, url, clickable }, index}
       <wa-breadcrumb-item class="mr-2 text-sm text-gray-700">
         {#if clickable}
-          <a href={url} class="text-blue-500 hover:underline">{segment}</a>
+          <a href={url} class="text-envisionlyLightBlue hover:text-envisionlyGold">{segment}</a>
         {:else}
-          <span class="text-gray-500">{segment}</span>
+          <span class="text-envisionlyLightBlue hover:text-gray-500">{segment}</span>
         {/if}
         {#if index < breadcrumbLinks.length - 1}
           <span class="mx-2 text-gray-400"></span>
