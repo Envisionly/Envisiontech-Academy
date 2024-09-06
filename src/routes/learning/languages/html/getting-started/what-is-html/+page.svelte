@@ -1,5 +1,6 @@
 <script lang="ts">
 	import MultipleChoice from '$components/MultipleChoice.svelte';
+	import Breadcrumb from '$components/Breadcrumb.svelte';
 </script>
 
 <svelte:head>
@@ -10,7 +11,7 @@
 	/>
 	<meta name="author" content="Paul Geoghegan" />
 </svelte:head>
-
+<Breadcrumb />
 <h2 class ="text-xl font-bold">What is HTML?</h2>
 <p>
 	Imagine HTML (HyperText Markup Language) as the blueprint for a web page. It tells the web browser
