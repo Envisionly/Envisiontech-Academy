@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { htmlLessons } from '$utils/languages/html';
 	import TableOfContents from '$components/TableOfContents.svelte';
+	import Breadcrumb from '$components/Breadcrumb.svelte';
 </script>
 
 <svelte:head>
@@ -8,7 +9,7 @@
 	<meta name="description" content="Learn HTML with our free course" />
 	<meta name="author" content="Paul Geoghegan" />
 </svelte:head>
-
+<Breadcrumb />
 <h1>Welcome to the HTML course</h1>
 <p>Master the building blocks of the web: Learn HTML and build your own web pages.</p>
 <p>

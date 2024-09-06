@@ -3,6 +3,7 @@
 	import { lessons } from '$utils/lessons';
 	import { tick } from 'svelte';
 	import type { ChangeEventHandler } from 'svelte/elements';
+	import Breadcrumb from '$components/Breadcrumb.svelte';
 
 	let currentTab = $state(Object.keys(lessons)[0]);
 
@@ -57,7 +58,7 @@
 	/>
 	<meta name="author" content="Paul Geoghegan" />
 </svelte:head>
-
+<Breadcrumb />
 <div class="max-w-screen-xl py-8 sm:py-12 lg:py-16">
 	<div class="px-4">
 		<h2 class="text-3xl font-bold text-center sm:text-4xl">Start Your Learning Journey</h2>
