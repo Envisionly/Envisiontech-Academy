@@ -3,6 +3,7 @@ import { type categoryType } from '$utils/lessons';
 export const javaScriptLessons: categoryType = {
 	subCategory: 'JavaScript',
 	subCategorySlug: 'languages/javascript',
+	featured: false,
 	image: 'JavaScriptLogo.png',
 	description: 'Master the language of the web: Learn JavaScript and build interactive web pages.',
 	lessons: [

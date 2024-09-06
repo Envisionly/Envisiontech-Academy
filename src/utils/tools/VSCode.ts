@@ -3,6 +3,7 @@ import { type categoryType } from '$utils/lessons';
 export const VSCodeLessons: categoryType = {
 	subCategory: 'VSCode',
 	subCategorySlug: 'tools/vscode',
+	featured: true,
 	image: 'VSCodeLogo.png',
 	description: 'Learn how to use Visual Studio Code to write code.',
 	lessons: [

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import CTA from '$components/CTA.svelte';
+	import { lessons } from '$utils/lessons';
 </script>
 
 <svelte:head>
@@ -130,24 +131,46 @@
 	</section>
 
 	<section>
-		<h2 class="mb-2 border-b border-gray-500 pb-2 text-xl font-semibold uppercase sm:text-2xl">
+		<h2
+			class="mb-2 border-b border-envisionlyGold pb-2 text-xl font-semibold uppercase text-envisionlyBlue sm:text-2xl"
+		>
 			Our Courses
 		</h2>
 
-		<p class="mt-1 text-sm">
+		<p>
 			Our courses span web development, programming, design, data analysis, and more. From HTML
 			basics to advanced JavaScript, Svelte, and data science, we offer flexible, self-paced
 			learning for all levels. Enjoy video tutorials, interactive exercises, quizzes, and hands-on
 			projects to enhance your skills.
 		</p>
+
+		<div class="p-8">
+			<h3 class="text-center text-lg font-semibold uppercase text-gray-700">Featured</h3>
+			<div class="grid grid-cols-3 gap-2 md:gap-x-12 md:gap-y-4 xl:gap-x-16 xl:gap-y-6">
+				{#each Object.keys(lessons) as section}
+					{#each lessons[section] as lesson}
+						{#if lesson.featured}
+							<a
+								href={`/learning/${lesson.subCategorySlug}/${lesson.lessons[0].sectionSlug}/${lesson.lessons[0].lessons[0].slug}`}
+								aria-label={`${lesson.subCategory}`}
+							>
+								<img src={`/courseImages/${lesson.image}`} alt="" />
+							</a>
+						{/if}
+					{/each}
+				{/each}
+			</div>
+		</div>
 	</section>
 
 	<section>
-		<h2 class="mb-2 border-b border-gray-500 pb-2 text-xl font-semibold uppercase sm:text-2xl">
+		<h2
+			class="mb-2 border-b border-envisionlyGold pb-2 text-xl font-semibold uppercase text-envisionlyBlue sm:text-2xl"
+		>
 			Get Started
 		</h2>
 
-		<p class="text-sm">
+		<p>
 			Ready to level up your skills? Sign up for a free account and explore our courses. Whether
 			learning a new skill, advancing your career, or starting a venture, we’ve got the resources to
 			help you succeed. Join our community and transform your future with Envisiontech Academy.
