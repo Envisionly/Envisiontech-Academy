@@ -25,7 +25,7 @@
         {#if clickable}
           <a href={url} class="text-envisionlyLightBlue hover:text-envisionlyGold">{segment}</a>
         {:else}
-          <span class="text-envisionlyLightBlue hover:text-gray-500">{segment}</span>
+          <span class="text-envisionlyLightBlue">{segment}</span>
         {/if}
         {#if index < breadcrumbLinks.length - 1}
           <span class="mx-2 text-gray-400"></span>
