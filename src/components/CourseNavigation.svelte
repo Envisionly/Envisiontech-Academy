@@ -15,18 +15,17 @@
 			data-drawer="close"
 			aria-label="Close"
 		>
-			<span class="fa-light fa-times"></span>
+			<span class="fa-light fa-folder-closed"></span>
 		</button>
 	</div>
 	{@render sideBarContents()}
 </wa-drawer>
 
-<div class="flex justify-end">
-	<button
-		class=" h-[15%] rounded bg-envisionlyLightBlue font-bold text-white hover:bg-blue-500"
-		onclick={() => (drawer.open = true)}>Open Course Navigation</button
-	>
-</div>
+<button
+	aria-label="Open Course Navigation"
+	class="w-fit text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
+	onclick={() => (drawer.open = true)}><span class="fa-light fa-folder-open"></span></button
+>
 
 {#snippet sideBarContents()}
 	<div class="flex flex-col">
