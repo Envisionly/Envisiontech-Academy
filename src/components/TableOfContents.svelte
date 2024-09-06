@@ -1,49 +1,32 @@
 <script lang="ts">
 	import { type categoryType } from '$utils/lessons';
-	import { onMount } from 'svelte';
 	import { onNavigate } from '$app/navigation';
-	let sideBarDialog: HTMLDialogElement | undefined = $state(undefined);
 	let { category }: { category: categoryType } = $props();
-	let isMobile: boolean | undefined = $state(undefined);
 	let drawer: any = $state(undefined);
-
-	onMount(() => {
-		isMobile = window.innerWidth < 768;
-		window.addEventListener('resize', () => {
-			isMobile = window.innerWidth < 768;
-		});
-	});
 </script>
 
-{#if isMobile}
-	<dialog bind:this={sideBarDialog} class="left-0 top-0 min-h-full border-r border-gray-300">
-		<div class="flex flex-col">
-			<button class="self-end" onclick={() => sideBarDialog?.close()}>Close</button>
-			{@render sideBarContents()}
-		</div>
-	</dialog>
-
-	<button onclick={() => sideBarDialog?.showModal()}>Show Sidebar</button>
-{:else}
-	<!--Drawer for more course content-->
-	<wa-drawer label="Course Navigation" lightDismiss bind:this={drawer}>
+<!--Drawer for course navigation-->
+<wa-drawer class="drawer-custom" label="Course Navigation" lightDismiss bind:this={drawer}>
+	<div class="flex justify-end">
 		<!-- svelte-ignore a11y_autofocus -->
 		<button
+			class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
 			autofocus
 			data-drawer="close"
-			class=" rounded bg-envisionlyLightBlue px-2 py-2 font-bold text-white hover:bg-blue-500"
-			aria-label="Close">View Page</button
+			aria-label="Close"
 		>
-		{@render sideBarContents()}
-	</wa-drawer>
-
-	<div class="flex justify-end">
-		<button
-			class=" h-[15%] rounded bg-envisionlyLightBlue font-bold text-white hover:bg-blue-500"
-			onclick={() => (drawer.open = true)}>Open Course Navigation</button
-		>
+			<span class="fa-light fa-times"></span>
+		</button>
 	</div>
-{/if}
+	{@render sideBarContents()}
+</wa-drawer>
+
+<div class="flex justify-end">
+	<button
+		class=" h-[15%] rounded bg-envisionlyLightBlue font-bold text-white hover:bg-blue-500"
+		onclick={() => (drawer.open = true)}>Open Course Navigation</button
+	>
+</div>
 
 {#snippet sideBarContents()}
 	<div class="flex flex-col">
@@ -59,7 +42,7 @@
 		{#each category.lessons as section}
 			<!-- svelte-ignore attribute_quoted -->
 			<wa-details class="font-bold drop-shadow-md">
-				<h3 class="text-lg" slot="summary">{section.section}</h3>
+				<h3 class="text-lg uppercase" slot="summary">{section.section}</h3>
 				<ul class=" text-md font-normal">
 					{#each section.lessons as lesson}
 						<li
@@ -76,3 +59,22 @@
 		{/each}
 	</nav>
 {/snippet}
+
+<style lang="postcss">
+	/* Custom class to modify CSS variables based on Tailwind breakpoints */
+	.drawer-custom {
+		--size: 80vw; /* Default size for small screens */
+	}
+
+	@screen sm {
+		.drawer-custom {
+			--size: 276px; /* Size for small screens */
+		}
+	}
+
+	@screen lg {
+		.drawer-custom {
+			--size: 27vw; /* Size for large screens */
+		}
+	}
+</style>
