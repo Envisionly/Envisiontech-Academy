@@ -11,7 +11,7 @@
 	<meta name="author" content="Paul Geoghegan" />
 </svelte:head>
 
-<h2>HTML Tags</h2>
+<h2 class="font-bold text-xl">HTML Tags</h2>
 <p>
 	HTML tags are the building blocks of a web page. They tell the web browser how to structure the
 	content and what each piece of content represents. Tags are enclosed in angle brackets &lt; and
@@ -19,17 +19,17 @@
 </p>
 
 <p>
-	Opening tags are always just a less than, the name of the tag and then a greater than like: <code
+	Opening tags are always just a <code>'&lt'</code> the name of the tag and then a '&gt' like: <code class="font-bold"
 		>&lt;tagName&gt;</code
 	>
 </p>
 <p>
-	Closing tags are the same as opening tags, but with a / before the tag name like: <code
+	Closing tags are the same as opening tags, but with a '/' before the tag name like: <code class="font-bold"
 		>&lt;/tagName&gt;</code
 	>
 </p>
-
-<p>Here are some common HTML tags:</p>
+<br>
+<p class="text-lg font-bold">Here are some common HTML tags:</p>
 
 <ul>
 	<li>
@@ -54,8 +54,8 @@
 		<code>&lt;table&gt;</code> - Table
 	</li>
 </ul>
-
-<h2>Exercise</h2>
+<br>
+<h2 class="font-bold text-lg underline">Exercise</h2>
 
 <MultipleChoice
 	question="Which ones are opening tags?"
