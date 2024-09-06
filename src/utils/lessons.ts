@@ -12,6 +12,7 @@ export type lessonsListType = Array<{
 export type categoryType = {
 	subCategory: string;
 	subCategorySlug: string;
+	featured: boolean;
 	image: string;
 	description: string;
 	lessons: lessonsListType;

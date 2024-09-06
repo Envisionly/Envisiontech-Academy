@@ -3,6 +3,7 @@ import { type categoryType } from '$utils/lessons';
 export const htmlLessons: categoryType = {
 	subCategory: 'HTML',
 	subCategorySlug: 'languages/html',
+	featured: true,
 	image: 'HTMLLogo.png',
 	description: 'Master the building blocks of the web: Learn HTML and build your own web pages.',
 	lessons: [
