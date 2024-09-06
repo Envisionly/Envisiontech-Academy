@@ -13,9 +13,10 @@
 	<meta name="author" content="Paul Geoghegan" />
 </svelte:head>
 
-<h2>Review</h2>
+<h2 class="text-xl font-bold">Review</h2>
 <p>Let's review what we've learned in the Getting Started section.</p>
-
+<br>
+<h3 class="underline font-bold text-md">Question One</h3>
 <CompleteTheSnippetMultipleChoice
 	question="Fill in the blanks to complete the code snippet"
 	snippet={`<h1>My heading<___>
@@ -26,8 +27,8 @@ ___My paragraph<___>`}
 		['/a', '/p', '/img']
 	]}
 	answers={['/h1', '<p>', '/p']}
-/>
-
+/><br>
+<h3 class="underline font-bold text-md">Question Two</h3>
 <Matching
 	question="Match the element with it's description"
 	choices={{
@@ -35,7 +36,8 @@ ___My paragraph<___>`}
 		list2: ['Defines a heading', 'Defines a paragraph', 'Defines a hyperlink', 'Defines an image']
 	}}
 />
-
+<br>
+<h3 class="underline font-bold text-md">Question Three</h3>
 <MultipleChoice
 	question="What is a HTML element?"
 	choices={[
