@@ -24,7 +24,7 @@
 	{#if subCategory}
 		<TableOfContents category={subCategory} />
 	{/if}
-	<div class="pageContent">
+	<div class="pageContent ">
 		<slot />
 	</div>
 </div>
