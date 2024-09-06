@@ -5,13 +5,13 @@
 	import Newsletter from '$components/Newsletter.svelte';
 	import DesktopNavbar from '$components/DesktopNav.svelte';
 	import MobileNavbar from '$components/MobileNav.svelte';
-
 	const { children } = $props();
 </script>
 
 <header
 	class="flex h-fit bg-gray-100 p-3.5 sm:fixed sm:h-full sm:w-[20%] sm:flex-col sm:divide-y sm:divide-gray-300 sm:overflow-y-auto"
 >
+
 	<section class="flex sm:h-full sm:flex-col">
 		<img
 			class="hidden sm:mx-auto sm:block sm:w-full sm:object-contain"
@@ -34,10 +34,12 @@
 	<div aria-hidden="true" class="hidden sm:flex">
 		{@render footer('desktop')}
 	</div>
+	
 </header>
 
 <main class="sm:ml-[20%] sm:overflow-y-auto">
 	{@render children()}
+	
 </main>
 
 {@render footer('mobile')}

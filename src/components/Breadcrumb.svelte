@@ -1,11 +1,13 @@
 <script>
     import { onMount } from 'svelte';
+    import { page } from '$app/stores'; // Import the page store from SvelteKit
   
     let pathSegments = [];
     let breadcrumbLinks = [];
   
-    onMount(() => {
-      const path = window.location.pathname;
+    // Reactive statement to update breadcrumbLinks whenever the path changes
+    $: {
+      const path = $page.url.pathname;
       pathSegments = path.split('/').filter(segment => segment);
   
       // Define the segments that have corresponding pages
@@ -16,16 +18,16 @@
         const url = '/' + pathSegments.slice(0, index + 1).join('/');
         return { segment, url, clickable: clickableSegments.includes(segment) };
       })];
-    });
+    }
   </script>
   
-  <wa-breadcrumb class="flex items-center p-2 border border-gray-300 rounded bg-gray-100">
+  <wa-breadcrumb label="Site Navigation" class="flex items-center p-2 bg-gray-100">
     {#each breadcrumbLinks as { segment, url, clickable }, index}
-      <wa-breadcrumb-item class="mr-2 text-sm text-gray-700">
+      <wa-breadcrumb-item class="mr-2 text-sm text-gray-700 cursor-default">
         {#if clickable}
-          <a href={url} class="text-envisionlyLightBlue hover:text-envisionlyGold">{segment}</a>
+          <a href={url} class="text-envisionlyLightBlue font-semibold hover:text-envisionlyGold hover:font-bold cursor-pointer">{segment}</a>
         {:else}
-          <span class="text-gray-500">{segment}</span>
+          <span class="text-gray-500 font-light cursor-default">{segment}</span>
         {/if}
         {#if index < breadcrumbLinks.length - 1}
           <span class="mx-2 text-gray-400"></span>

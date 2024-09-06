@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { javaScriptLessons } from '$utils/languages/javascript';
 	import TableOfContents from '$components/TableOfContents.svelte';
-	import Breadcrumb from '$components/Breadcrumb.svelte';
 </script>
 
 <svelte:head>
@@ -9,7 +8,6 @@
 	<meta name="description" content="Learn JavaScript with our free course" />
 	<meta name="author" content="Paul Geoghegan" />
 </svelte:head>
-<Breadcrumb />
 <h1>Welcome to the JavaScript course</h1>
 <p>
 	Bring your web pages to life with JavaScript: Learn to add interactivity and dynamic features.

@@ -3,7 +3,7 @@
 	import { page } from '$app/stores';
 	import { lessons, type lessonsType, type categoryType } from '$utils/lessons';
 	import TableOfContents from '$components/TableOfContents.svelte';
-
+	import Breadcrumb from '$components/Breadcrumb.svelte';
 	let subCategory: categoryType | undefined = undefined;
 
 	$: if ($page.url.pathname.split('/').length > 4) {
@@ -18,7 +18,7 @@
 		subCategory = undefined;
 	}
 </script>
-
+<Breadcrumb />
 <aside><LessonControls /></aside>
 <div class="flex">
 	{#if subCategory}
