@@ -57,7 +57,6 @@
 	/>
 	<meta name="author" content="Paul Geoghegan" />
 </svelte:head>
-
 <div class="max-w-screen-xl py-8 sm:py-12 lg:py-16">
 	<div class="px-4">
 		<h2 class="text-3xl font-bold text-center sm:text-4xl">Start Your Learning Journey</h2>

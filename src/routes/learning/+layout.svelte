@@ -2,8 +2,8 @@
 	import LessonControls from '$components/LessonControls.svelte';
 	import { page } from '$app/stores';
 	import { lessons, type lessonsType, type categoryType } from '$utils/lessons';
-	import TableOfContents from '$components/TableOfContents.svelte';
-
+	import CourseNavigation from '$components/CourseNavigation.svelte';
+	import Breadcrumb from '$components/Breadcrumb.svelte';
 	let subCategory: categoryType | undefined = undefined;
 
 	$: if ($page.url.pathname.split('/').length > 4) {
@@ -19,13 +19,17 @@
 	}
 </script>
 
-<aside><LessonControls /></aside>
-<div class="flex">
+<section class="flex justify-between bg-gray-100">
+	<Breadcrumb />
 	{#if subCategory}
-		<TableOfContents category={subCategory} />
+		<div class="mr-4 flex">
+			<CourseNavigation category={subCategory} />
+		</div>
 	{/if}
-	<div class="pageContent ">
-		<slot />
-	</div>
-</div>
+</section>
+
+<aside><LessonControls /></aside>
+
+<slot />
+
 <aside class="screenReaderOnly"><LessonControls /></aside>

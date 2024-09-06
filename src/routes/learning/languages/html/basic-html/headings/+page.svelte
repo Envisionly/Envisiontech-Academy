@@ -9,14 +9,15 @@
 	<meta name="author" content="Paul Geoghegan" />
 </svelte:head>
 
-<h2>Headings</h2>
+<h2 class="font-bold text-xl">Headings</h2>
 <p>
 	Headings are used to define the structure of a web page. They are created using the
 	<code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> tags. The <code>&lt;h1&gt;</code> tag is the
-	largest heading, and the <code>&lt;h6&gt;</code> tag is the smallest heading.
+	largest heading, and the <code>&lt;h6&gt;</code> tag is the smallest heading. Headings emphasise importance 
+	of your content and help users to understand the structure of your page.
 </p>
-
-<p>Here's an example of headings:</p>
+<br>
+<p class="font-bold">Here's an example of headings:</p>
 
 <ContentBlock
 	name="Heading Example"
