@@ -1,56 +1,80 @@
 <script lang="ts">
 	import { type categoryType } from '$utils/lessons';
-	import { onMount } from 'svelte';
-
-	let sideBarDialog: HTMLDialogElement | undefined = $state(undefined);
+	import { onNavigate } from '$app/navigation';
 	let { category }: { category: categoryType } = $props();
-	let isMobile: boolean | undefined = $state(undefined);
-
-	onMount(() => {
-		isMobile = window.innerWidth < 768;
-		window.addEventListener('resize', () => {
-			isMobile = window.innerWidth < 768;
-		});
-	});
+	let drawer: any = $state(undefined);
 </script>
 
-{#if isMobile}
-	<dialog bind:this={sideBarDialog} class="top-0 left-0 min-h-full border-r border-gray-300">
-		<div class="flex flex-col">
-			<button class="self-end" onclick={() => sideBarDialog?.close()}>Close</button>
-			{@render sideBarContents()}
-		</div>
-	</dialog>
+<!--Drawer for course navigation-->
+<wa-drawer class="drawer-custom" label="Course Navigation" lightDismiss bind:this={drawer}>
+	<div class="flex justify-end">
+		<!-- svelte-ignore a11y_autofocus -->
+		<button
+			class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
+			autofocus
+			data-drawer="close"
+			aria-label="Close"
+		>
+			<span class="fa-light fa-times"></span>
+		</button>
+	</div>
+	{@render sideBarContents()}
+</wa-drawer>
 
-	<button onclick={() => sideBarDialog?.showModal()}>Show Sidebar</button>
-{:else}
-	<section class="w-[20%] h-full flex flex-col">
-		{@render sideBarContents()}
-	</section>
-{/if}
+<div class="flex justify-end">
+	<button
+		class=" h-[15%] rounded bg-envisionlyLightBlue font-bold text-white hover:bg-blue-500"
+		onclick={() => (drawer.open = true)}>Open Course Navigation</button
+	>
+</div>
 
 {#snippet sideBarContents()}
 	<div class="flex flex-col">
 		<img
-			class="w-[80%] mx-auto object-contain"
+			class="mx-auto w-[80%] object-contain"
 			src={`/courseImages/${category.image}`}
 			alt={`${category.subCategory} logo`}
 		/>
-		<h2>{category.subCategory}</h2>
+		<h2 class="invisible">{category.subCategory}</h2>
 	</div>
 
-	<nav aria-label="Course" class="flex flex-col whitespace-normal">
+	<nav aria-label="Course content" class="flex flex-col space-y-4 whitespace-normal">
 		{#each category.lessons as section}
-			<h3 class="text-sm">{section.section}</h3>
-			<ul class="text-xs">
-				{#each section.lessons as lesson}
-					<li>
-						<a href={`/learning/${category.subCategorySlug}/${section.sectionSlug}/${lesson.slug}`}
-							>{lesson.title}</a
+			<!-- svelte-ignore attribute_quoted -->
+			<wa-details class="font-bold drop-shadow-md">
+				<h3 class="text-lg uppercase" slot="summary">{section.section}</h3>
+				<ul class=" text-md font-normal">
+					{#each section.lessons as lesson}
+						<li
+							class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
 						>
-					</li>
-				{/each}
-			</ul>
+							<a
+								href={`/learning/${category.subCategorySlug}/${section.sectionSlug}/${lesson.slug}`}
+								>{lesson.title}</a
+							>
+						</li>
+					{/each}
+				</ul>
+			</wa-details>
 		{/each}
 	</nav>
 {/snippet}
+
+<style lang="postcss">
+	/* Custom class to modify CSS variables based on Tailwind breakpoints */
+	.drawer-custom {
+		--size: 80vw; /* Default size for small screens */
+	}
+
+	@screen sm {
+		.drawer-custom {
+			--size: 276px; /* Size for small screens */
+		}
+	}
+
+	@screen lg {
+		.drawer-custom {
+			--size: 27vw; /* Size for large screens */
+		}
+	}
+</style>
