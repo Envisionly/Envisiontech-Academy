@@ -19,7 +19,6 @@
 	}
 </script>
 <Breadcrumb />
-<aside><LessonControls /></aside>
 <div class="flex">
 	{#if subCategory}
 		<TableOfContents category={subCategory} />
@@ -28,4 +27,6 @@
 		<slot />
 	</div>
 </div>
+<aside><LessonControls /></aside>
+
 <aside class="screenReaderOnly"><LessonControls /></aside>
