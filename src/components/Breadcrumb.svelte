@@ -12,20 +12,23 @@
       const clickableSegments = ['learning', 'html', 'what-is-html'];
   
       // Construct breadcrumb links
-      breadcrumbLinks = pathSegments.map((segment, index) => {
+      breadcrumbLinks = [{ segment: 'Home', url: '/', clickable: true }, ...pathSegments.map((segment, index) => {
         const url = '/' + pathSegments.slice(0, index + 1).join('/');
         return { segment, url, clickable: clickableSegments.includes(segment) };
-      });
+      })];
     });
   </script>
   
-  <wa-breadcrumb>
+  <wa-breadcrumb class="flex items-center p-2 border border-gray-300 rounded bg-gray-100">
     {#each breadcrumbLinks as { segment, url, clickable }, index}
-      <wa-breadcrumb-item>
+      <wa-breadcrumb-item class="mr-2 text-sm text-gray-700">
         {#if clickable}
-          <a href={url}>{segment}</a>
+          <a href={url} class="text-blue-500 hover:underline">{segment}</a>
         {:else}
-          <span>{segment}</span>
+          <span class="text-gray-500">{segment}</span>
+        {/if}
+        {#if index < breadcrumbLinks.length - 1}
+          <span class="mx-2 text-gray-400"></span>
         {/if}
       </wa-breadcrumb-item>
     {/each}
