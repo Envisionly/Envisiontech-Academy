@@ -19,17 +19,19 @@
 	}
 </script>
 
-<section class="flex justify-between bg-gray-100">
+<aside class="flex justify-between bg-gray-100">
 	<Breadcrumb />
 	{#if subCategory}
 		<div class="mr-4 flex">
 			<CourseNavigation category={subCategory} />
 		</div>
 	{/if}
-</section>
+</aside>
 
 <aside><LessonControls /></aside>
 
-<slot />
+<div id="course">
+	<slot />
+</div>
 
 <aside class="screenReaderOnly"><LessonControls /></aside>
