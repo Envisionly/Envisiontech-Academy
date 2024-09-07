@@ -12,6 +12,10 @@
 	class="flex h-fit bg-gray-100 p-3.5 sm:fixed sm:h-full sm:w-[20%] sm:flex-col sm:divide-y sm:divide-gray-300 sm:overflow-y-auto"
 >
 	<section class="flex sm:h-full sm:flex-col">
+		<a class="sr-only" href="#main">Skip to main content</a>
+		{#if $page.url.pathname.startsWith('/learning')}
+			<a class="sr-only" href="#course">Skip to course content</a>
+		{/if}
 		<img
 			class="hidden sm:mx-auto sm:block sm:w-full sm:object-contain"
 			data-src="https://envisiontech-academy.gumlet.io/resources/logo-short-nb.png"
@@ -35,7 +39,7 @@
 	</div>
 </header>
 
-<main class="sm:ml-auto sm:w-[80%] sm:overflow-y-auto">
+<main id="main" class="sm:ml-auto sm:w-[80%] sm:overflow-y-auto">
 	{@render children()}
 </main>
 
@@ -111,6 +115,10 @@
 					: new Date().getFullYear()}.
 			</p>
 			<p class="mt-2 text-center text-xs text-gray-500">All rights reserved.</p>
+			{#if $page.url.pathname.startsWith('/learning')}
+				<a class="sr-only" href="#course">Skip to course content</a>
+			{/if}
+			<a class="sr-only" href="#main">Go back to main content</a>
 		</div>
 	</footer>
 {/snippet}
