@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { javaScriptLessons } from '$utils/languages/javascript';
-	import TableOfContents from '$components/TableOfContents.svelte';
 </script>
 
 <svelte:head>
@@ -12,4 +11,3 @@
 <p>
 	Bring your web pages to life with JavaScript: Learn to add interactivity and dynamic features.
 </p>
-<TableOfContents category={javaScriptLessons} />
