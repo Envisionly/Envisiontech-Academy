@@ -26,7 +26,7 @@
 			Why Us?
 		</h2>
 
-		<p>
+		<p class="text-lg font-medium">
 			We empower individuals to thrive in the digital age with accessible, high-quality tech
 			education. Our engaging courses focus on real-world applications, making learning fun,
 			practical, and rewarding. Let us help you build the skills for a successful tech career.
@@ -137,7 +137,7 @@
 			Our Courses
 		</h2>
 
-		<p>
+		<p class="text-lg font-medium">
 			Our courses span web development, programming, design, data analysis, and more. From HTML
 			basics to advanced JavaScript, Svelte, and data science, we offer flexible, self-paced
 			learning for all levels. Enjoy video tutorials, interactive exercises, quizzes, and hands-on
@@ -173,7 +173,7 @@
 			Get Started
 		</h2>
 
-		<p>
+		<p class="text-lg font-medium">
 			Ready to level up your skills? Sign up for a free account and explore our courses. Whether
 			learning a new skill, advancing your career, or starting a venture, we’ve got the resources to
 			help you succeed. Join our community and transform your future with Envisiontech Academy.
