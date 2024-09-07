@@ -59,17 +59,17 @@
 </svelte:head>
 <div class="max-w-screen-xl py-8 sm:py-12 lg:py-16">
 	<div class="px-4">
-		<h2 class="text-3xl font-bold text-center sm:text-4xl">Start Your Learning Journey</h2>
-		<p class="text-center mt-4 text-gray-600">
+		<h2 class="text-center text-3xl font-bold sm:text-4xl">Start Your Learning Journey</h2>
+		<p class="mt-4 text-center text-gray-600">
 			Choose a topic to get started. We have a range of courses available to help you master the
 			skills that power the digital world.
 		</p>
 	</div>
 	<div class="flex">
-		<div class="sm:hidden mx-auto">
+		<div class="mx-auto sm:hidden">
 			<select
 				aria-label="Select a topic"
-				class=" rounded-md my-6 border-gray-300 focus:outline-none focus:ring-0 focus:border-envisionlyGold"
+				class=" my-6 rounded-md border-gray-300 focus:border-envisionlyGold focus:outline-none focus:ring-0"
 				onchange={(event: Event & { currentTarget: EventTarget & HTMLSelectElement }) => {
 					if ((event.currentTarget as HTMLSelectElement).value)
 						currentTab = (event.currentTarget as HTMLSelectElement).value;
@@ -87,7 +87,7 @@
 						aria-selected={lesson === currentTab}
 						aria-controls={`panel-${lesson}`}
 						tabindex={lesson === currentTab ? 0 : -1}
-						class="shrink-0 border-b border-b-gray-200 p-3 text-sm font-medium text-gray-500 hover:text-gray-700 aria-selected:border aria-selected:rounded-t-lg aria-selected:border-gray-300 aria-selected:border-b-transparent"
+						class="shrink-0 border-b border-b-gray-200 p-3 text-sm font-medium text-gray-500 hover:text-gray-700 aria-selected:rounded-t-lg aria-selected:border aria-selected:border-gray-300 aria-selected:border-b-transparent"
 						bind:this={buttons[lesson]}
 						onclick={() => changeTab(lesson)}
 						onkeydown={(e) => handleKeydown(e, lesson)}
@@ -107,7 +107,7 @@
 		>
 			{#each lessons[lesson] as course}
 				<section
-					class="flex gap-4 p-4 bg-envisionlyTransparentGold"
+					class="flex gap-4 bg-envisionlyTransparentGold p-4"
 					role="button"
 					tabindex="0"
 					onclick={() =>
@@ -116,7 +116,7 @@
 						)}
 				>
 					<img
-						src={`/courseImages/${course.image}`}
+						data-src={`https://envisiontech-academy.gumlet.io/courseImages/${course.image}`}
 						alt=""
 						class="size-16 rounded-full object-cover"
 					/>

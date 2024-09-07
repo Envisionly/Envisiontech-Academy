@@ -13,7 +13,7 @@
 </svelte:head>
 
 <CTA
-	imageSRC="/homepage.jpg"
+	imageSRC="homepage.jpg"
 	headingText="Master Tech Skills. Build Your Future."
 	paragraphText="Welcome to your gateway to mastering the digital world! From web development to data analysis, our courses cater to beginners and pros alike. Explore, learn, and unlock your potential to create and innovate in today’s tech-driven landscape."
 />
@@ -154,7 +154,10 @@
 								href={`/learning/${lesson.subCategorySlug}/${lesson.lessons[0].sectionSlug}/${lesson.lessons[0].lessons[0].slug}`}
 								aria-label={`${lesson.subCategory}`}
 							>
-								<img src={`/courseImages/${lesson.image}`} alt="" />
+								<img
+									data-src={`https://envisiontech-academy.gumlet.io/courseImages/${lesson.image}`}
+									alt=""
+								/>
 							</a>
 						{/if}
 					{/each}
