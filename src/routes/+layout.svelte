@@ -14,12 +14,12 @@
 	<section class="flex sm:h-full sm:flex-col">
 		<img
 			class="hidden sm:mx-auto sm:block sm:w-full sm:object-contain"
-			src="/logo-short-nb.png"
+			data-src="https://envisiontech-academy.gumlet.io/resources/logo-short-nb.png"
 			alt="Envision Tech Academy Logo"
 		/>
 		<img
 			class="mx-auto w-[80%] object-contain sm:hidden"
-			src="/logo-long-nb.png"
+			data-src="https://envisiontech-academy.gumlet.io/resources/logo-long-nb.png"
 			alt="Envision Tech Academy Logo"
 		/>
 
