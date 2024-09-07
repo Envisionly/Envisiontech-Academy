@@ -1,7 +1,16 @@
 <script lang="ts">
 	export let content: Array<{
 		type: 'heading' | 'subHeading' | 'description' | 'paragraph' | 'list';
-		text: string | Array<string> | Array<{ item: string; icon: string; iconDescription: string }>;
+		text:
+			| string
+			| Array<string>
+			| Array<{
+					item: string;
+					href?: string;
+					icon: string;
+					iconFamily?: string;
+					iconDescription: string;
+			  }>;
 	}>;
 </script>
 
@@ -29,13 +38,23 @@
 			<ul class="pl-2 text-gray-500">
 				{#each text as item}
 					<li class="flex gap-2">
-						{#if typeof item === 'object'}
-							<span class="fa-light fa-{item.icon}" aria-label={item.iconDescription}></span>
-							<span>{item.item}</span>
-						{:else}
-							<span class="fa-light fa-arrow - right" aria-label="Right Arrow"></span>
-
+						{#if typeof item === 'string'}
+							<span class="fa-light fa-arrow-right" aria-label="Right Arrow"></span>
 							<span>{item}</span>
+						{:else}
+							<span
+								class={`fa-${item.iconFamily ? item.iconFamily : 'light'} fa-${item.icon}`}
+								aria-label={item.iconDescription}
+							></span>
+							{#if item.href}
+								<a
+									href={item.href}
+									class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
+									>{item.item}</a
+								>
+							{:else}
+								<span>{item.item}</span>
+							{/if}
 						{/if}
 					</li>
 				{/each}
