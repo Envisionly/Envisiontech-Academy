@@ -6,7 +6,7 @@
 	}: { imageSRC: string; headingText: string; paragraphText: string } = $props();
 
 	//Have to use this approach as directly adding in the class of the section doesn't work
-	const backgroundImageStyle = `background-image: url('${imageSRC}');`;
+	const backgroundImageStyle = `background-image: url('https://envisiontech-academy.gumlet.io/CTAs/${imageSRC}');`;
 </script>
 
 <section class="overflow-hidden bg-cover bg-top bg-no-repeat" style={backgroundImageStyle}>

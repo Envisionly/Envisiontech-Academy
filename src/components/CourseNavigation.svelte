@@ -31,7 +31,7 @@
 	<div class="flex flex-col">
 		<img
 			class="mx-auto w-[80%] object-contain"
-			src={`/courseImages/${category.image}`}
+			data-src={`https://envisiontech-academy.gumlet.io/courseImages/${category.image}`}
 			alt={`${category.subCategory} logo`}
 		/>
 		<h2 class="invisible">{category.subCategory}</h2>
