@@ -4,7 +4,7 @@
 
 <svelte:head>
 	<title>HTML Page Structure</title>
-	<meta name="description" content="Learn how to create headings in HTML in this free course." />
+	<meta name="description" content="Learn how to structure pages in HTML in this free course." />
 	<meta name="author" content="Paul Geoghegan" />
 </svelte:head>
 
