@@ -8,7 +8,25 @@
 	<meta name="author" content="Paul Geoghegan" />
 </svelte:head>
 
-<h2 class="text-xl font-bold">HTML Links</h2>
+<h2 id="header" class="text-xl font-bold">HTML Links</h2>
 <p>
     Links are a fundamental part of the web. They are what allow us to navigate from one page to another. In HTML, links are created using the <span class ="font-bold">&lt;a&gt; anchor </span> tag.
 </p><br>
+<h3 class="font-semibold text-md">Example</h3>
+<ContentBlock name="HTML Links"
+    contentList={[ 
+        {language: 'HTML', content:
+        `
+<a href="https://www.google.com">This way to Google!</a>`
+},]}></ContentBlock>
+
+<p>You can even use a link to navigate to a different part of the same page by using the <span class="font-bold">id</span> attribute.
+</p>
+
+<ContentBlock name="HTML Attributes"
+contentList={[ 
+    {language: 'HTML', content:
+    `
+<a href="#header">Jump to the header</a>`
+},]}>
+</ContentBlock>
