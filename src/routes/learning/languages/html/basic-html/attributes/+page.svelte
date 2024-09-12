@@ -1,3 +1,7 @@
+<script>
+	import ContentBlock from '$components/ContentBlock.svelte';
+</script>
+
 <svelte:head>
 	<title>HTML Attributes</title>
 	<meta name="description" content="Learn how attributes work in HTML in this free course." />
@@ -17,7 +21,7 @@
     <li><span class="font-bold">src</span> - used in image tags to specify the URL of the image</li>
     <li><span class="font-bold">alt</span> - used in image tags to provide a text description of the image</li>
     <li><span class="font-bold">class</span> - used to apply a class to an element</li>
-    <li><span class="font-bold">id</span> - used to give an element a unique identifier</li>
+    <li><span class="font-bold">lang</span> - used to state the language of a webpage</li>
 </ul><br>
 <h3 class="text-md font-semibold">Here is an example of how an attribute would be coded:</h3>
 <p>
@@ -27,8 +31,23 @@
     What has happened here is we have added an attribute to the anchor tag that tells the browser where to go when the link is clicked.
 </p>
 <br>
+<h3 class="text-md font-bold">Attributes and accessilibity</h3>
 <p>Attributes play a vital role in accessilibity design. They can provide alternate text to an image
-    which would highlight to screen-reader users the image that is being displayed.
+    which would highlight to screen-reader users what the image is representing on the current page.
 </p>
 <br>
 <h3 class="text-md font-bold">Attributes in action</h3>
+<ContentBlock
+    name="HTML Attributes"
+    contentList={[ 
+        {language: 'HTML', content: 
+        `<!DOCTYPE HTML>
+    <body>
+        <a href="https://www.envisionlytechacademy.com">Envisiontech Academy</a>
+        <br>
+        <img src="https://envisiontech-academy.gumlet.io/resources/logo-short-nb.png" 
+        width="150" height="150" alt="Envisionly Tech Academy Logo">
+    </body>`},
+    ]}>
+
+</ContentBlock>
