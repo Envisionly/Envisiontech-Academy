@@ -16,7 +16,7 @@
 <p>
     There are many attributes in HTML, some of the most common ones include:
 </p>
-<ul class="list-disc ml-8">
+<ul>
     <li><span class="font-bold">href</span> - used in anchor tags to specify the URL of the page the link goes to</li>
     <li><span class="font-bold">src</span> - used in image tags to specify the URL of the image</li>
     <li><span class="font-bold">alt</span> - used in image tags to provide a text description of the image</li>
