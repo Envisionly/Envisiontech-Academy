@@ -28,3 +28,62 @@
 <p>
     1.3 We reserve the right to refuse access to the website to any user at any time without notice.
 </p>
+<h3>2. Privacy Policy</h3>
+<p>
+    2.1 We take your privacy seriously. Please read our Privacy Policy to understand how we collect,
+    store and use your personal information.
+</p>
+<p>
+    2.2 By using this website, you consent to the collection, storage and use of your personal
+    information in accordance with our Privacy Policy.
+</p>
+<p>
+    
+</p>
+<h3>3. Cookies</h3>
+<p>
+    3.1 We use cookies on this website. By using this website, you consent to the use of cookies in
+    accordance with our Cookies Policy.
+</p>
+<h3>4. User Accounts</h3>
+<p>
+    4.1 You may be required to create a user account to access certain parts of the website. You are
+    responsible for maintaining the confidentiality of your account details and password.
+</p>
+<p>
+    4.2 You must not share your account details or password with any other person.
+</p>
+<h3>5. User Content</h3>
+<p>
+    5.1 You are responsible for any content you post on the website. You must not post any content that
+    is illegal, defamatory, obscene, offensive or infringes the rights of any third party.
+</p>
+<p>
+    5.2 We reserve the right to remove any content that we consider to be in breach of these terms and
+    conditions.
+</p>
+<h3>6. Intellectual Property</h3>
+<p>
+    6.1 All intellectual property rights in the website and its content are owned by us or our licensors.
+</p>
+<p>
+    6.2 You may not copy, reproduce, distribute, or create derivative works from any part of the website
+    without our prior written consent.
+</p>
+<h3>7. Limitation of Liability</h3>
+<p>
+    7.1 We will not be liable for any loss or damage arising from your use of the website or any content
+    posted on the website.
+</p>
+<p>
+    7.2 We will not be liable for any loss or damage arising from the use of any third-party websites
+    linked to from the website.
+</p>
+<h3>8. Governing Law</h3>
+<p>
+    8.1 These terms and conditions are governed by the laws of Republic of Ireland.
+</p>
+<h3>9. Contact Us</h3>
+<p>
+    9.1 If you have any questions about these terms and conditions, please contact us at
+</p>
