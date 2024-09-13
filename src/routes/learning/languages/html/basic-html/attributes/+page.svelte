@@ -45,8 +45,8 @@
     <body>
         <a href="https://www.envisionlytechacademy.com">Envisiontech Academy</a>
         <br>
-        <img src="https://envisiontech-academy.gumlet.io/resources/logo-short-nb.png" 
-        width="150" height="150" alt="Envisionly Tech Academy Logo">
+        <img data-src="https://envisiontech-academy.gumlet.io/resources/logo-short-nb.png" 
+        width="150" height="150" alt="Envisiontech Academy Logo">
     </body>`},
     ]}>
 
