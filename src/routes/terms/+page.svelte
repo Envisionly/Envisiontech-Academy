@@ -7,18 +7,19 @@
     the user of the website. By using this website, you agree to the terms and conditions set out below.
     If you do not agree to these terms and conditions, please do not use this website.
 </p>
+<br>
 <ul>
-    <li>General</li>
-    <li>Cookies</li>
-    <li>User Accounts</li>
-    <li>User Rights</li>
-    <li>Intellectual Property</li>
-    <li>Limitation of Liability</li>
-    <li>Governing Law</li>
-    <li>Contact Us</li>
+    <li><a href="#general">General</a></li>
+    <li><a href="#cookies">Cookies</a></li>
+    <li><a href="#useraccounts">User Accounts</a></li>
+    <li><a href="#userrights">User Rights</a></li>
+    <li><a href="#ip">Intellectual Property</a></li>
+    <li><a href="#liability">Limitation of Liability</a></li>
+    <li><a href="#law">Governing Law</a></li>
+    <li><a href="#contact">Contact Us</a></li>
 </ul>
 <br>
-<h3 class="text-xl font-bold">General</h3>
+<h3 class="text-xl font-bold" id="general">General</h3>
 <p>
     We reserve the right to change these terms and conditions at any time. Any changes will take
     effect immediately upon publication on the website. It is your responsibility to read the terms and
@@ -39,13 +40,13 @@
 </p>
 
 <br>
-<h3 class="text-xl font-bold">Cookies</h3>
+<h3 class="text-xl font-bold" id="cookies">Cookies</h3>
 <p>
     We use cookies on this website. By using this website, you consent to the use of cookies in
     accordance with our Cookies Policy.
 </p>
 <br>
-<h3 class="text-xl font-bold">User Accounts</h3>
+<h3 class="text-xl font-bold" id="useraccounts">User Accounts</h3>
 <p>
     You may be required to create a user account to access certain parts of the website. You are
     responsible for maintaining the confidentiality of your account details and password.
@@ -54,12 +55,12 @@
     You must not share your account details or password with any other person.
 </p>
 <br>
-<h3 class="text-xl font-bold">User Rights</h3>
+<h3 class="text-xl font-bold" id="userrights">User Rights</h3>
 <p>
     You reserve the right, within the first 14 days of purchase, to request a refund for any course.
 </p>
 <br>
-<h3 class="text-xl font-bold">Intellectual Property</h3>
+<h3 class="text-xl font-bold" id="ip">Intellectual Property</h3>
 <p>
     All intellectual property rights in the website and its content are owned by us or our licensors.
 </p>
@@ -68,7 +69,7 @@
     without our prior written consent.
 </p>
 <br>
-<h3 class="text-xl font-bold">Limitation of Liability</h3>
+<h3 class="text-xl font-bold" id="liability">Limitation of Liability</h3>
 <p>
     We will not be liable for any loss or damage arising from your use of the website or any content
     posted on the website.
@@ -78,12 +79,12 @@
     linked to from the website.
 </p>
 <br>
-<h3 class="text-xl font-bold">Governing Law</h3>
+<h3 class="text-xl font-bold" id=law>Governing Law</h3>
 <p>
     These terms and conditions are governed by the laws of Republic of Ireland.
 </p>
 <br>
-<h3 class="text-xl font-bold">Contact Us</h3>
+<h3 class="text-xl font-bold" id="contact">Contact Us</h3>
 <p>
     If you have any questions about these terms and conditions, please contact us at placeholder@envisionly.tech
 </p>
