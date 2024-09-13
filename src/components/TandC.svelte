@@ -10,7 +10,7 @@
     <li>2. Privacy Policy</li>
     <li>3. Cookies</li>
     <li>4. User Accounts</li>
-    <li>5. User Content</li>
+    <li>5. User Rights</li>
     <li>6. Intellectual Property</li>
     <li>7. Limitation of Liability</li>
     <li>8. Governing Law</li>
@@ -28,6 +28,14 @@
 <p>
     1.3 We reserve the right to refuse access to the website to any user at any time without notice.
 </p>
+<p>
+    1.4 We reserve the right to suspend or terminate your account at any time without notice.
+</p>
+<p>
+    1.5 We reserve the right to take legal action against any user who breaches these terms and
+    conditions.
+</p>
+
 <h3>2. Privacy Policy</h3>
 <p>
     2.1 We take your privacy seriously. Please read our Privacy Policy to understand how we collect,
@@ -38,7 +46,7 @@
     information in accordance with our Privacy Policy.
 </p>
 <p>
-    
+
 </p>
 <h3>3. Cookies</h3>
 <p>
@@ -53,14 +61,9 @@
 <p>
     4.2 You must not share your account details or password with any other person.
 </p>
-<h3>5. User Content</h3>
+<h3>5. User Rights</h3>
 <p>
-    5.1 You are responsible for any content you post on the website. You must not post any content that
-    is illegal, defamatory, obscene, offensive or infringes the rights of any third party.
-</p>
-<p>
-    5.2 We reserve the right to remove any content that we consider to be in breach of these terms and
-    conditions.
+    5.1 You reserve the right, within the first 14 days of purchase, to request a refund for any course.
 </p>
 <h3>6. Intellectual Property</h3>
 <p>
