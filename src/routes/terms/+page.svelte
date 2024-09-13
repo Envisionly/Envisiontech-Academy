@@ -1,3 +1,4 @@
+
 <h1>Terms and Conditions</h1>
 <h2>LAST UPDATED: 13/09/2024</h2>
 <p>These terms and conditions apply to the website www.envisiontechacademy.com. The use of the words
