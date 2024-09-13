@@ -8,31 +8,27 @@
     If you do not agree to these terms and conditions, please do not use this website.
 </p>
 <br>
-<ul>
-    <li><a href="#general">General</a></li>
-    <li><a href="#cookies">Cookies</a></li>
-    <li><a href="#useraccounts">User Accounts</a></li>
-    <li><a href="#userrights">User Rights</a></li>
-    <li><a href="#ip">Intellectual Property</a></li>
-    <li><a href="#liability">Limitation of Liability</a></li>
-    <li><a href="#law">Governing Law</a></li>
-    <li><a href="#contact">Contact Us</a></li>
+<ul><span class="font-semibold underline"> Contents:</span>
+    <li ><a href="#general" class="hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold">General</a></li>
+    <li><a href="#cookies" class="hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold">Cookies</a></li>
+    <li><a href="#useraccounts" class="hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold">User Accounts</a></li>
+    <li><a href="#userrights" class="hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold">User Rights</a></li>
+    <li><a href="#ip" class="hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold">Intellectual Property</a></li>
+    <li><a href="#law" class="hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold">Governing Law</a></li>
+    <li><a href="#contact" class="hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold">Contact Us</a></li>
 </ul>
 <br>
 <h3 class="text-xl font-bold" id="general">General</h3>
 <p>
     We reserve the right to change these terms and conditions at any time. Any changes will take
-    effect immediately upon publication on the website. It is your responsibility to read the terms and
-    conditions regularly to ensure you are aware of any changes.
+    effect immediately upon publication on the website. We will inform you of any changes, and you have
+    the right to refuse any changes. Doing so may restrict future access to the website.
 </p>
 <p>
-    We reserve the right to change or remove any part of the website at any time without notice.
+    We reserve the right to change or remove any part of the website at any time.
 </p>
 <p>
-    We reserve the right to refuse access to the website to any user at any time without notice.
-</p>
-<p>
-    We reserve the right to suspend or terminate your account at any time without notice.
+    We reserve the right to restrict access to certain parts of the website at any time.
 </p>
 <p>
     We reserve the right to take legal action against any user who breaches these terms and
@@ -43,7 +39,7 @@
 <h3 class="text-xl font-bold" id="cookies">Cookies</h3>
 <p>
     We use cookies on this website. By using this website, you consent to the use of cookies in
-    accordance with our Cookies Policy.
+    accordance with our <a href="/cookies">Cookies Policy</a>.
 </p>
 <br>
 <h3 class="text-xl font-bold" id="useraccounts">User Accounts</h3>
@@ -69,15 +65,6 @@
     without our prior written consent.
 </p>
 <br>
-<h3 class="text-xl font-bold" id="liability">Limitation of Liability</h3>
-<p>
-    We will not be liable for any loss or damage arising from your use of the website or any content
-    posted on the website.
-</p>
-<p>
-    We will not be liable for any loss or damage arising from the use of any third-party websites
-    linked to from the website.
-</p>
 <br>
 <h3 class="text-xl font-bold" id=law>Governing Law</h3>
 <p>
