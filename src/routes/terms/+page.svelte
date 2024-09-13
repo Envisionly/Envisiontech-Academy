@@ -86,5 +86,9 @@
 <br>
 <h3 class="text-xl font-bold" id="contact">Contact Us</h3>
 <p>
-    If you have any questions about these terms and conditions, please contact us at placeholder@envisionly.tech
+    If you have any questions about these terms and conditions, please contact us at 
+    <a
+					class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
+					href="mailto:contact@envisionly.tech">contact@envisionly.tech</a
+				>
 </p>
