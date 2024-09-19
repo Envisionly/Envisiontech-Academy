@@ -22,8 +22,23 @@
         At Envisiontech Academy, our mission is to empower individuals with the knowledge and skills they need to thrive in the ever-evolving world of technology.
         We believe in accessible, high-quality education with no barriers.
       </p>
+      <br>
+      <p>
+        The long-term goal of Envisiontech Academy is to have a fully accessible learning hub for any indivuals who want to engage in the world of coding and technology.
+      </p>
     </section>
   
+    <section>
+        <h2 class="mb-2 border-b border-envisionlyGold pb-2 text-xl font-semibold uppercase text-envisionlyBlue sm:text-2xl">
+          Our History
+        </h2>
+        <p>
+          Envisiontech Academy was founded with the goal of making tech education accessible to everyone.
+          We are aware of the real blockades that still exist today in the tech industry, and we are committed to breaking them down.
+          
+        </p>
+      </section>
+<!-- Down the line we could include a section here with statements/ reviews-->
     <section>
       <h2 class="mb-2 border-b border-envisionlyGold pb-2 text-xl font-semibold uppercase text-envisionlyBlue sm:text-2xl">
         Our Team
@@ -50,18 +65,9 @@
         </li>
       </ul>
     </section>
-  
-    <section>
-      <h2 class="mb-2 border-b border-envisionlyGold pb-2 text-xl font-semibold uppercase text-envisionlyBlue sm:text-2xl">
-        Our History
-      </h2>
-      <p>
-        Envisiontech Academy was founded with the goal of making tech education accessible to everyone.
-        We are aware of the real blockades that still exist today in the tech industry, and we are committed to breaking them down.
-        
-      </p>
-    </section>
-  
+    <!--FAQ section?-->
+    
+    <!---If we ever have any partners/collaborators, they could have a section here-->
     <section>
       <h2 class="mb-2 border-b border-envisionlyGold pb-2 text-xl font-semibold uppercase text-envisionlyBlue sm:text-2xl">
         Contact Us
