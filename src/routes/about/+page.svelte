@@ -37,7 +37,7 @@
         </li>
         <li>
           <h3 class="text-lg font-semibold uppercase text-gray-700">Melissa Geogehan</h3>
-          <p class="pl-2 text-gray-500"></p>
+          <p class="pl-2 text-gray-500">Managing Director</p>
         </li>
         <li>
           <h3 class="text-lg font-semibold uppercase text-gray-700">Jessie The Cat</h3>
@@ -45,7 +45,7 @@
         </li>
         <li>
           <h3 class="text-lg font-semibold uppercase text-gray-700">Michael Christie</h3>
-          <p class="pl-2 text-gray-500"></p>
+          <p class="pl-2 text-gray-500">Developer</p>
         </li>
       </ul>
     </section>
@@ -64,7 +64,9 @@
         Contact Us
       </h2>
       <p>
-        If you have any questions or would like to learn more about us, please feel free to <span class="text-envisionlyBlue">contact us</span>.
+        If you have any questions or would like to learn more about us, please feel free to <a
+        class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
+        href="mailto:contact@envisionly.tech">contact us</a>.
       </p>
     </section>
   </div>
