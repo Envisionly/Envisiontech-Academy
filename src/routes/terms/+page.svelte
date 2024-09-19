@@ -55,6 +55,9 @@
 <p>
     You reserve the right, within the first 14 days of purchase, to request a refund for any course.
 </p>
+<p>
+    Learn more about your consumer rights <a href="https://www.citizensinformation.ie/en/consumer/consumer-laws/your-consumer-rights/"> here</a>.
+</p>
 <br>
 <h3 class="text-xl font-bold" id="ip">Intellectual Property</h3>
 <p>
@@ -70,6 +73,14 @@
 <p>
     These terms and conditions are governed by the laws of Republic of Ireland.
 </p>
+<p>
+    By paying for any services you are agreeing to terms of sale outlined in Irish Law:
+</p>
+
+    <ul>
+        <li>SALE OF GOODS AND SUPPLY OF SERVICES ACT 1980</li>
+        <li>Consumer Protection Act 2007</li>
+    </ul>
 <br>
 <h3 class="text-xl font-bold" id="contact">Contact Us</h3>
 <p>
