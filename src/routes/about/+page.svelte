@@ -8,7 +8,7 @@
   </svelte:head>
   
   <CTA
-    imageSRC=""
+    imageSRC="placeholdername.jpg"
     headingText="About Envisiontech Academy"
     paragraphText="Discover our mission, meet our team, and learn about our journey. We are dedicated to providing high-quality tech education to help you succeed in the digital world."
   />
@@ -19,7 +19,8 @@
         Our Mission
       </h2>
       <p>
-        At Envisiontech Academy, our mission is to empower individuals with the knowledge and skills they need to thrive in the ever-evolving world of technology. We believe in accessible, high-quality education that focuses on real-world applications.
+        At Envisiontech Academy, our mission is to empower individuals with the knowledge and skills they need to thrive in the ever-evolving world of technology.
+        We believe in accessible, high-quality education with no barriers.
       </p>
     </section>
   
@@ -56,6 +57,8 @@
       </h2>
       <p>
         Envisiontech Academy was founded with the goal of making tech education accessible to everyone.
+        We are aware of the real blockades that still exist today in the tech industry, and we are committed to breaking them down.
+        
       </p>
     </section>
   
