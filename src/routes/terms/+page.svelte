@@ -4,12 +4,17 @@
 </svelte:head>
 
 <h1 class="mb-2 border-b border-envisionlyGold pb-2 font-semibold uppercase text-envisionlyBlue sm:text-2xl">Terms and Conditions</h1>
-<h2 class="font-semibold text-sm">LAST UPDATED: 13/09/2024</h2>
-<br>
+<h2 class="font-semibold text-sm">LAST UPDATED: 20/09/2024</h2>
 <p>These terms and conditions apply to the website www.envisiontechacademy.com. The use of the words
     "we", "us" and "our" refer to Envisiontech Academy. The use of the words "you" and "your" refer to
     the user of the website. By using this website, you agree to the terms and conditions set out below.
     If you do not agree to these terms and conditions, please do not use this website.
+</p>
+<br>
+<p>
+  Envisiontech Academy is a trading name of Envisionly Limited, a company registered in Ireland with company number 748151 and registered office at 
+  Apartment 20,
+  Millstream, Station Road, Portmarnock, Ireland.
 </p>
 <br>
 <ul><span class="font-semibold uppercase text-envisionlyBlue"> Contents:</span>
@@ -26,6 +31,9 @@
 		<h3 id="general" class="mb-2 border-b border-envisionlyGold pb-2 font-semibold uppercase text-envisionlyBlue text-xl">
 			General
 		</h3>
+    <p class="text-gray-700">
+
+    </p>
     <p class="text-gray-700">
       We reserve the right to change these terms and conditions at any time. Any changes will take
       effect immediately upon publication on the website. We will inform you of any changes, and you have
