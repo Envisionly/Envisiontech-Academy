@@ -4,8 +4,8 @@
 </svelte:head>
 
 <h1 class="mb-2 border-b border-envisionlyGold pb-2 font-semibold uppercase text-envisionlyBlue sm:text-2xl">Terms and Conditions</h1>
-<h2 class="font-semibold text-sm">LAST UPDATED: 20/09/2024</h2>
-<p>These terms and conditions apply to the website www.envisiontechacademy.com. The use of the words
+<h2 class="font-semibold text-sm">LAST UPDATED: 26/09/2024</h2>
+<p>These terms and conditions apply to the website www.academy.envisionly.tech. The use of the words
     "we", "us" and "our" refer to Envisiontech Academy. The use of the words "you" and "your" refer to
     the user of the website. By using this website, you agree to the terms and conditions set out below.
     If you do not agree to these terms and conditions, please do not use this website.
@@ -108,6 +108,6 @@
     If you have any questions about these terms and conditions, please contact us at 
     <a
 					class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
-					href="mailto:contact@envisionly.tech">contact@envisionly.tech</a
+					href="mailto:contact@envisionly.tech">academy@envisionly.tech</a
 				>
 </p>
