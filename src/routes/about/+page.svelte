@@ -48,19 +48,19 @@
       </p>
       <ul class="grid grid-cols-1 gap-2 p-8 md:grid-cols-2 md:gap-x-12 md:gap-y-4 xl:gap-x-16 xl:gap-y-6">
         <li>
-          <h3 class="text-lg font-semibold uppercase text-gray-700">Paul Geoghegan</h3>
+          <h3 class="text-md font-semibold uppercase text-gray-700">Paul Geoghegan</h3>
           <p class="pl-2 text-gray-500">Founder</p>
         </li>
         <li>
-          <h3 class="text-lg font-semibold uppercase text-gray-700">Melissa Geogehan</h3>
+          <h3 class="text-md font-semibold uppercase text-gray-700">Melissa Geogehan</h3>
           <p class="pl-2 text-gray-500">Managing Director</p>
         </li>
         <li>
-          <h3 class="text-lg font-semibold uppercase text-gray-700">Jessie The Cat</h3>
+          <h3 class="text-md font-semibold uppercase text-gray-700">Jessie The Cat</h3>
           <p class="pl-2 text-gray-500">Lead Instructor</p>
         </li>
         <li>
-          <h3 class="text-lg font-semibold uppercase text-gray-700">Michael Christie</h3>
+          <h3 class="text-md font-semibold uppercase text-gray-700">Michael Christie</h3>
           <p class="pl-2 text-gray-500">Developer</p>
         </li>
       </ul>

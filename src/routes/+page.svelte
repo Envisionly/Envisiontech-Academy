@@ -36,7 +36,7 @@
 			class="grid grid-cols-1 gap-2 p-8 md:grid-cols-2 md:gap-x-12 md:gap-y-4 xl:gap-x-16 xl:gap-y-6"
 		>
 			<li>
-				<h3 class="text-lg font-semibold uppercase text-gray-700">
+				<h3 class="text-md font-semibold uppercase text-gray-700">
 					Self-Guided Learning at Your Pace
 				</h3>
 				<p class="pl-2 text-gray-500">
@@ -46,7 +46,7 @@
 				</p>
 			</li>
 			<li>
-				<h3 class="text-lg font-semibold uppercase text-gray-700">Expertly Curated Content</h3>
+				<h3 class="text-md font-semibold uppercase text-gray-700">Expertly Curated Content</h3>
 				<p class="pl-2 text-gray-500">
 					Our courses are crafted by industry professionals with years of experience, ensuring you
 					receive top-notch, relevant content. Each course is designed to provide clear, concise,
@@ -54,7 +54,7 @@
 				</p>
 			</li>
 			<li>
-				<h3 class="text-lg font-semibold uppercase text-gray-700">Hands-On, Practical Learning</h3>
+				<h3 class="text-md font-semibold uppercase text-gray-700">Hands-On, Practical Learning</h3>
 				<p class="pl-2 text-gray-500">
 					Apply what you learn immediately with practical exercises, quizzes, and real-world
 					projects. Our approach ensures you gain hands-on experience, helping you build a portfolio
@@ -62,7 +62,7 @@
 				</p>
 			</li>
 			<li>
-				<h3 class="text-lg font-semibold uppercase text-gray-700">
+				<h3 class="text-md font-semibold uppercase text-gray-700">
 					Interactive and Engaging Materials
 				</h3>
 				<p class="pl-2 text-gray-500">
@@ -71,7 +71,7 @@
 				</p>
 			</li>
 			<li>
-				<h3 class="text-lg font-semibold uppercase text-gray-700">
+				<h3 class="text-md font-semibold uppercase text-gray-700">
 					Structured Learning Paths for All Levels
 				</h3>
 				<p class="pl-2 text-gray-500">
@@ -81,7 +81,7 @@
 				</p>
 			</li>
 			<li>
-				<h3 class="text-lg font-semibold uppercase text-gray-700">
+				<h3 class="text-md font-semibold uppercase text-gray-700">
 					Lifetime Access to Course Materials
 				</h3>
 				<p class="pl-2 text-gray-500">
@@ -90,7 +90,7 @@
 				</p>
 			</li>
 			<li>
-				<h3 class="text-lg font-semibold uppercase text-gray-700">Certificate of Completion</h3>
+				<h3 class="text-md font-semibold uppercase text-gray-700">Certificate of Completion</h3>
 				<p class="pl-2 text-gray-500">
 					Earn a certificate upon finishing each course to showcase your achievements. These
 					certificates help validate your skills to employers and can be added to your resume or
@@ -98,7 +98,7 @@
 				</p>
 			</li>
 			<li>
-				<h3 class="text-lg font-semibold uppercase text-gray-700">
+				<h3 class="text-md font-semibold uppercase text-gray-700">
 					Affordable, High-Quality Education
 				</h3>
 				<p class="pl-2 text-gray-500">
@@ -108,7 +108,7 @@
 				</p>
 			</li>
 			<li>
-				<h3 class="text-lg font-semibold uppercase text-gray-700">
+				<h3 class="text-md font-semibold uppercase text-gray-700">
 					Continuous Learning and Resource Updates
 				</h3>
 				<p class="pl-2 text-gray-500">
@@ -118,7 +118,7 @@
 				</p>
 			</li>
 			<li>
-				<h3 class="text-lg font-semibold uppercase text-gray-700">
+				<h3 class="text-md font-semibold uppercase text-gray-700">
 					Access to a Supportive Community
 				</h3>
 				<p class="pl-2 text-gray-500">
@@ -145,7 +145,7 @@
 		</p>
 
 		<div class="p-8">
-			<h3 class="text-center text-lg font-semibold uppercase text-gray-700">Featured</h3>
+			<h3 class="text-md text-center font-semibold uppercase text-gray-700">Featured</h3>
 			<div class="grid grid-cols-3 gap-2 md:gap-x-12 md:gap-y-4 xl:gap-x-16 xl:gap-y-6">
 				{#each Object.keys(lessons) as section}
 					{#each lessons[section] as lesson}

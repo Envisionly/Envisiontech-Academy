@@ -41,7 +41,7 @@
 		{#each category.lessons as section}
 			<!-- svelte-ignore attribute_quoted -->
 			<wa-details class="font-bold drop-shadow-md">
-				<h3 class="text-lg uppercase" slot="summary">{section.section}</h3>
+				<h3 class="text-md uppercase" slot="summary">{section.section}</h3>
 				<ul class=" text-md font-normal">
 					{#each section.lessons as lesson}
 						<li

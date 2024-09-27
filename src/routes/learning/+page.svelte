@@ -121,7 +121,7 @@
 						class="size-16 rounded-full object-cover"
 					/>
 					<div>
-						<h3 class="text-lg font-bold">{course.subCategory}</h3>
+						<h3 class="text-md font-bold">{course.subCategory}</h3>
 						<p class="mt-1 text-sm">{course.description}</p>
 					</div>
 				</section>
