@@ -1,4 +1,6 @@
 <script lang="ts">
+	import CourseContent from '$components/CourseContent.svelte';
+	import CourseDivider from '$components/CourseDivider.svelte';
 	import MultipleChoice from '$components/MultipleChoice.svelte';
 </script>
 
@@ -11,55 +13,46 @@
 	<meta name="author" content="Paul Geoghegan" />
 </svelte:head>
 
-<h2 class="font-bold text-xl">HTML Tags</h2>
-<p>
-	HTML tags are the building blocks of a web page. They tell the web browser how to structure the
-	content and what each piece of content represents. Tags are enclosed in angle brackets &lt; and
-	&gt;, and most tags come in pairs: an opening tag and a closing tag.
-</p>
+<article class="flex flex-col gap-6 px-8 py-4 md:gap-9 md:px-12 md:py-6 xl:gap-12 xl:px-16 xl:py-8">
+	<CourseContent
+		content={[
+			{ type: 'heading', text: 'HTML Tags' },
+			{
+				type: 'paragraph',
+				text: `HTML tags are the building blocks of a web page. They tell the web browser how to structure the content and what each piece of content represents. Tags are enclosed in angle brackets '<' and '>', and most tags come in pairs: an opening tag and a closing tag.`
+			},
+			{
+				type: 'paragraph',
+				text: `Opening tags are always just a  '<' the name of the tag and then a '>' like: <tagName>`
+			},
+			{
+				type: 'paragraph',
+				text: `Closing tags are the same as opening tags, but with a '/' before the tag name like: </tagName>`
+			},
+			{ type: 'paragraph', text: `Here are some common HTML tags:` },
+			{
+				type: 'list',
+				text: [
+					'<h1> to <h6> - Headings',
+					'<p> - Paragraph',
+					'<a> - Anchor (link)',
+					'<img> - Image',
+					'<ul> - Unordered List (bulleted list)',
+					'<ol> - Ordered List (numbered list)',
+					'<table> - Table'
+				]
+			}
+		]}
+	/>
 
-<p>
-	Opening tags are always just a <code>'&lt'</code> the name of the tag and then a '&gt' like: <code class="font-bold"
-		>&lt;tagName&gt;</code
-	>
-</p>
-<p>
-	Closing tags are the same as opening tags, but with a '/' before the tag name like: <code class="font-bold"
-		>&lt;/tagName&gt;</code
-	>
-</p>
-<br>
-<p class="text-lg font-bold">Here are some common HTML tags:</p>
+	<CourseDivider />
 
-<ul>
-	<li>
-		<code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> - Headings
-	</li>
-	<li>
-		<code>&lt;p&gt;</code> - Paragraph
-	</li>
-	<li>
-		<code>&lt;a&gt;</code> - Anchor (link)
-	</li>
-	<li>
-		<code>&lt;img&gt;</code> - Image
-	</li>
-	<li>
-		<code>&lt;ul&gt;</code> - Unordered List (bulleted list)
-	</li>
-	<li>
-		<code>&lt;ol&gt;</code> - Ordered List (numbered list)
-	</li>
-	<li>
-		<code>&lt;table&gt;</code> - Table
-	</li>
-</ul>
-<br>
-<h2 class="font-bold text-lg underline">Exercise</h2>
+	<CourseContent content={[{ type: 'subHeading', text: 'Exercise' }]} />
 
-<MultipleChoice
-	question="Which ones are opening tags?"
-	choices={['<h1>', '</h1>', '</h2>', '</h1>', '<p>']}
-	answerList={['<h1>', '<p>']}
-	multiSelect={true}
-/>
+	<MultipleChoice
+		question="Which ones are opening tags?"
+		choices={['<h1>', '</h1>', '</h2>', '</h1>', '<p>']}
+		answerList={['<h1>', '<p>']}
+		multiSelect={true}
+	/>
+</article>

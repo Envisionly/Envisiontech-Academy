@@ -38,7 +38,6 @@
 
 		let lessonsCategory = lessons[category as keyof typeof lessons];
 		if (!lessonsCategory) {
-			console.error(`Category ${category} not found in lessons`);
 			return;
 		}
 		let lessonsSubCategory = lessonsCategory.find(
