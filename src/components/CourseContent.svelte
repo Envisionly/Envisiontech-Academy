@@ -1,6 +1,7 @@
 <script lang="ts">
+	import ContentBlock from './ContentBlock.svelte';
 	export let content: Array<{
-		type: 'heading' | 'subHeading' | 'description' | 'paragraph' | 'list';
+		type: 'heading' | 'subHeading' | 'description' | 'paragraph' | 'list' | 'snippet';
 		text:
 			| string
 			| Array<string>
@@ -10,6 +11,10 @@
 					icon: string;
 					iconFamily?: string;
 					iconDescription: string;
+			  }>
+			| Array<{
+					language: string;
+					content: string;
 			  }>;
 	}>;
 </script>
@@ -41,7 +46,7 @@
 						{#if typeof item === 'string'}
 							<span class="fa-light fa-arrow-right" aria-label="Right Arrow"></span>
 							<span>{item}</span>
-						{:else}
+						{:else if item instanceof Object && 'item' in item && 'icon' in item && 'iconDescription' in item}
 							<span
 								class={`fa-${item.iconFamily ? item.iconFamily : 'light'} fa-${item.icon}`}
 								aria-label={item.iconDescription}
@@ -59,6 +64,8 @@
 					</li>
 				{/each}
 			</ul>
+		{:else if type === 'snippet' && Array.isArray(text) && text.every((item) => typeof item === 'object' && 'language' in item && 'content' in item)}
+			<ContentBlock contentList={text} />
 		{/if}
 	{/each}
 </section>

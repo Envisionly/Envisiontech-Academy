@@ -99,56 +99,85 @@
 
 	<CourseDivider />
 
-	<h2 class="text-xl font-bold">What is a text editor?</h2>
-	<p>
-		A text editor is a program that allows you to write and edit plain text. It's different from a
-		word processor like Microsoft Word because it doesn't add formatting to the text. Text editors
-		are used for writing code, configuration files, and other types of text-based documents.
-	</p>
-	<br />
-	<h2 class="text-xl font-bold">Writing Basic HTML</h2>
-	<p>
-		HTML documents are made up of elements, which are enclosed in tags. Tags are keywords surrounded
-		by angle brackets (&lt; and &gt;). The opening tag marks the beginning of an element, and the
-		closing tag marks the end.
-	</p>
-	<p>Here's an example of a simple HTML document:</p>
-
-	<!-- an example of some basic tags-->
-	<br />
-	<ContentBlock
-		name="Basic HTML Tags"
-		contentList={[
+	<CourseContent
+		content={[
+			{ type: 'subHeading', text: 'What is a text editor?' },
 			{
-				language: 'HTML',
-				content: `
-<h1>This is a Heading</h1>
-<p>This is a paragraph.</p>
-`
+				type: 'paragraph',
+				text: `A text editor is a program that allows you to write and edit plain text. It's different from a word processor like Microsoft Word because it doesn't add formatting to the text. Text editors are used for writing code, configuration files, and other types of text-based documents.`
 			}
 		]}
 	/>
-	<br />
-	<p>Let's break down the example above:</p>
-	<ul>
-		<li>
-			<code class="font-bold">&lt;h1&gt;</code> is an opening tag that defines a heading. The content
-			between the tags is the heading text.
-		</li>
-		<li>
-			<code class="font-bold">&lt;/h1&gt;</code> is a closing tag that marks the end of the heading element.
-		</li>
-		<li>
-			<code class="font-bold">&lt;p&gt;</code> is an opening tag that defines a paragraph. The content
-			between the tags is the paragraph text.
-		</li>
-		<li>
-			<code class="font-bold">&lt;/p&gt;</code> is a closing tag that marks the end of the paragraph
-			element.
-		</li>
-	</ul>
-	<br />
-	<h2 class="text-xl font-bold underline">Exercise</h2>
+
+	<CourseDivider />
+
+	<CourseContent
+		content={[
+			{ type: 'subHeading', text: 'Writing Basic HTML' },
+			{
+				type: 'paragraph',
+				text: `HTML documents are made up of elements, which are enclosed in tags. Tags are keywords surrounded by angle brackets (< and >). The opening tag marks the beginning of an element, and the closing tag marks the end.`
+			}
+		]}
+	/>
+
+	<CourseDivider />
+
+	<CourseContent
+		content={[
+			{ type: 'subHeading', text: 'Basic HTML Tags' },
+			{
+				type: 'snippet',
+				text: [
+					{
+						language: 'HTML',
+						content: `
+<h1>This is a Heading</h1>
+<p>This is a paragraph.</p>
+`
+					}
+				]
+			}
+		]}
+	/>
+
+	<CourseDivider />
+
+	<CourseContent
+		content={[
+			{ type: 'subHeading', text: 'Explanation' },
+			{ type: 'paragraph', text: "Let's break down the example above:" },
+			{
+				type: 'list',
+				text: [
+					{
+						item: '<h1> is an opening tag that defines a heading. The content between the tags is the heading text.',
+						icon: 'tag',
+						iconDescription: 'HTML Tag'
+					},
+					{
+						item: '</h1> is a closing tag that marks the end of the heading element.',
+						icon: 'tag',
+						iconDescription: 'HTML Tag'
+					},
+					{
+						item: '<p> is an opening tag that defines a paragraph. The content between the tags is the paragraph text.',
+						icon: 'tag',
+						iconDescription: 'HTML Tag'
+					},
+					{
+						item: '</p> is a closing tag that marks the end of a paragraph element.',
+						icon: 'tag',
+						iconDescription: 'HTML Tag'
+					}
+				]
+			}
+		]}
+	/>
+
+	<CourseDivider />
+
+	<CourseContent content={[{ type: 'subHeading', text: 'Exercise' }]} />
 
 	<MultipleChoice
 		question="What is a text editor used for?"
