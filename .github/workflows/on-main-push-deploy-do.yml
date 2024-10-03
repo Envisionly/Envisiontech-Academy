@@ -1,0 +1,71 @@
+name: Build and Deploy SvelteKit App
+
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: npm install
+      - name: Get the ENV variables
+        env:
+          DOTENV_KEY: ${{ secrets.DOTENV_KEY }}
+        run: npx dotenv-vault decrypt ${{secrets.DOTENV_KEY}} > .env
+      - name: Build the project
+        env:
+          DOTENV_KEY: ${{ secrets.DOTENV_KEY }}
+        run: npm run build
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: repo
+          path: |
+            build/
+            package.json
+            .npmrc
+            package-lock.json
+            pm2.config.cjs
+            .env.vault
+
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: repo
+          path: .
+      - name: Transfer build artifacts to DigitalOcean Droplet
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          source: '*'
+          target: '/home/${{ secrets.USERNAME }}/Envisiontech-Academy'
+      - name: Clean up old build and reload application
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          script: |
+            cd /home/${{ secrets.USERNAME }}/Envisiontech-Academy
+            # Reload the application to apply the new build
+            npm install
+            npx dotenv-vault pull production
+            pm2 reload all
+            echo 'Deployment to Digital Ocean finished'
