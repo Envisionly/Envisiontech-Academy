@@ -5,7 +5,7 @@
 
 <svelte:head>
 	<title>Images</title>
-	<meta name="description" content="Learn how to utilise in HTML in this free course." />
+	<meta name="description" content="Learn how to utilize in HTML in this free course." />
 	<meta name="author" content="Paul Geoghegan" />
 </svelte:head>
 
