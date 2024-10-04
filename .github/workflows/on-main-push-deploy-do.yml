@@ -11,20 +11,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Bun.js
-        uses: oven-sh/setup-bun@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          bun-version: 'latest'
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: npm install
       - name: Get the ENV variables
         env:
           DOTENV_KEY: ${{ secrets.DOTENV_KEY }}
-        run: bunx dotenv-vault decrypt ${{secrets.DOTENV_KEY}} > .env
-      - name: Install dependencies
-        run: bun install
+        run: npx dotenv-vault decrypt ${{secrets.DOTENV_KEY}} > .env
       - name: Build the project
         env:
           DOTENV_KEY: ${{ secrets.DOTENV_KEY }}
-        run: bun run build
+        run: npm run build
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -32,9 +32,8 @@ jobs:
           path: |
             build/
             package.json
-            .sentryclirc
-            bunfig.toml
-            bun.lockb
+            .npmrc
+            package-lock.json
             pm2.config.cjs
             .env.vault
 
