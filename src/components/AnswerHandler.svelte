@@ -11,17 +11,25 @@
 	let { correct, showAnswer, answer, evaluateAnswer }: PropsType = $props();
 </script>
 
-<button onclick={evaluateAnswer} disabled={showAnswer || correct}>Check Answer</button>
-<button onclick={() => (showAnswer = !showAnswer)}
-	>{showAnswer ? 'Hide Answer' : 'Show Answer'}</button
+<button
+    class="px-4 py-2 bg-envisionlyBlue text-white rounded-md hover:bg-envisionlyLightBlue focus:bg-envisionlyLightBlue active:bg-envisionlyLightBlue disabled:bg-envisionlyTransparentBlue disabled:cursor-not-allowed transition duration-200"
+    onclick={evaluateAnswer}
+    disabled={showAnswer || correct}
 >
-
+    Check Answer
+</button>
+<button
+    class="px-4 py-2 bg-envisionlyGold text-white rounded-md hover:bg-envisionlyTransparentGold focus:bg-envisionlyTransparentGold active:bg-envisionlyTransparentGold transition duration-200"
+    onclick={() => (showAnswer = !showAnswer)}
+>
+    {showAnswer ? 'Hide Answer' : 'Show Answer'}
+</button>
 <div aria-live="polite">
 	{#if showAnswer}
 		{@render answer()}
 	{:else if correct}
-		<p style="color: green;">Correct!</p>
+		<p style="color: green;" class="font-bold">Correct!</p>
 	{:else if correct === false}
-		<p style="color: red;">Incorrect</p>
+		<p style="color: red;" class="font-bold">Incorrect</p>
 	{/if}
 </div>
