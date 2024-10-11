@@ -1,5 +1,5 @@
 module.exports = {
-    name: 'Eapp-name',
+    name: 'Envisiontech-Academy',
     script: './index.js',
     interpreter: 'bun' //only needed for bun apps
 };
