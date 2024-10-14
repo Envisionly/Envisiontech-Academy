@@ -1,9 +1,9 @@
 <script lang="ts">
-	let dialog: any;
+	let dialog: HTMLDialogElement;
 
 	function openDialog() {
 		if (dialog) {
-			dialog.open = true;
+			dialog.showModal();
 		} else {
 			console.error('Dialog element is not defined');
 		}
@@ -11,7 +11,7 @@
 
 	function closeDialog() {
 		if (dialog) {
-			dialog.open = false;
+			dialog.close();
 		} else {
 			console.error('Dialog element is not defined');
 		}
@@ -29,7 +29,7 @@
 	>Sign up to our Newsletter</button
 >
 
-<wa-dialog style="--spacing:0;" lightDismiss bind:this={dialog}>
+<dialog bind:this={dialog}>
 	<div class="flex justify-end">
 		<button
 			onclick={closeDialog}
@@ -81,4 +81,4 @@
 			>Sign Up</button
 		>
 	</form>
-</wa-dialog>
+</dialog>
