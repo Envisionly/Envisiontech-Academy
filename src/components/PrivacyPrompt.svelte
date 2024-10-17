@@ -21,6 +21,9 @@
 			console.error('Dialog element is not defined');
 		}
 	}
+    function rejectDialog() {
+       close();
+    }
 
     function acceptPolicy() {
     localStorage.setItem('privacyPolicyAccepted', 'true');
@@ -28,21 +31,24 @@
   }
   </script>
   
-<dialog bind:this={dialog} class="dialog-box">
+<dialog bind:this={dialog} class="rounded-lg shadow-lg mx-auto w-1/2">
     <div class="flex justify-end">
         <button
-        onclick={closeDialog}
+        onclick={rejectDialog}
         class="rounded-bl-xl bg-envisionlyLightBlue px-3 py-1 text-white hover:bg-envisionlyGold focus:bg-envisionlyGold active:bg-envisionlyTransparentGold"
         aria-label="Close">
             <span class="fa-light fa-times"></span>
         </button>
     </div>
-    <h1 class="mb-2 border-b border-gray-500 pb-2 text-center text-xl font-semibold uppercase sm:text-2xl"
+    <h1 class="mb-4 border-b border-gray-500 pb-2 text-center text-xl font-semibold uppercase sm:text-2xl"
     >Privacy Policy</h1>
-    <p class="dialog-content">
-        Please accept our privacy policy to continue using our site. You can read our full <a href="/privacy" class="text-envisionlyBlue" target="_blank" rel="noopener noreferrer">privacy policy</a>.
+    <p class="text-center text-sm text-gray-700">
+        Please accept our <a href="/privacy" class="text-envisionlyBlue" target="_blank" rel="noopener noreferrer">privacy policy</a> to continue using our site.
     </p>
-    <button class="dialog-button" onclick={acceptPolicy}>
-        Accept
-    </button>
+    <button
+    class="block mx-auto mt-6 w-fit rounded-xl bg-envisionlyLightBlue px-6 py-3 text-white hover:bg-envisionlyGold focus:bg-envisionlyGold active:bg-envisionlyTransparentGold"
+    onclick={acceptPolicy}
+  >
+    Accept
+  </button>
 </dialog>
