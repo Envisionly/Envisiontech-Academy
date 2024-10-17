@@ -29,7 +29,7 @@
 	>Sign up to our Newsletter</button
 >
 
-<dialog bind:this={dialog}>
+<dialog bind:this={dialog} class="rounded-lg">
 	<div class="flex justify-end">
 		<button
 			onclick={closeDialog}
