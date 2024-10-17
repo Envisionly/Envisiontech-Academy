@@ -40,11 +40,11 @@
             <span class="fa-light fa-times"></span>
         </button>
     </div>
-    <h1 class="mb-4 border-b border-gray-500 pb-2 text-center text-xl font-semibold uppercase sm:text-2xl"
+    <h1 class="mb-4 border-b border-gray-500 pb-2 text-center text-lg font-semibold uppercase sm:text-2xl"
     >Privacy Policy</h1>
     <p class="text-center text-sm text-gray-700">
-        Please accept our <a href="/privacy" class="text-envisionlyBlue" target="_blank" rel="noopener noreferrer">privacy policy</a> to continue using our site.
-    </p>
+        To continue using our site, please review and accept our <a href="/privacy" class="text-envisionlyBlue" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
+      </p>
     <button
     class="block mx-auto mt-6 w-fit rounded-xl bg-envisionlyLightBlue px-6 py-3 text-white hover:bg-envisionlyGold focus:bg-envisionlyGold active:bg-envisionlyTransparentGold"
     onclick={acceptPolicy}
