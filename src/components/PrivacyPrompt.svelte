@@ -37,7 +37,8 @@
             <span class="fa-light fa-times"></span>
         </button>
     </div>
-    <h1 class="dialog-title">Privacy Policy</h1>
+    <h1 class="mb-2 border-b border-gray-500 pb-2 text-center text-xl font-semibold uppercase sm:text-2xl"
+    >Privacy Policy</h1>
     <p class="dialog-content">
         Please accept our privacy policy to continue using our site. You can read our full <a href="/privacy" class="text-envisionlyBlue" target="_blank" rel="noopener noreferrer">privacy policy</a>.
     </p>
