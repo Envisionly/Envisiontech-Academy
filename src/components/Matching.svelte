@@ -34,8 +34,8 @@
 	};
 </script>
 
-<fieldset>
-	<legend>{question}</legend>
+<fieldset class="p-4 border border-gray-300 rounded-md shadow-sm bg-gray-50">
+	<legend class="question text-xl font-mono font-semibold mb-4 text-gray-800">{question}</legend>
 	<div id="matchList">
 		{#each choices.list1 as choice, i}
 			<div
@@ -93,10 +93,10 @@
 			</div>
 		{/each}
 	</div>
-	<section id="optionList" aria-label="Options List">
+	<section id="optionList" aria-label="Options List" class="flex flex-wrap justify-between mt-4">
 		{#each tempMatchList as choice}
 			<button
-				hidden={userAnswers.includes(choice)}
+			class="optionButton p-2 m-2 bg-white text-black border-2 border-black hover:bg-gray-200 focus:bg-gray-300 active:bg-gray-400 transition duration-200"				hidden={userAnswers.includes(choice)}
 				onclick={() => {
 					userAnswers[currentPosition] = choice;
 					currentPosition = getNextBlankPosition();
@@ -148,5 +148,9 @@
 		min-width: 1rem;
 		min-height: 1rem;
 		border: 1px solid black;
+	}
+
+	.optionButton {
+		display: inline-block;
 	}
 </style>

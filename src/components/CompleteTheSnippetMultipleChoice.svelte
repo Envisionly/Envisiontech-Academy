@@ -32,12 +32,12 @@
 	getCorrectSnippet();
 </script>
 
-<fieldset>
-	<legend>{question}</legend>
+<fieldset class="p-4 border border-gray-300 rounded-md shadow-sm bg-gray-50">
+	<legend class="question text-xl font-mono font-semibold mb-4 text-gray-800">{question}</legend>
 	{#each parts as part, i}
 		{#if i < parts.length - 1}
 			<pre><code
-					>{part}<select
+					>{part}<select 
 						aria-label={`Answer ${i + 1}`}
 						disabled={showAnswer || correct}
 						bind:value={userAnswers[i]}>
