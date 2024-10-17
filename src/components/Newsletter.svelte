@@ -70,9 +70,9 @@
 			<div>
 				<label for="accept" class="text-left text-sm text-gray-700">
 					By checking this box, you agree to our
-					<a href="/terms" class="text-envisionlyBlue">terms and conditions</a> and
-					<a href="/privacy" class="text-envisionlyBlue">privacy policy</a>
-				</label>
+					<a href="/terms" class="text-envisionlyBlue" target="_blank" rel="noopener noreferrer">terms and conditions</a> and
+					<a href="/privacy" class="text-envisionlyBlue" target="_blank" rel="noopener noreferrer">privacy policy</a>
+				  </label>
 			</div>
 		</div>
 
