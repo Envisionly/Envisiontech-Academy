@@ -1,15 +1,12 @@
 <script lang="ts">
 	type PropsType = {
-		name: string;
-		blockType?: string;
 		contentList: { language: string; content: string }[];
 	};
 
-	let { name, blockType = 'Code Snippet', contentList }: PropsType = $props();
+	let { contentList }: PropsType = $props();
 	let contentSelected = $state(0);
 </script>
 
-<h2>{name}</h2>
 <div class="contentSection">
 	<fieldset aria-label="Content Controls">
 		{#each contentList as content, index}
