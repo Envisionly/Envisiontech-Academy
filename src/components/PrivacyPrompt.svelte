@@ -7,11 +7,12 @@
     const accepted = localStorage.getItem('privacyPolicyAccepted');
     if (!accepted) {
       showDialog = true;
-      dialog.showModal();
-    } else {
-      showDialog = false;
     }
   });
+
+  $: if (showDialog && dialog) {
+    dialog.showModal();
+  }
 
     function closeDialog() {
 		if (dialog) {
