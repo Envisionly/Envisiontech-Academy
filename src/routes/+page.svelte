@@ -174,7 +174,7 @@
 		</h2>
 
 		<p class="text-lg font-medium">
-			Ready to level up your skills? Sign up for a free account and explore our courses. Whether
+			Ready to level up your skills? <a href="/signup">Sign up</a> for a free account and explore our courses. Whether
 			learning a new skill, advancing your career, or starting a venture, we’ve got the resources to
 			help you succeed. Join our community and transform your future with Envisiontech Academy.
 		</p>
