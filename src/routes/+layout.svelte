@@ -33,7 +33,7 @@
 		</div>
 		<div class="hidden sm:flex">
 			{#if data.isLoggedIn}
-				<button onclick={() => goto('/login')}>Login</button>
+				<button onclick={() => goto('/login')}>Sign In</button>
 			{:else}
 				<button onclick={() => goto('/user')}>User</button>
 			{/if}
