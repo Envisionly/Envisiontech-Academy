@@ -5,7 +5,8 @@
 	import Newsletter from '$components/Newsletter.svelte';
 	import DesktopNavbar from '$components/DesktopNav.svelte';
 	import MobileNavbar from '$components/MobileNav.svelte';
-	const { children } = $props();
+	import { goto } from '$app/navigation';
+	const { children, data } = $props();
 </script>
 
 <header
@@ -30,6 +31,14 @@
 		<div class="sm:hidden">
 			<MobileNavbar />
 		</div>
+		<div class="hidden sm:flex">
+			{#if data.isLoggedIn}
+				<button onclick={() => goto('/login')}>Login</button>
+			{:else}
+				<button onclick={() => goto('/user')}>User</button>
+			{/if}
+		</div>
+
 		<div class="my-auto hidden sm:flex">
 			<DesktopNavbar />
 		</div>

@@ -4,8 +4,13 @@
 	const { data } = $props();
 </script>
 
-<h1>User page</h1>
+<svelte:head>
+	<title>User profile</title>
+</svelte:head>
+
+<h1>User profile</h1>
 <p>Welcome, {data.user?.username}!</p>
+<p>Member since: {new Date(data.user?.createdAt).toDateString()}</p>
 
 <form method="post" use:enhance>
 	<button>Sign out</button>
