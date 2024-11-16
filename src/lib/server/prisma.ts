@@ -4,12 +4,14 @@ export const prismaClient = new PrismaClient();
 
 export async function createUserFromGitHub(user: {
 	id: string;
+	email: string;
 	github_id: number;
 	username: string;
 }) {
 	return prismaClient.user.create({
 		data: {
 			id: user.id,
+			email: user.email,
 			github_id: user.github_id,
 			username: user.username
 		}

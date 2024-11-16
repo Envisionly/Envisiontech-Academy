@@ -9,8 +9,13 @@
 </svelte:head>
 
 <h1>User profile</h1>
-<p>Welcome, {data.user?.username}!</p>
-<p>Member since: {new Date(data.user?.createdAt).toDateString()}</p>
+{#if data.user}
+	<p>Welcome, {data.user?.username}!</p>
+	<p>Email: {data.user.email}</p>
+	<p>Member since: {new Date(data.user?.createdAt).toDateString()}</p>
+{:else}
+	<p>Something went wrong while trying to load your profile!</p>
+{/if}
 
 <form method="post" use:enhance>
 	<button>Sign out</button>

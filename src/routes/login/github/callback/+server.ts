@@ -39,6 +39,7 @@ export async function GET(event: RequestEvent): Promise<Response> {
 
 			await createUserFromGitHub({
 				id: userId,
+				email: githubUser.email,
 				github_id: githubUser.id,
 				username: githubUser.login
 			});
@@ -73,5 +74,6 @@ export async function GET(event: RequestEvent): Promise<Response> {
 
 interface GitHubUser {
 	id: number;
+	email: string;
 	login: string;
 }
