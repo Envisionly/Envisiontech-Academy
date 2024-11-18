@@ -1,7 +1,20 @@
 <script lang="ts">
-	import { enhance } from '$app/forms';
-
 	const { data } = $props();
+	let dialog: HTMLDialogElement | null = $state(null);
+
+	async function signOut() {
+		const response = await fetch('/api/user/sign-out', { method: 'get' });
+		if (response.ok) {
+			location.href = '/';
+		}
+	}
+
+	async function deleteAccount() {
+		const response = await fetch('/api/user/delete-account', { method: 'delete' });
+		if (response.ok) {
+			location.href = '/';
+		}
+	}
 </script>
 
 <svelte:head>
@@ -19,10 +32,31 @@
 			<li><span class="fa-brands fa-github" aria-label="GitHub"></span></li>
 		{/if}
 	</ul>
+
+	<h2>Actions</h2>
+	<button onclick={signOut}>Sign out</button>
+	<button
+		onclick={() => {
+			if (dialog) dialog.showModal();
+		}}>Delete account</button
+	>
+
+	<dialog
+		bind:this={dialog}
+		aria-labelledby="Delete account"
+		aria-describedby="Are you sure you want to delete your account?"
+	>
+		<h2 id="Delete account">Delete account</h2>
+		<p id="Are you sure you want to delete your account?">
+			Are you sure you want to delete your account?
+		</p>
+		<button onclick={deleteAccount}>Yes, delete my account</button>
+		<button
+			onclick={() => {
+				if (dialog) dialog.close();
+			}}>No, keep my account</button
+		>
+	</dialog>
 {:else}
 	<p>Something went wrong while trying to load your profile!</p>
 {/if}
-
-<form method="post" use:enhance>
-	<button>Sign out</button>
-</form>
