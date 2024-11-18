@@ -18,6 +18,14 @@ export async function createUserFromGitHub(user: {
 	});
 }
 
+export async function deleteUserById(id: string) {
+	return prismaClient.user.delete({
+		where: {
+			id
+		}
+	});
+}
+
 export async function getUserById(id: string) {
 	return prismaClient.user.findFirst({
 		where: {
