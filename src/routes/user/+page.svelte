@@ -1,18 +1,32 @@
 <script lang="ts">
+	import { toasts } from '$stores/toasts';
+
 	const { data } = $props();
 	let dialog: HTMLDialogElement | null = $state(null);
 
 	async function signOut() {
 		const response = await fetch('/api/user/sign-out', { method: 'get' });
 		if (response.ok) {
+			toasts.add({ type: 'success', message: 'You have been signed out!' });
 			location.href = '/';
+		} else {
+			toasts.add({
+				type: 'error',
+				message: 'Something went wrong while trying to sign you out!'
+			});
 		}
 	}
 
 	async function deleteAccount() {
 		const response = await fetch('/api/user/delete-account', { method: 'delete' });
 		if (response.ok) {
+			toasts.add({ type: 'success', message: 'Your account has been deleted!' });
 			location.href = '/';
+		} else {
+			toasts.add({
+				type: 'error',
+				message: 'Something went wrong while trying to delete your account!'
+			});
 		}
 	}
 </script>
