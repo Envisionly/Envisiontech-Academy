@@ -6,8 +6,12 @@
 	import DesktopNavbar from '$components/DesktopNav.svelte';
 	import MobileNavbar from '$components/MobileNav.svelte';
 	import { goto } from '$app/navigation';
+	import ToastHolder from '$components/toastHolder.svelte';
+
 	const { children, data } = $props();
 </script>
+
+<ToastHolder />
 
 <header
 	class="flex h-fit bg-gray-100 p-3.5 sm:fixed sm:h-full sm:w-[20%] sm:flex-col sm:divide-y sm:divide-gray-300 sm:overflow-y-auto"
