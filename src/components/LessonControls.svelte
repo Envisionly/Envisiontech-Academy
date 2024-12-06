@@ -30,7 +30,7 @@
 	function getLessons() {
 		let URL: String = $page.url.pathname;
 		//Removes the /lessons/ from the URL
-		URL = URL.replace('/lessons/', '');
+		URL = URL.split('/').slice(2).join('/');
 		let category: String = URL.split('/')[0];
 		let subCategory: String = category + '/' + URL.split('/')[1];
 		let section: String = URL.split('/')[2];
@@ -117,6 +117,7 @@
 </script>
 
 {#if currentLesson}
+	<h3 class="sr-only">Lesson Navigation</h3>
 	{#if previousLesson !== undefined}
 		<button onclick={() => goto(previousLesson?.slug as string)}
 			>Previous: {previousLesson.title}</button
