@@ -5,8 +5,13 @@
 	import Newsletter from '$components/Newsletter.svelte';
 	import DesktopNavbar from '$components/DesktopNav.svelte';
 	import MobileNavbar from '$components/MobileNav.svelte';
-	const { children } = $props();
+	import { goto } from '$app/navigation';
+	import ToastHolder from '$components/toastHolder.svelte';
+
+	const { children, data } = $props();
 </script>
+
+<ToastHolder />
 
 <header
 	class="flex h-fit bg-gray-100 p-3.5 sm:fixed sm:h-full sm:w-[20%] sm:flex-col sm:divide-y sm:divide-gray-300 sm:overflow-y-auto"
@@ -30,6 +35,14 @@
 		<div class="sm:hidden">
 			<MobileNavbar />
 		</div>
+		<div class="hidden sm:flex">
+			{#if data.isLoggedIn}
+				<button onclick={() => goto('/login')}>Sign In</button>
+			{:else}
+				<button onclick={() => goto('/user')}>User</button>
+			{/if}
+		</div>
+
 		<div class="my-auto hidden sm:flex">
 			<DesktopNavbar />
 		</div>
