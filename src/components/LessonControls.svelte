@@ -29,7 +29,7 @@
 
 	function getLessons() {
 		let URL: String = $page.url.pathname;
-		//Removes the /lessons/ from the URL
+		//Removes the /learning/ from the URL
 		URL = URL.split('/').slice(2).join('/');
 		let category: String = URL.split('/')[0];
 		let subCategory: String = category + '/' + URL.split('/')[1];
@@ -51,7 +51,7 @@
 			console.error('Lesson not found');
 			return;
 		}
-		let fullURL = '/lessons/' + subCategory + '/' + section + '/';
+		let fullURL = '/learning/' + subCategory + '/' + section + '/';
 		getNextCurrentAndPrevious(lessonIndex, lessonsSection, lessonsSubCategory, fullURL);
 		currentPosition = lessonIndex + 1;
 		maxPosition = lessonsSection?.lessons.length as number;
@@ -80,7 +80,7 @@
 				previousLesson = {
 					title: `${tempLessonsSubcategory.lessons[previousSection - 1].section} - ${tempLessonsSubcategory.lessons[previousSection - 1].lessons[tempLessonsSubcategory.lessons[previousSection - 1].lessons.length - 1].title}`,
 					slug:
-						'/lessons/' +
+						'/learning/' +
 						tempLessonsSubcategory.subCategorySlug +
 						'/' +
 						tempLessonsSubcategory.lessons[previousSection - 1].sectionSlug +
@@ -104,7 +104,7 @@
 				nextLesson = {
 					title: `${tempLessonsSubcategory.lessons[nextSection + 1].section} - ${tempLessonsSubcategory.lessons[nextSection + 1].lessons[0].title}`,
 					slug:
-						'/lessons/' +
+						'/learning/' +
 						tempLessonsSubcategory.subCategorySlug +
 						'/' +
 						tempLessonsSubcategory.lessons[nextSection + 1].sectionSlug +
