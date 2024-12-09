@@ -32,6 +32,7 @@ jobs:
           path: |
             build/
             package.json
+            prisma/
             .sentryclirc
             bunfig.toml
             bun.lockb
