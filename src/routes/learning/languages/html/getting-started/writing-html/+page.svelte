@@ -1,8 +1,8 @@
 <script lang="ts">
-	import CourseDivider from '$components/CourseDivider.svelte';
-	import CourseContent from '$components/CourseContent.svelte';
-	import ContentBlock from '$components/ContentBlock.svelte';
-	import MultipleChoice from '$components/MultipleChoice.svelte';
+	import CourseDivider from '$components/content/CourseDivider.svelte';
+	import CourseContent from '$components/content/CourseContent.svelte';
+	import ContentBlock from '$components/content/ContentBlock.svelte';
+	import MultipleChoice from '$components/content/interactive/MultipleChoice.svelte';
 </script>
 
 <svelte:head>
