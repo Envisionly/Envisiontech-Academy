@@ -1,9 +1,9 @@
 <script lang="ts">
-	import CourseContent from '$components/CourseContent.svelte';
-	import CourseDivider from '$components/CourseDivider.svelte';
-	import CompleteTheSnippetMultipleChoice from '$components/CompleteTheSnippetMultipleChoice.svelte';
-	import Matching from '$components/Matching.svelte';
-	import MultipleChoice from '$components/MultipleChoice.svelte';
+	import CourseContent from '$components/content/CourseContent.svelte';
+	import CourseDivider from '$components/content/CourseDivider.svelte';
+	import CompleteTheSnippetMultipleChoice from '$components/content/interactive/CompleteTheSnippetMultipleChoice.svelte';
+	import Matching from '$components/content/interactive/Matching.svelte';
+	import MultipleChoice from '$components/content/interactive/MultipleChoice.svelte';
 </script>
 
 <svelte:head>
