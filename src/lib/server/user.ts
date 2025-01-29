@@ -1,6 +1,4 @@
-import { PrismaClient } from '@prisma/client';
-
-export const prismaClient = new PrismaClient();
+import { prismaClient } from './connections';
 
 export async function createUserFromGitHub(user: {
 	id: string;

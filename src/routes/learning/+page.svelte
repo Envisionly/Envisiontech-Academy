@@ -4,7 +4,9 @@
 	import { tick } from 'svelte';
 	import type { ChangeEventHandler } from 'svelte/elements';
 
-	let currentTab = $state(Object.keys(lessons)[0]);
+	const { data } = $props();
+
+	let currentTab = $state(data.sections[0].slug);
 
 	let buttons: { [Key: string]: HTMLButtonElement } = {};
 
@@ -15,28 +17,33 @@
 	}
 
 	function handleKeydown(event: KeyboardEvent, lesson: string) {
-		const keys = Object.keys(lessons);
-		const currentIndex = keys.indexOf(lesson);
+		const slugs: any[] = [];
+		data.sections.forEach((section) => {
+			section.courses.forEach((course) => {
+				slugs.push(section.slug + '/' + course.slug);
+			});
+		});
+		const currentIndex = slugs.indexOf(lesson);
 
 		switch (event.key) {
 			case 'ArrowRight':
-				if (currentIndex < keys.length - 1) {
-					changeTab(keys[currentIndex + 1]);
+				if (currentIndex < slugs.length - 1) {
+					changeTab(slugs[currentIndex + 1]);
 				}
 				event.preventDefault(); // prevent the default action
 				break;
 			case 'ArrowLeft':
 				if (currentIndex > 0) {
-					changeTab(keys[currentIndex - 1]);
+					changeTab(slugs[currentIndex - 1]);
 				}
 				event.preventDefault(); // prevent the default action
 				break;
 			case 'Home':
-				changeTab(keys[0]);
+				changeTab(slugs[0]);
 				event.preventDefault(); // prevent the default action
 				break;
 			case 'End':
-				changeTab(keys[keys.length - 1]);
+				changeTab(slugs[slugs.length - 1]);
 				event.preventDefault(); // prevent the default action
 				break;
 			case 'ArrowDown':
@@ -75,53 +82,60 @@
 						currentTab = (event.currentTarget as HTMLSelectElement).value;
 				}}
 			>
-				{#each Object.keys(lessons) as lesson}
-					<option value={lesson}>{lesson}: {lessons[lesson].length} courses</option>
+				{#each data.sections as section}
+					<option value={section.slug}>{section.name}: {section.courses.length} courses</option>
 				{/each}
 			</select>
 		</div>
 		<div class="hidden sm:block">
 			<section role="tablist" class="flex">
-				{#each Object.keys(lessons) as lesson}
+				{#each data.sections as section}
 					<button
-						aria-selected={lesson === currentTab}
-						aria-controls={`panel-${lesson}`}
-						tabindex={lesson === currentTab ? 0 : -1}
+						aria-selected={section.slug === currentTab}
+						aria-controls={`panel-${section.slug}`}
+						tabindex={section.slug === currentTab ? 0 : -1}
 						class="shrink-0 border-b border-b-gray-200 p-3 text-sm font-medium text-gray-500 hover:text-gray-700 aria-selected:rounded-t-lg aria-selected:border aria-selected:border-gray-300 aria-selected:border-b-transparent"
-						bind:this={buttons[lesson]}
-						onclick={() => changeTab(lesson)}
-						onkeydown={(e) => handleKeydown(e, lesson)}
-						role="tab">{lesson}: {lessons[lesson].length} courses</button
+						bind:this={buttons[section.slug]}
+						onclick={() => changeTab(section.slug)}
+						onkeydown={(e) => handleKeydown(e, section.slug)}
+						role="tab">{section.name}: {section.courses.length} courses</button
 					>
 				{/each}
 			</section>
 		</div>
 	</div>
 
-	{#each Object.keys(lessons) as lesson}
+	{#each data.sections as section}
 		<div
-			class={`grid gap-2 sm:grid-cols-2 lg:grid-cols-3 ${lesson !== currentTab ? 'hidden' : ''}`}
+			class={`grid gap-2 sm:grid-cols-2 lg:grid-cols-3 ${section.slug !== currentTab ? 'hidden' : ''}`}
 			role="tabpanel"
-			id={`panel-${lesson}`}
-			aria-label={lesson}
+			id={`panel-${section.slug}`}
+			aria-label={section.name}
 		>
-			{#each lessons[lesson] as course}
+			{#each section.courses as course}
 				<section
 					class="flex gap-4 bg-envisionlyTransparentGold p-4"
 					role="button"
 					tabindex="0"
-					onclick={() =>
-						goto(
-							`/learning/${course.subCategorySlug}/${course.lessons[0].sectionSlug}/${course.lessons[0].lessons[0].slug}`
-						)}
+					onclick={() => {
+						if (course.modules[0].lessons.length > 0) {
+							goto(
+								`/learning/${section.slug}/${course.slug}/${course.modules[0].slug}/${
+									course.modules[0].lessons[0].slug
+								}`
+							);
+						} else {
+							alert('No lessons available for this course yet. Check back soon!');
+						}
+					}}
 				>
 					<img
 						data-src={`https://envisiontech-academy.gumlet.io/courseImages/${course.image}`}
-						alt=""
+						alt={`${course.name} logo`}
 						class="size-16 rounded-full object-cover"
 					/>
 					<div>
-						<h3 class="text-lg font-bold">{course.subCategory}</h3>
+						<h3 class="text-lg font-bold">{course.name}</h3>
 						<p class="mt-1 text-sm">{course.description}</p>
 					</div>
 				</section>
