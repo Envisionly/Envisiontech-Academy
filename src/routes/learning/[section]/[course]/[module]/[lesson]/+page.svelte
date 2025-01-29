@@ -11,6 +11,8 @@
 
 {#if lesson}
 	<h1>{lesson.title}</h1>
+	<p>Created on: {lesson.createdAt}</p>
+	<p>Last updated: {lesson.updatedAt}</p>
 {:else}
 	<h1>Couldn't find that lesson!</h1>
 {/if}
