@@ -49,7 +49,7 @@ model Course {
   id          String   @id @default(uuid())
   name        String
   slug        String
-  image       Json
+  image       String
   description String
   featured    Boolean
   section     Section  @relation(fields: [sectionId], references: [id])

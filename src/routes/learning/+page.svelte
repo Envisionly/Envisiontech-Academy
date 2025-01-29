@@ -4,6 +4,8 @@
 	import { tick } from 'svelte';
 	import type { ChangeEventHandler } from 'svelte/elements';
 
+	const { data } = $props();
+
 	let currentTab = $state(Object.keys(lessons)[0]);
 
 	let buttons: { [Key: string]: HTMLButtonElement } = {};
