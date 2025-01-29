@@ -23,3 +23,37 @@ export async function getSectionsWithCoursesModulesAndLessons() {
 		}
 	});
 }
+
+export async function getLessonBySlug(
+	sectionSlug: string,
+	courseSlug: string,
+	moduleSlug: string,
+	lessonSlug: string
+) {
+	return await prismaClient.section.findFirst({
+		where: {
+			slug: sectionSlug
+		},
+		include: {
+			courses: {
+				where: {
+					slug: courseSlug
+				},
+				include: {
+					modules: {
+						where: {
+							slug: moduleSlug
+						},
+						include: {
+							lessons: {
+								where: {
+									slug: lessonSlug
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	});
+}
