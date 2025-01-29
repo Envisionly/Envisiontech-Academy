@@ -8,10 +8,18 @@ export async function getCourses() {
 	return prismaClient.course.findMany();
 }
 
-export async function getSectionsWithCourses() {
+export async function getSectionsWithCoursesModulesAndLessons() {
 	return prismaClient.section.findMany({
 		include: {
-			courses: true
+			courses: {
+				include: {
+					modules: {
+						include: {
+							lessons: true
+						}
+					}
+				}
+			}
 		}
 	});
 }

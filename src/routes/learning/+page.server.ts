@@ -1,7 +1,7 @@
-import { getSectionsWithCourses } from '$lib/server/learning';
+import { getSectionsWithCoursesModulesAndLessons } from '$lib/server/learning';
 
 export const load = async () => {
-	const sections = await getSectionsWithCourses();
+	const sections = await getSectionsWithCoursesModulesAndLessons();
 	return {
 		sections
 	};
