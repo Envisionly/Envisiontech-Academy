@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import type { sectionType, courseType, moduleType, lessonType } from '../ambient';
+import type { sectionType, courseType } from '../ambient';
 
 const createSectionStore = () => {
 	const { subscribe, update } = writable<sectionType | null>(null);

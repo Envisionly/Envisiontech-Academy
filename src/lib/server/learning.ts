@@ -33,6 +33,46 @@ export async function getSectionsWithCoursesModulesAndLessons(): Promise<section
 	});
 }
 
+export async function getCourseModulesAndLessonsBySlug(
+	sectionSlug: string,
+	courseSlug: string
+): Promise<sectionType | null> {
+	return await prismaClient.section.findFirst({
+		where: {
+			slug: sectionSlug
+		},
+		select: {
+			name: true,
+			slug: true,
+			courses: {
+				select: {
+					name: true,
+					slug: true,
+					image: true,
+					sectionId: true,
+					modules: {
+						select: {
+							name: true,
+							slug: true,
+							courseId: true,
+							lessons: {
+								select: {
+									title: true,
+									slug: true,
+									moduleId: true
+								}
+							}
+						}
+					}
+				},
+				where: {
+					slug: courseSlug
+				}
+			}
+		}
+	});
+}
+
 export async function getLessonBySlug(
 	sectionSlug: string,
 	courseSlug: string,

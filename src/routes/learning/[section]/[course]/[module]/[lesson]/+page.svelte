@@ -4,8 +4,8 @@
 	const { data } = $props();
 	let lesson: any;
 
-	if (data.section?.courses[0].modules[0].lessons[0]) {
-		lesson = data.section.courses[0].modules[0].lessons[0];
+	if (data.sectionData?.courses[0].modules[0].lessons[0]) {
+		lesson = data.sectionData.courses[0].modules[0].lessons[0];
 	}
 </script>
 

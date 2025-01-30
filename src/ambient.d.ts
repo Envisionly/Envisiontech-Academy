@@ -1,44 +1,44 @@
 export type sectionType = {
-	id: string;
+	id?: string;
 	name: string;
 	slug: string;
 	courses?: courseType[];
-	createdAt: Date;
-	updatedAt: Date;
+	createdAt?: Date;
+	updatedAt?: Date;
 };
 
 export type courseType = {
-	id: string;
+	id?: string;
 	name: string;
 	slug: string;
-	featured: boolean;
+	featured?: boolean;
 	image: string;
-	description: string;
+	description?: string;
 	sectionId: string;
 	section?: sectionType;
 	modules?: moduleType[];
-	createdAt: Date;
-	updatedAt: Date;
+	createdAt?: Date;
+	updatedAt?: Date;
 };
 
 export type moduleType = {
-	id: string;
+	id?: string;
 	name: string;
 	slug: string;
 	courseId: string;
 	course?: courseType;
 	lessons?: lessonType[];
-	createdAt: Date;
-	updatedAt: Date;
+	createdAt?: Date;
+	updatedAt?: Date;
 };
 
 export type lessonType = {
-	id: string;
+	id?: string;
 	title: string;
 	slug: string;
 	moduleId: string;
 	module?: moduleType;
-	content: any[];
-	createdAt: Date;
-	updatedAt: Date;
+	content?: any[];
+	createdAt?: Date;
+	updatedAt?: Date;
 };
