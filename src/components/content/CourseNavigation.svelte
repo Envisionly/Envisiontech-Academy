@@ -5,7 +5,7 @@
 	let drawer: any = $state(undefined);
 </script>
 
-{#if $currentSection && $currentSection.courses}
+{#if $currentSection && $currentSection.courses && $currentSection.courses.length > 0 && $currentSection.courses[0].modules && $currentSection.courses[0].modules.length > 0}
 	<!--Drawer for course navigation-->
 	<wa-drawer class="drawer-custom" label="Course Navigation" lightDismiss bind:this={drawer}>
 		<div class="flex justify-end">
@@ -29,35 +29,43 @@
 	>
 
 	{#snippet sideBarContents()}
-		<div class="flex flex-col">
-			<img
-				class="mx-auto w-[80%] object-contain"
-				data-src={`https://envisiontech-academy.gumlet.io/courseImages/${$currentSection.courses[0].image}`}
-				alt={`${$currentSection.courses[0].name} logo`}
-			/>
-			<h2 class="invisible">{category.subCategory}</h2>
-		</div>
+		{#if $currentSection.courses && $currentSection.courses.length > 0 && $currentSection.courses[0].modules && $currentSection.courses[0].modules.length > 0}
+			<div class="flex flex-col">
+				<img
+					class="mx-auto w-[80%] object-contain"
+					data-src={`https://envisiontech-academy.gumlet.io/courseImages/${$currentSection.courses[0].image}`}
+					alt={`${$currentSection.courses[0].name} logo`}
+				/>
+				<h2 class="invisible">{$currentSection.courses[0].name}</h2>
+			</div>
 
-		<nav aria-label="Course content" class="flex flex-col space-y-4 whitespace-normal">
-			{#each category.lessons as section}
-				<!-- svelte-ignore attribute_quoted -->
-				<wa-details class="font-bold drop-shadow-md">
-					<h3 class="text-lg uppercase" slot="summary">{section.section}</h3>
-					<ul class=" text-md font-normal">
-						{#each section.lessons as lesson}
-							<li
-								class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
-							>
-								<a
-									href={`/learning/${category.subCategorySlug}/${section.sectionSlug}/${lesson.slug}`}
-									>{lesson.title}</a
-								>
-							</li>
-						{/each}
-					</ul>
-				</wa-details>
-			{/each}
-		</nav>
+			<nav aria-label="Course content" class="flex flex-col space-y-4 whitespace-normal">
+				{#each $currentSection.courses[0].modules as module}
+					<!-- svelte-ignore attribute_quoted -->
+					<wa-details class="font-bold drop-shadow-md">
+						<h3 class="text-lg uppercase" slot="summary">
+							{module.name}{#if !module.lessons || !(module.lessons.length > 0)}{' (Coming Soon!)'}{:else}{` (${module.lessons.length})`}{/if}
+						</h3>
+						{#if module.lessons && module.lessons.length > 0}
+							<ul class=" text-md font-normal">
+								{#each module.lessons as lesson}
+									<li
+										class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
+									>
+										<a
+											href={`/learning/${$currentSection.slug}/${$currentSection.courses[0].slug}/${module.slug}/${lesson.slug}`}
+											>{lesson.title}</a
+										>
+									</li>
+								{/each}
+							</ul>
+						{:else}
+							<p class="text-envisionlyLightBlue">Coming Soon!</p>
+						{/if}
+					</wa-details>
+				{/each}
+			</nav>
+		{/if}
 	{/snippet}
 
 	<style lang="postcss">
