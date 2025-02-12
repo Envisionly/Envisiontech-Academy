@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onNavigate } from '$app/navigation';
 	import { currentSection } from '$stores/sectionManager';
+	import { page } from '$app/stores';
 
 	let drawer: any = $state(undefined);
 </script>
@@ -42,7 +43,10 @@
 			<nav aria-label="Course content" class="flex flex-col space-y-4 whitespace-normal">
 				{#each $currentSection.courses[0].modules as module}
 					<!-- svelte-ignore attribute_quoted -->
-					<wa-details class="font-bold drop-shadow-md">
+					<wa-details
+						open={$page.url.pathname.split('/')[4].includes(module.slug)}
+						class="font-bold drop-shadow-md"
+					>
 						<h3 class="text-lg uppercase" slot="summary">
 							{module.name}{#if !module.lessons || !(module.lessons.length > 0)}{' (Coming Soon!)'}{:else}{` (${module.lessons.length})`}{/if}
 						</h3>
