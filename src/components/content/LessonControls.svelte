@@ -9,13 +9,13 @@
 		slug: String;
 	};
 
-	let previousLesson: lessonControlType | undefined = undefined;
-	let currentLesson: lessonControlType | undefined = undefined;
-	let nextLesson: lessonControlType | undefined = undefined;
-	let currentPosition: number = 0;
-	let maxPosition = 0;
+	let previousLesson: lessonControlType | undefined = $state(undefined);
+	let currentLesson: lessonControlType | undefined = $state(undefined);
+	let nextLesson: lessonControlType | undefined = $state(undefined);
+	let currentPosition: number = $state(0);
+	let maxPosition = $state(0);
 
-	$: {
+	$effect(() => {
 		if ($page.url.pathname.split('/').length > 4 && $currentSection) {
 			currentLesson = undefined;
 			previousLesson = undefined;
@@ -26,23 +26,26 @@
 			previousLesson = undefined;
 			nextLesson = undefined;
 		}
-	}
+	});
 
 	function getLessons() {
 		if (
+			!$currentSection ||
 			!$currentSection?.courses ||
 			!$currentSection.courses[0]?.modules ||
-			$currentSection.courses[0].modules[0]?.lessons
-		)
+			!$currentSection.courses[0].modules[0]?.lessons
+		) {
+			console.error('No lessons found');
 			return;
+		}
 
 		let URL: String = $page.url.pathname;
 		//Removes the /learning/ from the URL
 		let splitURL = URL.split('/').slice(2);
 		let courseSlug = `/learning/${$currentSection.slug}/${$currentSection.courses[0].slug}/`;
 		if (!courseSlug) return;
-		let moduleSlug = splitURL[-2];
-		let lessonSlug: String = splitURL[-1];
+		let moduleSlug = splitURL[splitURL.length - 2];
+		let lessonSlug: String = splitURL[splitURL.length - 1];
 
 		let moduleIndex = $currentSection?.courses[0]?.modules.findIndex(
 			(tempModule) => tempModule.slug === moduleSlug
@@ -81,6 +84,7 @@
 		course: courseType,
 		fullURL: String
 	) {
+		console.log(module);
 		if (!module.lessons) return;
 		currentLesson = {
 			title: module.lessons[lessonIndex].title,
@@ -123,7 +127,6 @@
 	}
 </script>
 
-<h1>Test</h1>
 {#if currentLesson}
 	<h3 class="sr-only">Lesson Navigation</h3>
 	{#if previousLesson !== undefined}

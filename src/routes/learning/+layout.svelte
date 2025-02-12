@@ -6,7 +6,7 @@
 
 	const { children } = $props();
 
-	let subCategory: categoryType | undefined = undefined;
+	let subCategory: categoryType | undefined = $state(undefined);
 
 	$effect(() => {
 		if ($page.url.pathname.split('/').length > 4) {
