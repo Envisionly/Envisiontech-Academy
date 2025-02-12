@@ -7,6 +7,12 @@
 	import MobileNavbar from '$components/MobileNav.svelte';
 	import { goto } from '$app/navigation';
 	import ToastHolder from '$components/toastHolder.svelte';
+	import { injectAnalytics } from '@vercel/analytics/sveltekit';
+	import { dev } from '$app/environment';
+
+	if (!dev) {
+		injectAnalytics({ mode: 'production' });
+	}
 
 	const { children, data } = $props();
 </script>
