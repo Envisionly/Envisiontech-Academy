@@ -1,6 +1,4 @@
-import { PrismaClient } from '@prisma/client';
-
-export const prismaClient = new PrismaClient();
+import { prismaClient } from './connections';
 
 export async function createUserFromGitHub(user: {
 	id: string;
@@ -27,17 +25,27 @@ export async function deleteUserById(id: string) {
 }
 
 export async function getUserById(id: string) {
-	return prismaClient.user.findFirst({
-		where: {
-			id
-		}
-	});
+	try {
+		return await prismaClient.user.findFirst({
+			where: {
+				id
+			}
+		});
+	} catch (error) {
+		console.error(error);
+		return null;
+	}
 }
 
 export async function getExistingUserByGitHubId(githubId: number) {
-	return prismaClient.user.findFirst({
-		where: {
-			github_id: githubId
-		}
-	});
+	try {
+		return await prismaClient.user.findFirst({
+			where: {
+				github_id: githubId
+			}
+		});
+	} catch (error) {
+		console.error(error);
+		return null;
+	}
 }

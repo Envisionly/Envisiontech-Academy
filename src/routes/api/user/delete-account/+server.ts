@@ -1,5 +1,5 @@
 import { lucia } from '$lib/server/auth';
-import { deleteUserById } from '$lib/server/prisma.js';
+import { deleteUserById } from '$lib/server/connections.js';
 
 export async function DELETE(event) {
 	if (!event.locals.session) {

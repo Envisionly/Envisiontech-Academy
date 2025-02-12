@@ -1,6 +1,6 @@
 import { redirect } from '@sveltejs/kit';
 import { type ServerLoad } from '@sveltejs/kit';
-import { getUserById } from '$lib/server/prisma';
+import { getUserById } from '$lib/server/connections';
 
 export const load: ServerLoad = async (event) => {
 	if (!event.locals.user) throw redirect(302, '/login');

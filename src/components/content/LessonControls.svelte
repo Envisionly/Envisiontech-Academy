@@ -1,21 +1,22 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
-	import { lessons } from '$utils/lessons';
+	import { currentSection } from '$stores/sectionManager';
+	import type { courseType, moduleType } from '../../ambient';
 
 	type lessonControlType = {
 		title: String;
 		slug: String;
 	};
 
-	let previousLesson: lessonControlType | undefined = undefined;
-	let currentLesson: lessonControlType | undefined = undefined;
-	let nextLesson: lessonControlType | undefined = undefined;
-	let currentPosition: number = 0;
-	let maxPosition = 0;
+	let previousLesson: lessonControlType | undefined = $state(undefined);
+	let currentLesson: lessonControlType | undefined = $state(undefined);
+	let nextLesson: lessonControlType | undefined = $state(undefined);
+	let currentPosition: number = $state(0);
+	let maxPosition = $state(0);
 
-	$: {
-		if ($page.url.pathname.split('/').length > 4) {
+	$effect(() => {
+		if ($page.url.pathname.split('/').length > 4 && $currentSection) {
 			currentLesson = undefined;
 			previousLesson = undefined;
 			nextLesson = undefined;
@@ -25,91 +26,101 @@
 			previousLesson = undefined;
 			nextLesson = undefined;
 		}
-	}
+	});
 
 	function getLessons() {
-		let URL: String = $page.url.pathname;
-		//Removes the /learning/ from the URL
-		URL = URL.split('/').slice(2).join('/');
-		let category: String = URL.split('/')[0];
-		let subCategory: String = category + '/' + URL.split('/')[1];
-		let section: String = URL.split('/')[2];
-		let lesson: String = URL.split('/')[3];
-
-		let lessonsCategory = lessons[category as keyof typeof lessons];
-		if (!lessonsCategory) {
+		if (
+			!$currentSection ||
+			!$currentSection?.courses ||
+			!$currentSection.courses[0]?.modules ||
+			!$currentSection.courses[0].modules[0]?.lessons
+		) {
+			console.error('No lessons found');
 			return;
 		}
-		let lessonsSubCategory = lessonsCategory.find(
-			(tempSubCategory) => tempSubCategory.subCategorySlug === subCategory
+
+		let URL: String = $page.url.pathname;
+		//Removes the /learning/ from the URL
+		let splitURL = URL.split('/').slice(2);
+		let courseSlug = `/learning/${$currentSection.slug}/${$currentSection.courses[0].slug}/`;
+		if (!courseSlug) return;
+		let moduleSlug = splitURL[splitURL.length - 2];
+		let lessonSlug: String = splitURL[splitURL.length - 1];
+
+		let moduleIndex = $currentSection?.courses[0]?.modules.findIndex(
+			(tempModule) => tempModule.slug === moduleSlug
 		);
-		let lessonsSection = lessonsSubCategory?.lessons.find(
-			(tempSection) => tempSection.sectionSlug === section
-		);
-		let lessonIndex = lessonsSection?.lessons.findIndex((tempLesson) => tempLesson.slug === lesson);
+
+		if (moduleIndex === undefined || moduleIndex === -1) {
+			console.error('Module not found');
+			return;
+		}
+
+		let lessonIndex =
+			$currentSection?.courses[0]?.modules[moduleIndex as number]?.lessons?.findIndex(
+				(tempLesson) => tempLesson.slug === lessonSlug
+			) ?? -1;
+
 		if (lessonIndex === undefined || lessonIndex === -1) {
 			console.error('Lesson not found');
 			return;
 		}
-		let fullURL = '/learning/' + subCategory + '/' + section + '/';
-		getNextCurrentAndPrevious(lessonIndex, lessonsSection, lessonsSubCategory, fullURL);
+
+		getNextCurrentAndPrevious(
+			lessonIndex,
+			moduleIndex,
+			$currentSection.courses[0].modules[moduleIndex],
+			$currentSection.courses[0],
+			courseSlug
+		);
 		currentPosition = lessonIndex + 1;
-		maxPosition = lessonsSection?.lessons.length as number;
+		maxPosition = $currentSection.courses[0].modules[moduleIndex as number].lessons?.length ?? 0;
 	}
 
 	function getNextCurrentAndPrevious(
 		lessonIndex: number,
-		tempLessonsSection: any,
-		tempLessonsSubcategory: any,
+		moduleIndex: number,
+		module: moduleType,
+		course: courseType,
 		fullURL: String
 	) {
+		console.log(module);
+		if (!module.lessons) return;
 		currentLesson = {
-			title: tempLessonsSection.lessons[lessonIndex].title,
-			slug: fullURL + tempLessonsSection.lessons[lessonIndex].slug
+			title: module.lessons[lessonIndex].title,
+			slug: `${fullURL}${module.slug}/${module.lessons[lessonIndex].slug}`
 		};
 		if (lessonIndex > 0) {
 			previousLesson = {
-				title: `${tempLessonsSection.section} - ${tempLessonsSection.lessons[lessonIndex - 1].title}`,
-				slug: fullURL + tempLessonsSection.lessons[lessonIndex - 1].slug
+				title: `${module.name} - ${module.lessons[lessonIndex - 1].title}`,
+				slug: fullURL + module.lessons[lessonIndex - 1].slug
 			};
 		} else if (lessonIndex === 0) {
-			let previousSection = tempLessonsSubcategory.lessons.findIndex(
-				(tempSection: any) => tempSection.sectionSlug === tempLessonsSection.sectionSlug
-			);
-			if (previousSection > 0) {
+			if (moduleIndex > 0 && course.modules && course.modules[moduleIndex - 1]?.lessons) {
+				let previousModule = course.modules[moduleIndex - 1];
+				if (!previousModule.lessons) return;
 				previousLesson = {
-					title: `${tempLessonsSubcategory.lessons[previousSection - 1].section} - ${tempLessonsSubcategory.lessons[previousSection - 1].lessons[tempLessonsSubcategory.lessons[previousSection - 1].lessons.length - 1].title}`,
-					slug:
-						'/learning/' +
-						tempLessonsSubcategory.subCategorySlug +
-						'/' +
-						tempLessonsSubcategory.lessons[previousSection - 1].sectionSlug +
-						'/' +
-						tempLessonsSubcategory.lessons[previousSection - 1].lessons[
-							tempLessonsSubcategory.lessons[previousSection - 1].lessons.length - 1
-						].slug
+					title: `${previousModule.name} - ${previousModule.lessons[previousModule.lessons.length - 1].title}`,
+					slug: `${fullURL}${previousModule.slug}/${previousModule.lessons[previousModule.lessons.length - 1].slug}`
 				};
 			}
 		}
-		if (lessonIndex < tempLessonsSection.lessons.length - 1) {
+		if (lessonIndex < module.lessons.length - 1) {
 			nextLesson = {
-				title: `${tempLessonsSection.section} - ${tempLessonsSection.lessons[lessonIndex + 1].title}`,
-				slug: fullURL + tempLessonsSection.lessons[lessonIndex + 1].slug
+				title: `${module.name} - ${module.lessons[lessonIndex + 1].title}`,
+				slug: `${fullURL}${module.slug}/${module.lessons[lessonIndex + 1].slug}`
 			};
-		} else if (lessonIndex === tempLessonsSection.lessons.length - 1) {
-			let nextSection = tempLessonsSubcategory.lessons.findIndex(
-				(tempSection: any) => tempSection.sectionSlug === tempLessonsSection.sectionSlug
-			);
-			if (nextSection < tempLessonsSubcategory.lessons.length - 1) {
+		} else if (lessonIndex === module.lessons.length - 1) {
+			if (
+				course.modules &&
+				moduleIndex < course.modules.length - 1 &&
+				course.modules[moduleIndex + 1]?.lessons
+			) {
+				let nextModule = course.modules[moduleIndex + 1];
+				if (!nextModule.lessons) return;
 				nextLesson = {
-					title: `${tempLessonsSubcategory.lessons[nextSection + 1].section} - ${tempLessonsSubcategory.lessons[nextSection + 1].lessons[0].title}`,
-					slug:
-						'/learning/' +
-						tempLessonsSubcategory.subCategorySlug +
-						'/' +
-						tempLessonsSubcategory.lessons[nextSection + 1].sectionSlug +
-						'/' +
-						tempLessonsSubcategory.lessons[nextSection + 1].lessons[0].slug
+					title: `${nextModule.name} - ${nextModule.lessons[0].title}`,
+					slug: `${fullURL}${nextModule.slug}/${nextModule.lessons[0].slug}`
 				};
 			}
 		}
@@ -130,7 +141,7 @@
 		<button onclick={() => goto(nextLesson?.slug as string)}>Next: {nextLesson.title}</button>
 	{/if}
 	<div>
-		<span>Section Progress:</span>
+		<span>Module Progress:</span>
 		<div class="screenReaderOnly" aria-roledescription="progress bar" aria-live="polite">
 			{((currentPosition / maxPosition) * 100).toFixed()}% complete
 		</div>
