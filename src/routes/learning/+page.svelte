@@ -3,6 +3,8 @@
 	import { lessons } from '$utils/lessons';
 	import { tick } from 'svelte';
 	import type { ChangeEventHandler } from 'svelte/elements';
+	import type { courseType } from '../../ambient.js';
+	import { toasts } from '$stores/toasts';
 
 	const { data } = $props();
 
@@ -20,46 +22,74 @@
 		buttons[lesson].focus();
 	}
 
-	function handleKeydown(event: KeyboardEvent, lesson: string) {
-		const slugs: any[] = [];
-		data.sections.forEach((section) => {
-			if (section.courses) {
-				section.courses.forEach((course) => {
-					slugs.push(section.slug + '/' + course.slug);
-				});
-			} else {
-				return;
-			}
-		});
-		const currentIndex = slugs.indexOf(lesson);
+	function handleKeydown(
+		type: 'tab' | 'button',
+		event: KeyboardEvent,
+		lesson: string,
+		course?: courseType
+	) {
+		if (type == 'tab') {
+			const slugs: any[] = [];
+			data.sections.forEach((section) => {
+				if (section.courses) {
+					section.courses.forEach((course) => {
+						slugs.push(section.slug + '/' + course.slug);
+					});
+				} else {
+					return;
+				}
+			});
+			const currentIndex = slugs.indexOf(lesson);
 
-		switch (event.key) {
-			case 'ArrowRight':
-				if (currentIndex < slugs.length - 1) {
-					changeTab(slugs[currentIndex + 1]);
-				}
-				event.preventDefault(); // prevent the default action
-				break;
-			case 'ArrowLeft':
-				if (currentIndex > 0) {
-					changeTab(slugs[currentIndex - 1]);
-				}
-				event.preventDefault(); // prevent the default action
-				break;
-			case 'Home':
-				changeTab(slugs[0]);
-				event.preventDefault(); // prevent the default action
-				break;
-			case 'End':
-				changeTab(slugs[slugs.length - 1]);
-				event.preventDefault(); // prevent the default action
-				break;
-			case 'ArrowDown':
-				event.preventDefault(); // prevent the default action
-				break;
-			case 'ArrowUp':
-				event.preventDefault(); // prevent the default action
-				break;
+			switch (event.key) {
+				case 'ArrowRight':
+					if (currentIndex < slugs.length - 1) {
+						changeTab(slugs[currentIndex + 1]);
+					}
+					event.preventDefault(); // prevent the default action
+					break;
+				case 'ArrowLeft':
+					if (currentIndex > 0) {
+						changeTab(slugs[currentIndex - 1]);
+					}
+					event.preventDefault(); // prevent the default action
+					break;
+				case 'Home':
+					changeTab(slugs[0]);
+					event.preventDefault(); // prevent the default action
+					break;
+				case 'End':
+					changeTab(slugs[slugs.length - 1]);
+					event.preventDefault(); // prevent the default action
+					break;
+				case 'ArrowDown':
+					event.preventDefault(); // prevent the default action
+					break;
+				case 'ArrowUp':
+					event.preventDefault(); // prevent the default action
+					break;
+			}
+		} else if (type == 'button' && course) {
+			switch (event.key) {
+				case 'Enter':
+					handleCourseClick(lesson, course);
+					break;
+				case ' ':
+					handleCourseClick(lesson, course);
+					break;
+			}
+		}
+	}
+
+	function handleCourseClick(sectionSlug: string, course: courseType) {
+		if (course.modules && course.modules[0]?.lessons && course.modules[0].lessons.length > 0) {
+			goto(
+				`/learning/${sectionSlug}/${course.slug}/${course.modules[0].slug}/${
+					course.modules[0].lessons[0].slug
+				}`
+			);
+		} else {
+			toasts.add({ type: 'info', message: 'This course is coming soon, please check back later!' });
 		}
 	}
 </script>
@@ -72,15 +102,16 @@
 	/>
 	<meta name="author" content="Paul Geoghegan" />
 </svelte:head>
+
 <div class="max-w-screen-xl py-8 sm:py-12 lg:py-16">
-	<div class="px-4">
-		<h2 class="text-center text-3xl font-bold sm:text-4xl">Start Your Learning Journey</h2>
-		<p class="mt-4 text-center text-gray-600">
-			Choose a topic to get started. We have a range of courses available to help you master the
-			skills that power the digital world.
-		</p>
-	</div>
 	{#if currentTab && data.sections && data.sections}
+		<div class="px-4">
+			<h2 class="text-center text-3xl font-bold sm:text-4xl">Start Your Learning Journey</h2>
+			<p class="mt-4 text-center text-gray-600">
+				Choose a topic to get started. We have a range of courses available to help you master the
+				skills that power the digital world.
+			</p>
+		</div>
 		<div class="flex">
 			<div class="mx-auto sm:hidden">
 				<select
@@ -108,7 +139,7 @@
 							class="shrink-0 border-b border-b-gray-200 p-3 text-sm font-medium text-gray-500 hover:text-gray-700 aria-selected:rounded-t-lg aria-selected:border aria-selected:border-gray-300 aria-selected:border-b-transparent"
 							bind:this={buttons[section.slug]}
 							onclick={() => changeTab(section.slug)}
-							onkeydown={(e) => handleKeydown(e, section.slug)}
+							onkeydown={(e) => handleKeydown('tab', e, section.slug)}
 							role="tab"
 							>{section.name}: {section.courses ? section.courses.length : 0} courses</button
 						>
@@ -130,21 +161,8 @@
 							class="flex gap-4 bg-envisionlyTransparentGold p-4"
 							role="button"
 							tabindex="0"
-							onclick={() => {
-								if (
-									course.modules &&
-									course.modules[0].lessons &&
-									course.modules[0].lessons.length > 0
-								) {
-									goto(
-										`/learning/${section.slug}/${course.slug}/${course.modules[0].slug}/${
-											course.modules[0].lessons[0].slug
-										}`
-									);
-								} else {
-									alert('No lessons available for this course yet. Check back soon!');
-								}
-							}}
+							onkeydown={(e) => handleKeydown('button', e, section.slug, course)}
+							onclick={() => handleCourseClick(section.slug, course)}
 						>
 							<img
 								data-src={`https://envisiontech-academy.gumlet.io/courseImages/${course.image}`}
@@ -152,7 +170,10 @@
 								class="size-16 rounded-full object-cover"
 							/>
 							<div>
-								<h3 class="text-lg font-bold">{course.name}</h3>
+								<h3 class="text-lg font-bold">
+									{course.name}{#if !course.modules || !course.modules.length || !course.modules[0].lessons || !(course.modules[0].lessons.length > 0)}
+										{' (Coming Soon)'}{/if}
+								</h3>
 								<p class="mt-1 text-sm">{course.description}</p>
 							</div>
 						</section>
@@ -165,6 +186,9 @@
 			</div>
 		{/each}
 	{:else}
-		<p class="text-center text-gray-600">No courses available at this time. Check back soon!</p>
+		<h1 class="text-center text-3xl font-bold">No Courses Available At This Time</h1>
+		<p class="mt-4 text-center text-gray-600">
+			We are working hard to bring you new courses. Check back soon!
+		</p>
 	{/if}
 </div>
