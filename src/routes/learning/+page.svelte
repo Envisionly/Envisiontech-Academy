@@ -6,7 +6,11 @@
 
 	const { data } = $props();
 
-	let currentTab = $state(data.sections[0].slug);
+	let currentTab: string | undefined = $state(undefined);
+
+	if (data.sections && data.sections.length > 0) {
+		currentTab = data.sections[0].slug;
+	}
 
 	let buttons: { [Key: string]: HTMLButtonElement } = {};
 
@@ -19,9 +23,13 @@
 	function handleKeydown(event: KeyboardEvent, lesson: string) {
 		const slugs: any[] = [];
 		data.sections.forEach((section) => {
-			section.courses.forEach((course) => {
-				slugs.push(section.slug + '/' + course.slug);
-			});
+			if (section.courses) {
+				section.courses.forEach((course) => {
+					slugs.push(section.slug + '/' + course.slug);
+				});
+			} else {
+				return;
+			}
 		});
 		const currentIndex = slugs.indexOf(lesson);
 
@@ -72,74 +80,91 @@
 			skills that power the digital world.
 		</p>
 	</div>
-	<div class="flex">
-		<div class="mx-auto sm:hidden">
-			<select
-				aria-label="Select a topic"
-				class=" my-6 rounded-md border-gray-300 focus:border-envisionlyGold focus:outline-none focus:ring-0"
-				onchange={(event: Event & { currentTarget: EventTarget & HTMLSelectElement }) => {
-					if ((event.currentTarget as HTMLSelectElement).value)
-						currentTab = (event.currentTarget as HTMLSelectElement).value;
-				}}
-			>
-				{#each data.sections as section}
-					<option value={section.slug}>{section.name}: {section.courses.length} courses</option>
-				{/each}
-			</select>
-		</div>
-		<div class="hidden sm:block">
-			<section role="tablist" class="flex">
-				{#each data.sections as section}
-					<button
-						aria-selected={section.slug === currentTab}
-						aria-controls={`panel-${section.slug}`}
-						tabindex={section.slug === currentTab ? 0 : -1}
-						class="shrink-0 border-b border-b-gray-200 p-3 text-sm font-medium text-gray-500 hover:text-gray-700 aria-selected:rounded-t-lg aria-selected:border aria-selected:border-gray-300 aria-selected:border-b-transparent"
-						bind:this={buttons[section.slug]}
-						onclick={() => changeTab(section.slug)}
-						onkeydown={(e) => handleKeydown(e, section.slug)}
-						role="tab">{section.name}: {section.courses.length} courses</button
-					>
-				{/each}
-			</section>
-		</div>
-	</div>
-
-	{#each data.sections as section}
-		<div
-			class={`grid gap-2 sm:grid-cols-2 lg:grid-cols-3 ${section.slug !== currentTab ? 'hidden' : ''}`}
-			role="tabpanel"
-			id={`panel-${section.slug}`}
-			aria-label={section.name}
-		>
-			{#each section.courses as course}
-				<section
-					class="flex gap-4 bg-envisionlyTransparentGold p-4"
-					role="button"
-					tabindex="0"
-					onclick={() => {
-						if (course.modules[0].lessons.length > 0) {
-							goto(
-								`/learning/${section.slug}/${course.slug}/${course.modules[0].slug}/${
-									course.modules[0].lessons[0].slug
-								}`
-							);
-						} else {
-							alert('No lessons available for this course yet. Check back soon!');
-						}
+	{#if currentTab && data.sections && data.sections}
+		<div class="flex">
+			<div class="mx-auto sm:hidden">
+				<select
+					aria-label="Select a topic"
+					class=" my-6 rounded-md border-gray-300 focus:border-envisionlyGold focus:outline-none focus:ring-0"
+					onchange={(event: Event & { currentTarget: EventTarget & HTMLSelectElement }) => {
+						if ((event.currentTarget as HTMLSelectElement).value)
+							currentTab = (event.currentTarget as HTMLSelectElement).value;
 					}}
 				>
-					<img
-						data-src={`https://envisiontech-academy.gumlet.io/courseImages/${course.image}`}
-						alt={`${course.name} logo`}
-						class="size-16 rounded-full object-cover"
-					/>
-					<div>
-						<h3 class="text-lg font-bold">{course.name}</h3>
-						<p class="mt-1 text-sm">{course.description}</p>
-					</div>
+					{#each data.sections as section}
+						<option value={section.slug}
+							>{section.name}: {section.courses ? section.courses.length : 0} courses</option
+						>
+					{/each}
+				</select>
+			</div>
+			<div class="hidden sm:block">
+				<section role="tablist" class="flex">
+					{#each data.sections as section}
+						<button
+							aria-selected={section.slug === currentTab}
+							aria-controls={`panel-${section.slug}`}
+							tabindex={section.slug === currentTab ? 0 : -1}
+							class="shrink-0 border-b border-b-gray-200 p-3 text-sm font-medium text-gray-500 hover:text-gray-700 aria-selected:rounded-t-lg aria-selected:border aria-selected:border-gray-300 aria-selected:border-b-transparent"
+							bind:this={buttons[section.slug]}
+							onclick={() => changeTab(section.slug)}
+							onkeydown={(e) => handleKeydown(e, section.slug)}
+							role="tab"
+							>{section.name}: {section.courses ? section.courses.length : 0} courses</button
+						>
+					{/each}
 				</section>
-			{/each}
+			</div>
 		</div>
-	{/each}
+
+		{#each data.sections as section}
+			<div
+				class={`grid gap-2 sm:grid-cols-2 lg:grid-cols-3 ${section.slug !== currentTab ? 'hidden' : ''}`}
+				role="tabpanel"
+				id={`panel-${section.slug}`}
+				aria-label={section.name}
+			>
+				{#if section.courses && section.courses.length > 0}
+					{#each section.courses as course}
+						<section
+							class="flex gap-4 bg-envisionlyTransparentGold p-4"
+							role="button"
+							tabindex="0"
+							onclick={() => {
+								if (
+									course.modules &&
+									course.modules[0].lessons &&
+									course.modules[0].lessons.length > 0
+								) {
+									goto(
+										`/learning/${section.slug}/${course.slug}/${course.modules[0].slug}/${
+											course.modules[0].lessons[0].slug
+										}`
+									);
+								} else {
+									alert('No lessons available for this course yet. Check back soon!');
+								}
+							}}
+						>
+							<img
+								data-src={`https://envisiontech-academy.gumlet.io/courseImages/${course.image}`}
+								alt={`${course.name} logo`}
+								class="size-16 rounded-full object-cover"
+							/>
+							<div>
+								<h3 class="text-lg font-bold">{course.name}</h3>
+								<p class="mt-1 text-sm">{course.description}</p>
+							</div>
+						</section>
+					{/each}
+				{:else}
+					<p class="text-center text-gray-600">
+						No courses available at this time. Check back soon!
+					</p>
+				{/if}
+			</div>
+		{/each}
+	{:else}
+		<p class="text-center text-gray-600">No courses available at this time. Check back soon!</p>
+	{/if}
 </div>
