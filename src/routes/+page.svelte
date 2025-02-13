@@ -1,7 +1,7 @@
 <script lang="ts">
 	import CTA from '$components/CTA.svelte';
 	import { lessons } from '$utils/lessons';
-	import PrivacyPolicyDialog from '$components/PrivacyPrompt.svelte';
+	import ConsentPrompt from '$components/ConsentPrompt.svelte';
 </script>
 
 <svelte:head>
@@ -12,7 +12,7 @@
 	/>
 	<meta name="author" content="Paul Geoghegan" />
 </svelte:head>
-<PrivacyPolicyDialog />
+<ConsentPrompt />
 
 <CTA
 	imageSRC="homepage.jpg"
