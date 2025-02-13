@@ -11,7 +11,11 @@
 	let currentTab: string | undefined = $state(undefined);
 
 	if (data.sections && data.sections.length > 0) {
-		currentTab = data.sections[0].slug;
+		for (let section of data.sections) {
+			if (section.accessLevel === 'PUBLIC') {
+				currentTab = section.slug;
+			}
+		}
 	}
 
 	let buttons: { [Key: string]: HTMLButtonElement } = {};
@@ -82,7 +86,12 @@
 	}
 
 	function handleCourseClick(sectionSlug: string, course: courseType) {
-		if (course.modules && course.modules[0]?.lessons && course.modules[0].lessons.length > 0) {
+		if (
+			course.modules &&
+			course.modules[0]?.lessons &&
+			course.modules[0].lessons.length > 0 &&
+			course.accessLevel === 'PUBLIC'
+		) {
 			goto(
 				`/learning/${sectionSlug}/${course.slug}/${course.modules[0].slug}/${
 					course.modules[0].lessons[0].slug
@@ -123,26 +132,30 @@
 					}}
 				>
 					{#each data.sections as section}
-						<option value={section.slug}
-							>{section.name}: {section.courses ? section.courses.length : 0} courses</option
-						>
+						{#if section.accessLevel === 'PUBLIC'}
+							<option value={section.slug}
+								>{section.name}: {section.courses ? section.courses.length : 0} courses</option
+							>
+						{/if}
 					{/each}
 				</select>
 			</div>
 			<div class="hidden sm:block">
 				<section role="tablist" class="flex">
 					{#each data.sections as section}
-						<button
-							aria-selected={section.slug === currentTab}
-							aria-controls={`panel-${section.slug}`}
-							tabindex={section.slug === currentTab ? 0 : -1}
-							class="shrink-0 border-b border-b-gray-200 p-3 text-sm font-medium text-gray-500 hover:text-gray-700 aria-selected:rounded-t-lg aria-selected:border aria-selected:border-gray-300 aria-selected:border-b-transparent"
-							bind:this={buttons[section.slug]}
-							onclick={() => changeTab(section.slug)}
-							onkeydown={(e) => handleKeydown('tab', e, section.slug)}
-							role="tab"
-							>{section.name}: {section.courses ? section.courses.length : 0} courses</button
-						>
+						{#if section.accessLevel === 'PUBLIC'}
+							<button
+								aria-selected={section.slug === currentTab}
+								aria-controls={`panel-${section.slug}`}
+								tabindex={section.slug === currentTab ? 0 : -1}
+								class="shrink-0 border-b border-b-gray-200 p-3 text-sm font-medium text-gray-500 hover:text-gray-700 aria-selected:rounded-t-lg aria-selected:border aria-selected:border-gray-300 aria-selected:border-b-transparent"
+								bind:this={buttons[section.slug]}
+								onclick={() => changeTab(section.slug)}
+								onkeydown={(e) => handleKeydown('tab', e, section.slug)}
+								role="tab"
+								>{section.name}: {section.courses ? section.courses.length : 0} courses</button
+							>
+						{/if}
 					{/each}
 				</section>
 			</div>
@@ -171,7 +184,7 @@
 							/>
 							<div>
 								<h3 class="text-lg font-bold">
-									{course.name}{#if !course.modules || !course.modules.length || !course.modules[0].lessons || !(course.modules[0].lessons.length > 0)}
+									{course.name}{#if !course.modules || !course.modules.length || !course.modules[0].lessons || !(course.modules[0].lessons.length > 0) || course.accessLevel === 'PRIVATE'}
 										{' (Coming Soon)'}{/if}
 								</h3>
 								<p class="mt-1 text-sm">{course.description}</p>
