@@ -141,7 +141,7 @@
 		<button onclick={() => goto(nextLesson?.slug as string)}>Next: {nextLesson.title}</button>
 	{/if}
 	<div>
-		<span>Section Progress:</span>
+		<span>Module Progress:</span>
 		<div class="screenReaderOnly" aria-roledescription="progress bar" aria-live="polite">
 			{((currentPosition / maxPosition) * 100).toFixed()}% complete
 		</div>

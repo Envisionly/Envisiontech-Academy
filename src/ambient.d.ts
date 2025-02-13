@@ -1,7 +1,10 @@
+export type accessLevelType = 'PUBLIC' | 'PRIVATE';
+
 export type sectionType = {
 	id?: string;
 	name: string;
 	slug: string;
+	accessLevel: accessLevelType;
 	courses?: courseType[];
 	createdAt?: Date;
 	updatedAt?: Date;
@@ -11,6 +14,7 @@ export type courseType = {
 	id?: string;
 	name: string;
 	slug: string;
+	accessLevel: accessLevelType;
 	featured?: boolean;
 	image: string;
 	description?: string;
@@ -25,6 +29,7 @@ export type moduleType = {
 	id?: string;
 	name: string;
 	slug: string;
+	accessLevel: accessLevelType;
 	courseId: string;
 	course?: courseType;
 	lessons?: lessonType[];
@@ -36,6 +41,7 @@ export type lessonType = {
 	id?: string;
 	title: string;
 	slug: string;
+	accessLevel: accessLevelType;
 	moduleId: string;
 	module?: moduleType;
 	content?: any[];

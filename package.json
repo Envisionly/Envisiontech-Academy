@@ -29,6 +29,7 @@
     "postcss": "^8.5.2",
     "pret": "^0.0.2",
     "prettier": "^3.5.0",
+    "prettier-plugin-prisma": "^5.0.0",
     "prettier-plugin-svelte": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "svelte": "^5.19.10",
@@ -53,8 +54,10 @@
     "@awesome.me/kit-42303f35a0": "^1.0.7",
     "@lucia-auth/adapter-prisma": "^4.0.1",
     "@prisma/client": "^6.3.1",
+    "@prisma/extension-accelerate": "^1.2.1",
     "@vercel/analytics": "^1.5.0",
     "arctic": "^2.3.4",
+    "dotenv": "^16.4.7",
     "prisma": "^6.3.1"
   }
 }

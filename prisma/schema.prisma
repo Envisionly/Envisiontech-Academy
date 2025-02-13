@@ -33,58 +33,67 @@ model Session {
 }
 
 // Lesson
+enum AccessLevel {
+  PUBLIC
+  PRIVATE
+}
+
 model Section {
-  id        String   @id @default(uuid())
-  name      String
-  slug      String
-  courses   Course[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          String      @id @default(uuid())
+  name        String
+  slug        String      @unique
+  accessLevel AccessLevel @default(PRIVATE)
+  courses     Course[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
 
   @@index([name])
   @@index([slug])
 }
 
 model Course {
-  id          String   @id @default(uuid())
+  id          String      @id @default(uuid())
   name        String
   slug        String
+  accessLevel AccessLevel @default(PRIVATE)
   image       String
   description String
   featured    Boolean
-  section     Section  @relation(fields: [sectionId], references: [id])
+  section     Section     @relation(fields: [sectionId], references: [id])
   sectionId   String
   modules     Module[]
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
 
   @@index([name])
   @@index([slug])
 }
 
 model Module {
-  id        String   @id @default(uuid())
-  name      String
-  slug      String
-  course    Course   @relation(fields: [courseId], references: [id])
-  courseId  String
-  lessons   Lesson[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          String      @id @default(uuid())
+  name        String
+  slug        String
+  accessLevel AccessLevel @default(PRIVATE)
+  course      Course      @relation(fields: [courseId], references: [id])
+  courseId    String
+  lessons     Lesson[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
 
   @@index([name])
   @@index([slug])
 }
 
 model Lesson {
-  id        String   @id @default(uuid())
-  title     String
-  slug      String
-  content   Json[]
-  module    Module   @relation(fields: [moduleId], references: [id])
-  moduleId  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          String      @id @default(uuid())
+  title       String
+  slug        String
+  accessLevel AccessLevel @default(PRIVATE)
+  content     Json[]
+  module      Module      @relation(fields: [moduleId], references: [id])
+  moduleId    String
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
 
   @@index([title])
   @@index([slug])
