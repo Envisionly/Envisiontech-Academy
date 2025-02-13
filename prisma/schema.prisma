@@ -1,0 +1,91 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// User
+model User {
+  id        String    @id
+  email     String    @unique
+  username  String
+  github_id Int?      @unique
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  sessions  Session[]
+}
+
+model Session {
+  id        String   @id
+  userId    String
+  expiresAt DateTime
+
+  user User @relation(references: [id], fields: [userId], onDelete: Cascade)
+}
+
+// Lesson
+model Section {
+  id        String   @id @default(uuid())
+  name      String
+  slug      String
+  courses   Course[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([name])
+  @@index([slug])
+}
+
+model Course {
+  id          String   @id @default(uuid())
+  name        String
+  slug        String
+image String
+  description String
+  featured    Boolean
+  section     Section  @relation(fields: [sectionId], references: [id])
+  sectionId   String
+  modules     Module[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([name])
+  @@index([slug])
+}
+
+model Module {
+  id        String   @id @default(uuid())
+  name      String
+  slug      String
+  course    Course   @relation(fields: [courseId], references: [id])
+  courseId  String
+  lessons   Lesson[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([name])
+  @@index([slug])
+}
+
+model Lesson {
+  id        String   @id @default(uuid())
+  title     String
+  slug      String
+  content   Json[]
+  module    Module   @relation(fields: [moduleId], references: [id])
+  moduleId  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([title])
+  @@index([slug])
+}
