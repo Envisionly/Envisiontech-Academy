@@ -1,2 +1,2 @@
 [install.scopes]
-"@awesome.me"={ token="$FA-TOKEN", url="https://npm.fontawesome.com/"}
+"@awesome.me"={ token="$FA_TOKEN", url="https://npm.fontawesome.com/"}

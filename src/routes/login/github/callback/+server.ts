@@ -1,7 +1,7 @@
 import { OAuth2RequestError } from 'arctic';
 import { generateIdFromEntropySize } from 'lucia';
 import { github, lucia } from '$lib/server/auth';
-import { createUserFromGitHub, getExistingUserByGitHubId } from '$lib/server/prisma';
+import { createUserFromGitHub, getExistingUserByGitHubId } from '$lib/server/connections';
 import type { RequestEvent } from '@sveltejs/kit';
 
 export async function GET(event: RequestEvent): Promise<Response> {
