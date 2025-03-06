@@ -35,7 +35,7 @@
 		<div class="sm:hidden">
 			<MobileNavbar />
 		</div>
-		<div class="hidden sm:flex items-center space-x-4">
+		<div class="hidden sm:flex items-center">
 			{#if data.isLoggedIn}
 				<button class="flex items-center justify-between gap-2 text-sm uppercase text-envisionlyLightBlue hover:border-envisionlyGold hover:text-envisionlyGold focus:border-envisionlyGold focus:text-envisionlyGold active:border-envisionlyTransparentGold active:text-envisionlyTransparentGold"
 				aria-label="Sign in or create an Envisiontech account!" onclick={() => goto('/login')}>Sign In</button>
