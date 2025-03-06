@@ -35,11 +35,13 @@
 		<div class="sm:hidden">
 			<MobileNavbar />
 		</div>
-		<div class="hidden sm:flex">
+		<div class="hidden sm:flex items-center space-x-4">
 			{#if data.isLoggedIn}
-				<button onclick={() => goto('/login')}>Sign In</button>
+				<button class="flex items-center justify-between gap-2 text-sm uppercase text-envisionlyLightBlue hover:border-envisionlyGold hover:text-envisionlyGold focus:border-envisionlyGold focus:text-envisionlyGold active:border-envisionlyTransparentGold active:text-envisionlyTransparentGold"
+				aria-label="Sign in or create an Envisiontech account!" onclick={() => goto('/login')}>Sign In</button>
 			{:else}
-				<button onclick={() => goto('/user')}>User</button>
+				<button class="flex items-center justify-between gap-2 text-sm uppercase text-envisionlyLightBlue hover:border-envisionlyGold hover:text-envisionlyGold focus:border-envisionlyGold focus:text-envisionlyGold active:border-envisionlyTransparentGold active:text-envisionlyTransparentGold"
+				aria-label="View your envisiontech account" onclick={() => goto('/user')}>User</button>
 			{/if}
 		</div>
 
