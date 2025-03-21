@@ -1,6 +1,7 @@
 .vercel
 .DS_Store
 node_modules
+pa11y-ci-report
 /build
 /.svelte-kit
 /package
@@ -14,8 +15,4 @@ vite.config.ts.timestamp-*
 .flaskenv*
 !.env.project
 !.env.vault
-package-lock.json
-package.json
-.pa11y-ci.json
-*.json
-.github/workflows/pa11y.yaml
+/pa11y-ci-report

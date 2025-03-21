@@ -1,0 +1,8 @@
+{
+	"defaults": {
+		"concurrency": 2,
+		"reporters": ["pa11y-ci-reporter-html"],
+		"standard": "WCAG2AA",
+		"runners": ["axe"]
+	}
+}

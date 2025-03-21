@@ -1,0 +1,15 @@
+{
+	"defaults": {
+		"concurrency": 2,
+		"reporters": [
+			"pa11y-ci-reporter-html",
+			["json", { "fileName": "./pa11y-output.json" }]
+		],
+		"standard": "WCAG2AA",
+		"runners": ["axe"],
+		"chromeLaunchConfig": {
+			"ignoreHTTPSErrors": true,
+			"args": ["--disable-dev-shm-usage", "--no-sandbox"]
+		}
+	}
+}
