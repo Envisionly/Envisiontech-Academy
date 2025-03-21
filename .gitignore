@@ -17,3 +17,4 @@ vite.config.ts.timestamp-*
 package-lock.json
 package.json
 .pa11y-ci.json
+*.json
