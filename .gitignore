@@ -14,3 +14,5 @@ vite.config.ts.timestamp-*
 .flaskenv*
 !.env.project
 !.env.vault
+package-lock.json
+package.json
