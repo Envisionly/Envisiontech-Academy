@@ -17,7 +17,8 @@
     How we will use your data
 </h3>
 
-<ul>The personal data we collect, hold and retain from you is used to:
+<span>The personal data we collect, hold and retain from you is used to:</span>
+<ul>
     <li>- Register for our classes, and online courses</li>
     <li>- Process your payments</li>
     <li>- Send you information about our services</li>
