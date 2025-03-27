@@ -17,7 +17,8 @@
   Millstream, Station Road, Portmarnock, Ireland.
 </p>
 <br>
-<ul><span class="font-semibold uppercase text-envisionlyBlue"> Contents:</span>
+<span class="font-semibold uppercase text-envisionlyBlue">Contents:</span>
+<ul>
     <li ><a href="#general" class="hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold">General</a></li>
     <li><a href="#cookies" class="hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold">Cookies</a></li>
     <li><a href="#useraccounts" class="hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold">User Accounts</a></li>
