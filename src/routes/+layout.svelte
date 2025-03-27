@@ -53,7 +53,7 @@
 			<DesktopNavbar />
 		</div>
 	</section>
-	<div aria-hidden="true" class="hidden sm:flex">
+	<div class="hidden sm:flex">
 		{@render footer('desktop')}
 	</div>
 </header>
