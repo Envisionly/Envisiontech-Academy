@@ -33,6 +33,6 @@ export const sections: Array<sectionType> = [
     {
         name: 'Sign In',
 		type: 'link',
-		href: '/signin',
+		href: '/login',
     },
 ];
