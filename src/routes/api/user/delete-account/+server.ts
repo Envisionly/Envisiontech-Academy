@@ -1,5 +1,5 @@
 import { lucia } from '$lib/server/auth';
-import { deleteUserById } from '$lib/server/connections.js';
+import { deleteUserById } from '$lib/server/user.js';
 
 export async function DELETE(event) {
 	if (!event.locals.session) {
