@@ -52,6 +52,7 @@
     "@sveltejs/kit",
     "esbuild",
     "prisma",
+    "puppeteer",
     "svelte-preprocess"
   ],
   "dependencies": {
