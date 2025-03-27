@@ -12,7 +12,7 @@
     "format": "prettier --write .",
     "postinstall": "prisma generate --no-engine",
     "pa11y": "npx pa11y-ci  --config ./.pa11y-local.json --sitemap http://localhost:5173/sitemap.xml --sitemap-find https://academy.envisionly.tech --sitemap-replace http://localhost:5173",
-		"pa11y-ci": "npx pa11y-ci --config ./.pa11y-ci.json --sitemap http://localhost:4173/sitemap.xml --sitemap-find https://academy.envisionly.tech --sitemap-replace http://localhost:4173"
+    "pa11y-ci": "npx pa11y-ci --config ./.pa11y-ci.json --sitemap http://localhost:4173/sitemap.xml --sitemap-find https://academy.envisionly.tech --sitemap-replace http://localhost:4173"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^3.3.1",
@@ -57,7 +57,7 @@
   "dependencies": {
     "@awesome.me/kit-42303f35a0": "^1.0.7",
     "@lucia-auth/adapter-prisma": "^4.0.1",
-    "@prisma/client": "^6.3.1",
+    "@prisma/client": "^6.5.0",
     "@prisma/extension-accelerate": "^1.2.1",
     "@vercel/analytics": "^1.5.0",
     "arctic": "^2.3.4",
