@@ -35,4 +35,19 @@ export const sections: Array<sectionType> = [
 		type: 'link',
 		href: '/login',
     },
+	{
+        name: 'Privacy Policy',
+		type: 'link',
+		href: '/privacy',
+    },
+	{
+        name: 'terms of service',
+		type: 'link',
+		href: '/terms',
+    },
+	{
+        name: 'User Profile',
+		type: 'link',
+		href: '/user',
+    },
 ];
