@@ -4,7 +4,7 @@
 </script>
 
 <section
-	aria-roledescription="Notification Region"
+	aria-label="Notification Region"
 	class="fixed left-0 right-0 top-0 z-50 flex w-full flex-col items-center p-5"
 	style={$toasts.length === 0
 		? 'pointer-events: none;'

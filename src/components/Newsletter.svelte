@@ -51,7 +51,7 @@
 				autofocus
 				name="email"
 				type="email"
-				id="Email"
+				id="Email-input"
 				required
 				class=" rounded-md border-gray-200 text-sm focus:border-0 focus:ring-2 focus:ring-envisionlyGold"
 			/>
@@ -62,7 +62,7 @@
 				<input
 					type="checkbox"
 					class="checked:bg-envisionlyLightBlue checked:hover:bg-envisionlyGold checked:hover:outline-envisionlyGold focus:outline-envisionlyLightBlue checked:focus:bg-envisionlyGold"
-					id="accept"
+					id="accept-policy"
 					name="accept"
 					required
 				/>
