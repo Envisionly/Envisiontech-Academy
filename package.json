@@ -10,7 +10,9 @@
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --check . && eslint .",
     "format": "prettier --write .",
-    "postinstall": "prisma generate --no-engine"
+    "postinstall": "prisma generate --no-engine",
+    "pa11y": "npx pa11y-ci  --config ./.pa11y-local.json --sitemap http://localhost:5173/sitemap.xml --sitemap-find https://academy.envisionly.tech --sitemap-replace http://localhost:5173",
+		"pa11y-ci": "npx pa11y-ci --config ./.pa11y-ci.json --sitemap http://localhost:4173/sitemap.xml --sitemap-find https://academy.envisionly.tech --sitemap-replace http://localhost:4173"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^3.3.1",
@@ -27,6 +29,8 @@
     "eslint-plugin-svelte": "^2.46.1",
     "lucia": "^3.2.2",
     "pa11y": "^8.0.0",
+    "pa11y-ci": "^3.1.0",
+    "pa11y-ci-reporter-html": "^7.0.0",
     "postcss": "^8.5.2",
     "pret": "^0.0.2",
     "prettier": "^3.5.0",
