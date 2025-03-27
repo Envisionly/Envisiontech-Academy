@@ -95,34 +95,34 @@
 				class="mx-auto flex w-[60%] flex-wrap justify-between gap-1 text-sm text-gray-700 sm:w-full"
 			>
 				<li>
-					<a
+					<a aria-label="Email"
 						class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
 						href="mailto:academy@envisionly.tech"
-						><span aria-label="Email" class="fa-light fa-envelope"></span></a
+						><span class="fa-light fa-envelope"></span></a
 					>
 				</li>
 				<li>
-					<a
+					<a aria-label="Phone"
 						class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
-						href="tel:+353838061757"><span aria-label="Phone" class="fa-light fa-phone"></span></a
+						href="tel:+353838061757"><span class="fa-light fa-phone"></span></a
 					>
 				</li>
 				<li>
-					<a
+					<a aria-label="YouTube"
 						class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
-						href="/"><span aria-label="YouTube" class="fa-brands fa-youtube"></span></a
+						href="/"><span class="fa-brands fa-youtube"></span></a
 					>
 				</li>
 				<li>
-					<a
+					<a aria-label="GitHub"
 						class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
-						href="/"><span aria-label="GitHub" class="fa-brands fa-github"></span></a
+						href="/"><span class="fa-brands fa-github"></span></a
 					>
 				</li>
 				<li>
-					<a
+					<a aria-label="LinkedIn"
 						class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
-						href="/"><span aria-label="LinkedIn" class="fa-brands fa-linkedin"></span></a
+						href="/"><span class="fa-brands fa-linkedin"></span></a
 					>
 				</li>
 			</ul>
