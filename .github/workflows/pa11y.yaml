@@ -1,0 +1,95 @@
+name: Run Pa11y Accessibility Tests
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  statuses: write
+  checks: write
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Bun.js
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 'latest'
+
+      - name: Get the ENV variables
+        env:
+          DOTENV_KEY: ${{ secrets.DOTENV_KEY }}
+        run: bunx dotenv-vault decrypt ${{ secrets.DOTENV_KEY }} > .env
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Build the project
+        env:
+          DOTENV_KEY: ${{ secrets.DOTENV_KEY }}
+        run: bun run build
+
+      - name: Start server
+        run: bun run preview &
+        env:
+          DOTENV_KEY: ${{ secrets.DOTENV_KEY }}
+
+      - name: Wait for server to be ready
+        run: |
+          echo "Waiting for server to be ready..."
+          until curl -s http://localhost:4173 > /dev/null; do
+            sleep 1
+          done
+
+      - name: Run Pa11y tests
+        id: pa11y
+        run: |
+          bun run pa11y-ci || true
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: accessibility-tests
+          path: |
+            pa11y-ci-report/
+            pa11y-output.json
+
+      - name: Create status check for accessibility issues
+        if: always()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            try {
+              const output = JSON.parse(fs.readFileSync('pa11y-output.json', 'utf8'));
+              const hasIssues = output.total > output.passes;
+              const status = hasIssues ? 'failure' : 'success';
+              const description = hasIssues ? `${output.errors} accessibility issues found on ${output.total} pages.` : 'No accessibility issues';
+              const artifactUrl = `https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}#artifacts`;
+              await github.rest.repos.createCommitStatus({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                sha: context.sha,
+                state: status,
+                context: 'Pa11y Accessibility Tests',
+                description: description,
+                target_url: artifactUrl
+              });
+              }catch (error) {
+              console.error('Error reading or parsing pa11y-output.json:', error);
+              await github.rest.repos.createCommitStatus({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                sha: context.sha,
+                state: 'failure',                
+                context: 'Pa11y Accessibility Tests',
+                description: 'Failed to read or parse pa11y-output.json',
+                target_url: `https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}#artifacts`
+            });
+            }
