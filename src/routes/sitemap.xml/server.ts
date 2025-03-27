@@ -1,6 +1,5 @@
-import { type SiteMapItem } from '$utils/sitemap';
+import { type SiteMapItem } from '../../utils/sitemap';
 import { sections, type sectionType } from '../../utils/navigationManager';
-import { services, type Service } from '$utils/services/services';
 
 const BASE_URL = 'https://academy.envisionly.tech';
 
@@ -53,9 +52,6 @@ export async function GET() {
       xmlns:video="https://www.google.com/schemas/sitemap-video/1.1"
     >
     ${sections.map((section: sectionType) => generateNavigationRoutes(section)).join('')}
-    ${Object.values(services)
-			.map((service: Service & SiteMapItem) => generateRoutes(service))
-			.join('')}
 
     </urlset>`;
 
