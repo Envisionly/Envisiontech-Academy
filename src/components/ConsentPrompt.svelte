@@ -55,7 +55,8 @@
 				<a href="/privacy" class="text-envisionlyBlue" target="_blank">Privacy Policy</a>.
 			</p>
 			<button
-				class="block w-fit rounded-xl bg-envisionlyLightBlue px-6 py-3 text-white hover:bg-envisionlyGold focus:bg-envisionlyGold active:bg-envisionlyTransparentGold"
+				class="block w-fit rounded-xl bg-envisionlyLightBlue px-6 py-3 text-white hover:bg-envisionlyGold 
+				focus:bg-envisionlyGold active:bg-envisionlyTransparentGold contrast-more:bg-blue-900"
 				onclick={grantConsent}
 				aria-label="Accept and close dialog"
 			>

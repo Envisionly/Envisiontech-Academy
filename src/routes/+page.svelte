@@ -76,7 +76,7 @@
 				<h3 class="text-lg font-semibold uppercase text-gray-700">
 					Structured Learning Paths for All Levels
 				</h3>
-				<p class="pl-2 text-gray-500">
+				<p class="pl-2 text-gray-500 contrast-more:text-gray-950">
 					No matter where you start—whether as a beginner or with some experience—you’ll find
 					structured paths that guide you from basic concepts to advanced techniques, providing a
 					clear roadmap for your learning journey.
@@ -86,7 +86,7 @@
 				<h3 class="text-lg font-semibold uppercase text-gray-700">
 					Lifetime Access to Course Materials
 				</h3>
-				<p class="pl-2 text-gray-500">
+				<p class="pl-2 text-gray-500 contrast-more:text-gray-950">
 					Once enrolled, you’ll have lifetime access to your courses, allowing you to revisit
 					lessons and stay up-to-date with any content updates as technology evolves.
 				</p>
