@@ -77,7 +77,10 @@
 		</div>
 
 		<button
-			class="mx-auto w-fit rounded-xl bg-envisionlyLightBlue px-4 py-2 text-white hover:bg-envisionlyGold focus:bg-envisionlyGold active:bg-envisionlyTransparentGold"
+			class="mx-auto w-fit rounded-xl bg-envisionlyLightBlue 
+			px-4 py-2 text-white hover:bg-envisionlyGold focus:bg-envisionlyGold 
+			active:bg-envisionlyTransparentGold
+			contrast-more:bg-blue-900"
 			>Sign Up</button
 		>
 	</form>
