@@ -13,9 +13,9 @@
     information in accordance with our Privacy Policy.
 </p>
 <br>
-<h3 id="cookies" class="mb-2 border-b border-envisionlyGold pb-2 font-semibold uppercase text-envisionlyBlue text-xl">
+<h2 id="cookies" class="mb-2 border-b border-envisionlyGold pb-2 font-semibold uppercase text-envisionlyBlue text-xl">
     How we will use your data
-</h3>
+</h2>
 
 <span>The personal data we collect, hold and retain from you is used to:</span>
 <ul>
