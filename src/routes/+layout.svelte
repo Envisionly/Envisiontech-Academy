@@ -75,12 +75,12 @@
 			<p class="text-center text-sm text-gray-700">Would you like to suggest an improvement?</p>
 			<p class="text-center text-sm text-gray-700">
 				Please <a
-					class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
+					class="underline text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
 					href="mailto:contact@envisionly.tech">email us</a
 				>
 				or go to our
 				<a
-					class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
+					class="underline text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
 					href={'https://github.com/Envisionly/Envisionly-Tech-Academy/tree/main/src/routes' +
 						$page.url.pathname +
 						'/+page.svelte'}>GitHub</a
