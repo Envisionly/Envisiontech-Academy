@@ -13,11 +13,12 @@
     information in accordance with our Privacy Policy.
 </p>
 <br>
-<h3 id="cookies" class="mb-2 border-b border-envisionlyGold pb-2 font-semibold uppercase text-envisionlyBlue text-xl">
+<h2 id="cookies" class="mb-2 border-b border-envisionlyGold pb-2 font-semibold uppercase text-envisionlyBlue text-xl">
     How we will use your data
-</h3>
+</h2>
 
-<ul>The personal data we collect, hold and retain from you is used to:
+<span>The personal data we collect, hold and retain from you is used to:</span>
+<ul>
     <li>- Register for our classes, and online courses</li>
     <li>- Process your payments</li>
     <li>- Send you information about our services</li>

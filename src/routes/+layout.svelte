@@ -53,7 +53,7 @@
 			<DesktopNavbar />
 		</div>
 	</section>
-	<div aria-hidden="true" class="hidden sm:flex">
+	<div class="hidden sm:flex">
 		{@render footer('desktop')}
 	</div>
 </header>
@@ -70,17 +70,19 @@
 		aria-hidden={type == 'desktop' ? 'true' : 'false'}
 	>
 		<div class="flex flex-col">
-			<h4 class="text-center font-medium uppercase">Get Involved</h4>
+			<h1 class="text-center font-medium uppercase">Get Involved</h1>
 			<p class="text-center text-sm text-gray-700">Do you have a question about this page?</p>
 			<p class="text-center text-sm text-gray-700">Would you like to suggest an improvement?</p>
 			<p class="text-center text-sm text-gray-700">
 				Please <a
-					class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
+					class="underline text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold 
+					active:text-envisionlyTransparentGold contrast-more:text-blue-800"
 					href="mailto:contact@envisionly.tech">email us</a
 				>
 				or go to our
 				<a
-					class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
+					class="underline text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold 
+					active:text-envisionlyTransparentGold contrast-more:text-blue-800"
 					href={'https://github.com/Envisionly/Envisionly-Tech-Academy/tree/main/src/routes' +
 						$page.url.pathname +
 						'/+page.svelte'}>GitHub</a
@@ -89,51 +91,51 @@
 			<Newsletter />
 		</div>
 		<div>
-			<h4 class="text-center font-medium uppercase">Find Us</h4>
+			<h2 class="text-center font-medium uppercase">Find Us</h2>
 
 			<ul
 				class="mx-auto flex w-[60%] flex-wrap justify-between gap-1 text-sm text-gray-700 sm:w-full"
 			>
 				<li>
-					<a
+					<a aria-label="Email"
 						class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
 						href="mailto:academy@envisionly.tech"
-						><span aria-label="Email" class="fa-light fa-envelope"></span></a
+						><span class="fa-light fa-envelope"></span></a
 					>
 				</li>
 				<li>
-					<a
+					<a aria-label="Phone"
 						class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
-						href="tel:+353838061757"><span aria-label="Phone" class="fa-light fa-phone"></span></a
+						href="tel:+353838061757"><span class="fa-light fa-phone"></span></a
 					>
 				</li>
 				<li>
-					<a
+					<a aria-label="YouTube"
 						class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
-						href="/"><span aria-label="YouTube" class="fa-brands fa-youtube"></span></a
+						href="/"><span class="fa-brands fa-youtube"></span></a
 					>
 				</li>
 				<li>
-					<a
+					<a aria-label="GitHub"
 						class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
-						href="/"><span aria-label="GitHub" class="fa-brands fa-github"></span></a
+						href="/"><span class="fa-brands fa-github"></span></a
 					>
 				</li>
 				<li>
-					<a
+					<a aria-label="LinkedIn"
 						class="text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
-						href="/"><span aria-label="LinkedIn" class="fa-brands fa-linkedin"></span></a
+						href="/"><span class="fa-brands fa-linkedin"></span></a
 					>
 				</li>
 			</ul>
 		</div>
 		<div>
-			<p class="text-center text-xs text-gray-500">
+			<p class="text-center text-xs text-gray-500 contrast-more:text-gray-950">
 				Copyright © Envisionly limited {new Date().getFullYear() != 2024
 					? '2024 - ' + new Date().getFullYear()
 					: new Date().getFullYear()}.
 			</p>
-			<p class="mt-2 text-center text-xs text-gray-500">All rights reserved.</p>
+			<p class="mt-2 text-center text-xs text-gray-500 contrast-more:text-gray-950">All rights reserved.</p>
 			{#if $page.url.pathname.startsWith('/learning')}
 				<a class="sr-only" href="#course">Skip to course content</a>
 			{/if}

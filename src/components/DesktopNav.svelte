@@ -9,7 +9,10 @@
 			<li>
 				{#if item.type == 'link' && item.href}
 					<a
-						class="flex items-center justify-between gap-2 border-b border-envisionlyLightBlue pb-1 text-lg uppercase text-envisionlyLightBlue hover:border-envisionlyGold hover:text-envisionlyGold focus:border-envisionlyGold focus:text-envisionlyGold active:border-envisionlyTransparentGold active:text-envisionlyTransparentGold aria-current:border-b-2 aria-current:font-bold"
+					class="flex items-center justify-between gap-2 border-b border-envisionlyLightBlue pb-1 text-lg 
+					uppercase text-envisionlyLightBlue hover:border-envisionlyGold hover:text-envisionlyGold focus:border-envisionlyGold focus:text-envisionlyGold
+					active:border-envisionlyTransparentGold active:text-envisionlyTransparentGold aria-current:border-b-2 aria-current:font-bold 
+					contrast-more:border-envisionlyDarkBlue contrast-more:text-envisionlyDarkBlue"						
 						aria-current={$page.url.pathname === '/' && item.href === '/'
 							? 'page'
 							: $page.url.pathname !== '/' &&

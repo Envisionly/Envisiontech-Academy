@@ -25,7 +25,8 @@
 
 <button
 	onclick={openDialog}
-	class="text-sm text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
+	class="text-sm text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold 
+	active:text-envisionlyTransparentGold contrast-more:text-blue-900"
 	>Sign up to our Newsletter</button
 >
 
@@ -51,7 +52,7 @@
 				autofocus
 				name="email"
 				type="email"
-				id="Email"
+				id="Email-input"
 				required
 				class=" rounded-md border-gray-200 text-sm focus:border-0 focus:ring-2 focus:ring-envisionlyGold"
 			/>
@@ -62,7 +63,7 @@
 				<input
 					type="checkbox"
 					class="checked:bg-envisionlyLightBlue checked:hover:bg-envisionlyGold checked:hover:outline-envisionlyGold focus:outline-envisionlyLightBlue checked:focus:bg-envisionlyGold"
-					id="accept"
+					id="accept-policy"
 					name="accept"
 					required
 				/>
@@ -77,7 +78,10 @@
 		</div>
 
 		<button
-			class="mx-auto w-fit rounded-xl bg-envisionlyLightBlue px-4 py-2 text-white hover:bg-envisionlyGold focus:bg-envisionlyGold active:bg-envisionlyTransparentGold"
+			class="mx-auto w-fit rounded-xl bg-envisionlyLightBlue 
+			px-4 py-2 text-white hover:bg-envisionlyGold focus:bg-envisionlyGold 
+			active:bg-envisionlyTransparentGold
+			contrast-more:bg-blue-900"
 			>Sign Up</button
 		>
 	</form>
