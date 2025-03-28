@@ -25,7 +25,8 @@
 
 <button
 	onclick={openDialog}
-	class="text-sm text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
+	class="text-sm text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold 
+	active:text-envisionlyTransparentGold contrast-more:text-blue-900"
 	>Sign up to our Newsletter</button
 >
 

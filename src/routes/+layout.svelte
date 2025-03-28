@@ -75,12 +75,14 @@
 			<p class="text-center text-sm text-gray-700">Would you like to suggest an improvement?</p>
 			<p class="text-center text-sm text-gray-700">
 				Please <a
-					class="underline text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
+					class="underline text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold 
+					active:text-envisionlyTransparentGold contrast-more:text-blue-800"
 					href="mailto:contact@envisionly.tech">email us</a
 				>
 				or go to our
 				<a
-					class="underline text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold active:text-envisionlyTransparentGold"
+					class="underline text-envisionlyLightBlue hover:text-envisionlyGold focus:text-envisionlyGold 
+					active:text-envisionlyTransparentGold contrast-more:text-blue-800"
 					href={'https://github.com/Envisionly/Envisionly-Tech-Academy/tree/main/src/routes' +
 						$page.url.pathname +
 						'/+page.svelte'}>GitHub</a
@@ -128,12 +130,12 @@
 			</ul>
 		</div>
 		<div>
-			<p class="text-center text-xs text-gray-500">
+			<p class="text-center text-xs text-gray-500 contrast-more:text-gray-950">
 				Copyright © Envisionly limited {new Date().getFullYear() != 2024
 					? '2024 - ' + new Date().getFullYear()
 					: new Date().getFullYear()}.
 			</p>
-			<p class="mt-2 text-center text-xs text-gray-500">All rights reserved.</p>
+			<p class="mt-2 text-center text-xs text-gray-500 contrast-more:text-gray-950">All rights reserved.</p>
 			{#if $page.url.pathname.startsWith('/learning')}
 				<a class="sr-only" href="#course">Skip to course content</a>
 			{/if}
