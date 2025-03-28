@@ -67,7 +67,7 @@
 {#snippet footer(type: string | 'desktop' | 'mobile')}
 	<footer
 		class={`flex w-full flex-col divide-y divide-gray-300 text-wrap bg-gray-100 *:py-2 ${type == 'mobile' ? 'sm:sr-only' : ''} `}
-		inert={type == 'desktop' ? true : undefined}
+		aria-hidden={type == 'desktop' ? 'true' : 'false'}
 	>
 		<div class="flex flex-col">
 			<h1 class="text-center font-medium uppercase">Get Involved</h1>
