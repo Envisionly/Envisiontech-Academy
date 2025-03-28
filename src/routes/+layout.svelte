@@ -67,10 +67,10 @@
 {#snippet footer(type: string | 'desktop' | 'mobile')}
 	<footer
 		class={`flex w-full flex-col divide-y divide-gray-300 text-wrap bg-gray-100 *:py-2 ${type == 'mobile' ? 'sm:sr-only' : ''} `}
-		aria-hidden={type == 'desktop' ? 'true' : 'false'}
+		inert={type == 'desktop' ? true : undefined}
 	>
 		<div class="flex flex-col">
-			<h4 class="text-center font-medium uppercase">Get Involved</h4>
+			<h1 class="text-center font-medium uppercase">Get Involved</h1>
 			<p class="text-center text-sm text-gray-700">Do you have a question about this page?</p>
 			<p class="text-center text-sm text-gray-700">Would you like to suggest an improvement?</p>
 			<p class="text-center text-sm text-gray-700">
@@ -89,7 +89,7 @@
 			<Newsletter />
 		</div>
 		<div>
-			<h4 class="text-center font-medium uppercase">Find Us</h4>
+			<h2 class="text-center font-medium uppercase">Find Us</h2>
 
 			<ul
 				class="mx-auto flex w-[60%] flex-wrap justify-between gap-1 text-sm text-gray-700 sm:w-full"
